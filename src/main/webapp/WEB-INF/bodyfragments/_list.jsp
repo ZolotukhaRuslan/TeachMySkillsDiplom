@@ -30,9 +30,8 @@
         <tr>
             <td>${product.id}</td>
             <td>${product.productName}</td>
-            <td>
-                <c:forEach items="${product.groups}" var="group">${group.groupName}; </c:forEach>
-            </td>
+            <td>${product.groups.groupName}</td>
+
             </c:forEach>
 
 

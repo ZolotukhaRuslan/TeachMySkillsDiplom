@@ -5,48 +5,26 @@
 
 <tiles-definitions>
 
-    <!-- Base Define -->
-    <definition name="startPage"
-                template="/WEB-INF/view/startPage.jsp">
+
+    <definition name="homePage"
+                template="/WEB-INF/view/homePage.jsp">
         <put-attribute name="title" value="" />
-        <put-attribute name="header" value="/WEB-INF/basefragments/_headerStart.jsp" />
-        <put-attribute name="body" value="/WEB-INF/bodyfragments/_bodyStartPage.jsp" />
+        <put-attribute name="header" value="/WEB-INF/basefragments/_header.jsp" />
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/home/_homePage.jsp" />
     </definition>
 
-    <!-- Base Define -->
-    <definition name="registrationPage"
-                template="/WEB-INF/view/registrationPage.jsp">
-        <put-attribute name="title" value="" />
-        <put-attribute name="body" value="/WEB-INF/bodyfragments/_registration.jsp" />
-    </definition>
+
+
+
     <definition name="basePage"
                 template="/WEB-INF/view/basePage.jsp">
         <put-attribute name="title" value="" />
-        <put-attribute name="header" value="/WEB-INF/basefragments/_headerStart.jsp" />
+        <put-attribute name="header" value="/WEB-INF/basefragments/_header.jsp" />
         <put-attribute name="menu" value="/WEB-INF/basefragments/_menu.jsp"/>
-        <put-attribute name="body" value="/WEB-INF/bodyfragments/_badBody.jsp" />
-    </definition>
-    <definition name="list"
-                template="/WEB-INF/view/basePage.jsp">
-        <put-attribute name="title" value="" />
-        <put-attribute name="header" value="/WEB-INF/basefragments/_headerStart.jsp" />
-        <put-attribute name="menu" value="/WEB-INF/basefragments/_menu.jsp"/>
-        <put-attribute name="body" value="/WEB-INF/bodyfragments/_list.jsp" />
-    </definition>
-
-    <definition name="loginPage" extends="startPage"
-                template="/WEB-INF/view/registrationPage.jsp">
-        <put-attribute name="title" value="" />
-        <put-attribute name="body" value="/WEB-INF/bodyfragments/_registration.jsp" />
     </definition>
 
 
 
-
-    <definition name="loginPage" extends="registrationPage">
-
-        <put-attribute name="body" value="/WEB-INF/bodyfragments/_loginPage.jsp" />
-    </definition>
 
 
 

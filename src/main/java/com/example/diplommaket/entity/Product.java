@@ -7,10 +7,7 @@ import java.util.Set;
 
 @Entity
 @NoArgsConstructor
-@Getter
-@Setter
-@ToString
-@EqualsAndHashCode
+@Data
 public class Product {
     public Product(Long id){
         this.id = id;
@@ -24,6 +21,8 @@ public class Product {
     private long id;
     private String productName;
 @ManyToOne(optional=false, cascade=CascadeType.ALL)
+@ToString.Exclude
+@EqualsAndHashCode.Exclude
     private  Group groups ;
 
 

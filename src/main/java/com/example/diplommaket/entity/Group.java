@@ -7,10 +7,7 @@ import java.util.Set;
 
 @Entity
 @NoArgsConstructor
-@Getter
-@Setter
-@ToString
-@EqualsAndHashCode
+@Data
 @Table(name = "productgroupe")
 public class Group {
     public Group(Long id){
@@ -26,6 +23,8 @@ public class Group {
     private String groupName;
 
 @OneToMany(mappedBy = "groups", fetch=FetchType.EAGER)
+@ToString.Exclude
+@EqualsAndHashCode.Exclude
     private Set<Product> products;
 
 }

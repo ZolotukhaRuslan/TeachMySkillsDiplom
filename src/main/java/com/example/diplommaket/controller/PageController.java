@@ -20,39 +20,6 @@ public class PageController {
     @Autowired
     private UserService userService;
 
-Group group = new Group();
-
-    @RequestMapping("/")
-    public String homePage() {
-        return "startPage";
-    }
-
-    @GetMapping("/registration")
-    public String registration(Model model) {
-        model.addAttribute("userForm", new User());
-
-        return "registrationPage";
-    }
-
-    @PostMapping(value = "/registration")
-    public String addUser(@ModelAttribute("userForm") @Valid User userForm, BindingResult bindingResult, Model model) {
-
-
-        if (bindingResult.hasErrors()) {
-            return "registrationPage";
-        }
-        if (!userForm.getPassword().equals(userForm.getPasswordConfirm())) {
-            model.addAttribute("passwordError", "nonono");
-            return "registrationPage";
-        }
-        if (!userService.saveUser(userForm)) {
-            model.addAttribute("usernameError", "use estn");
-            return "registrationPage";
-        }
-        //System.out.println(userForm);
-        return "redirect:/";
-    }
-
     @RequestMapping("/bad")
     public String bad() {
         return "basePage";
