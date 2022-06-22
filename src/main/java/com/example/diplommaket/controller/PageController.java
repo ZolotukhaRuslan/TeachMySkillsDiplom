@@ -20,6 +20,7 @@ public class PageController {
     @Autowired
     private UserService userService;
 
+
     @RequestMapping("/bad")
     public String bad() {
         return "basePage";

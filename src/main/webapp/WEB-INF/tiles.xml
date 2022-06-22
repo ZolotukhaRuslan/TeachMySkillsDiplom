@@ -5,6 +5,13 @@
 
 <tiles-definitions>
 
+    <definition name="basePage"
+                template="/WEB-INF/view/basePage.jsp">
+        <put-attribute name="title" value="" />
+        <put-attribute name="header" value="/WEB-INF/basefragments/_header.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/basefragments/_menu.jsp"/>
+    </definition>
+
 
     <definition name="homePage"
                 template="/WEB-INF/view/homePage.jsp">
@@ -14,14 +21,26 @@
     </definition>
 
 
-
-
-    <definition name="basePage"
-                template="/WEB-INF/view/basePage.jsp">
+    <definition name="registration"
+                template="/WEB-INF/view/authorizationPage.jsp">
         <put-attribute name="title" value="" />
-        <put-attribute name="header" value="/WEB-INF/basefragments/_header.jsp" />
-        <put-attribute name="menu" value="/WEB-INF/basefragments/_menu.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/authorization/_registration.jsp" />
     </definition>
+
+    <definition name="login"
+               template="/WEB-INF/view/authorizationPage.jsp">
+        <put-attribute name="title" value="" />
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/authorization/_login.jsp" />
+    </definition>
+
+    <definition name="medicine"
+               extends="basePage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/authorization/_medicine.jsp" />
+    </definition>
+
+
+
+
 
 
 
