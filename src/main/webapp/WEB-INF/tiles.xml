@@ -24,7 +24,14 @@
         <put-attribute name="title" value="" />
         <put-attribute name="header" value="/WEB-INF/basefragments/_headerStart.jsp" />
         <put-attribute name="menu" value="/WEB-INF/basefragments/_menu.jsp"/>
-        <put-attribute name="body" value="/WEB-INF/bodyfragments/_medicine.jsp" />
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/_badBody.jsp" />
+    </definition>
+    <definition name="list"
+                template="/WEB-INF/view/basePage.jsp">
+        <put-attribute name="title" value="" />
+        <put-attribute name="header" value="/WEB-INF/basefragments/_headerStart.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/basefragments/_menu.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/_list.jsp" />
     </definition>
 
     <definition name="loginPage" extends="startPage"

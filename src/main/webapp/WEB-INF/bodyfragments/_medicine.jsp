@@ -13,5 +13,15 @@
     <p><input type="submit" value="goo" name="start"></p>
 </form>
 </button>
+<button>
+    <form action="/group">
+        <p><input type="submit" value="group" name="start"></p>
+    </form>
+</button>
+<button>
+    <form action="/product">
+        <p><input type="submit" value="product" name="start"></p>
+    </form>
+</button>
 </body>
 </html>

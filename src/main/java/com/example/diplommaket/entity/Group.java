@@ -13,23 +13,19 @@ import java.util.Set;
 @EqualsAndHashCode
 @Table(name = "productgroupe")
 public class Group {
+    public Group(Long id){
+        this.id = id;
+    }
+    public Group(Long id, String name){
+        this.id = id;
+        this.groupName = name;
+    }
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long groupId;
+    private long id;
     private String groupName;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "groups")
+@OneToMany(mappedBy = "groups", fetch=FetchType.EAGER)
     private Set<Product> products;
 
-    public void setProducts(Set<Product> products) {
-        this.products = products;
-    }
-
-
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "groups")
-    private Set<Item> items;
-
-    public void setItems(Set<Item> items) {
-        this.items = items;
-    }
 }

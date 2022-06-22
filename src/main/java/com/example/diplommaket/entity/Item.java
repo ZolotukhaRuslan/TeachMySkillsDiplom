@@ -16,14 +16,14 @@ public class Item {
     private long itemId;
     private double coast;
 
-    @OneToOne(optional = false, mappedBy = "item")
-    public Product product;
+  //  @OneToOne(optional = false, mappedBy = "item")
+  //  public Product product;
 
-    public Product getProduct() {
-        return product;
+  //  public Product getProduct() {
+    /*    return product;
     }
-    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
-    @JoinColumn(name = "group_id", nullable = false)
+ //   @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+  //  @JoinColumn(name = "group_id", nullable = false)
     private Group groups;
 
     public Group getGroups() {
@@ -32,7 +32,7 @@ public class Item {
 
     public void setGroups(Group groups) {
         this.groups = groups;
-    }
+    }*/
 }
 
 
