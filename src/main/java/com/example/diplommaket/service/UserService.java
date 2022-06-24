@@ -4,7 +4,7 @@ import com.example.diplommaket.entity.Group;
 import com.example.diplommaket.entity.Product;
 import com.example.diplommaket.entity.Role;
 import com.example.diplommaket.entity.User;
-import com.example.diplommaket.repository.GroupRepositoey;
+import com.example.diplommaket.repository.GroupRepository;
 import com.example.diplommaket.repository.ProductRepository;
 import com.example.diplommaket.repository.RoleRepository;
 import com.example.diplommaket.repository.UserRepository;
@@ -16,17 +16,12 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 import java.util.Collections;
 import java.util.List;
-import java.util.Optional;
-import java.util.Set;
 
 @Service
 public class UserService implements UserDetailsService {
@@ -44,7 +39,7 @@ public class UserService implements UserDetailsService {
     private ProductRepository productRepository;
 
     @Autowired
-    private GroupRepositoey groupRepositoey;
+    private GroupRepository groupRepository;
 
 
 
@@ -76,11 +71,15 @@ public class UserService implements UserDetailsService {
 
     @Transactional
     public List<Group> allGroup() {
-        return groupRepositoey.findAll();
+        return groupRepository.findAll();
     }
 
     public List<Product> allProduct() {
         return  productRepository.findAll();
 
+
+    }
+    public List<Group> category(){
+        return groupRepository.findAllById(Collections.singleton(1L));
     }
 }

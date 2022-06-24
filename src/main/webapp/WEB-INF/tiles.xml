@@ -35,7 +35,26 @@
 
     <definition name="medicine"
                extends="basePage">
-        <put-attribute name="body" value="/WEB-INF/bodyfragments/authorization/_medicine.jsp" />
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/group/_medicine.jsp" />
+    </definition>
+
+    <definition name="medicalProducts"
+                extends="basePage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/group/_medicalProducts.jsp" />
+    </definition>
+
+    <definition name="dietarySupplement"
+                extends="basePage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/group/_dietarySupplement.jsp" />
+    </definition>
+    <definition name="cosmetics"
+                extends="basePage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/group/_cosmetics.jsp" />
+    </definition>
+
+    <definition name="list"
+                extends="basePage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/_list.jsp" />
     </definition>
 
 

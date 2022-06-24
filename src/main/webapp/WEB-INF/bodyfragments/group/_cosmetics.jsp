@@ -1,4 +1,5 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 
 <!DOCTYPE html>
@@ -6,8 +7,16 @@
 <head>
 
 </head>
-
 <body>
-This is kosmetic body
+<table>
+
+    <c:forEach items="${allCosmetics}" var="cosmetics">
+        <form action="/addBasket">
+        <c:forEach items="${cosmetics.products}" var="product">${product.productName}
+            <p><input type="submit" value="Add basket" name="addBasket"></p>
+            </form>
+        </c:forEach>
+    </c:forEach>
+</table>
 </body>
 </html>
