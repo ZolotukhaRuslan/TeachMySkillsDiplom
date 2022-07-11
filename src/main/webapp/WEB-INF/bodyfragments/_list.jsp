@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8">
     <title>Log in with your account</title>
-    <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/style.css">
+    <link rel="stylesheet" type="text/css" href="${contextPath}/css/style.css">
 </head>
 
 <body>

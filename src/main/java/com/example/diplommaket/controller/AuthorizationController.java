@@ -1,6 +1,7 @@
 package com.example.diplommaket.controller;
 
 import com.example.diplommaket.entity.User;
+import com.example.diplommaket.service.BasketService;
 import com.example.diplommaket.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,6 +18,13 @@ import javax.validation.Valid;
 public class AuthorizationController {
     @Autowired
     private UserService userService;
+    @Autowired
+    private BasketService basketService;
+
+    @RequestMapping("/administration")
+    public String administration(){
+        return "administration";
+    }
 
 
     @RequestMapping("/login")
@@ -26,6 +34,8 @@ public class AuthorizationController {
 
     @RequestMapping("/")
     public String homePage() {
+
+
         return "homePage";
     }
 

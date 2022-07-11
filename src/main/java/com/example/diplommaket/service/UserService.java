@@ -20,8 +20,7 @@ import org.springframework.stereotype.Service;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 @Service
 public class UserService implements UserDetailsService {
@@ -42,8 +41,6 @@ public class UserService implements UserDetailsService {
     private GroupRepository groupRepository;
 
 
-
-
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userRepository.findByUsername(username);
@@ -51,6 +48,10 @@ public class UserService implements UserDetailsService {
             throw new UsernameNotFoundException("User not found");
         }
         return user;
+    }
+
+    public Optional<User> loadUserById(Long id) {
+        return userRepository.findById(id);
     }
 
     public boolean saveUser(User user) {
@@ -64,22 +65,46 @@ public class UserService implements UserDetailsService {
         return true;
     }
 
+    public boolean deleteUserById(Long id) {
+        userRepository.deleteById(id);
+        return true;
+    }
+
+    public boolean deeleteByUserName(String userName) {
+        userRepository.deleteByUsername(userName);
+        return true;
+    }
+
+    public void editRoleById(Long id) {
+        Optional<User> user = userRepository.findById(id);
+        Set<Role> roless = user.get().getRoles();
+        Set<Role> newRole = new HashSet<>();
+        newRole.add(new Role(1L, "ROLE_USER"));
+        user.get().setRoles(newRole);
+        userRepository.save(user.get());
+    }
 
     public List<User> allUsers() {
         return userRepository.findAll();
     }
 
+
+    //Delete after
     @Transactional
     public List<Group> allGroup() {
         return groupRepository.findAll();
     }
 
     public List<Product> allProduct() {
-        return  productRepository.findAll();
+        return productRepository.findAll();
 
 
     }
-    public List<Group> category(){
+
+    public List<Group> category() {
         return groupRepository.findAllById(Collections.singleton(1L));
     }
+    //up to this line
+
+
 }

@@ -16,6 +16,7 @@
     <tr>
 
         <td width="80%">
+
             <tiles:insertAttribute name="body" />
         </td>
 

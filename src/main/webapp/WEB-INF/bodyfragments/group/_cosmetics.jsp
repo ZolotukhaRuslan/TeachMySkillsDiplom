@@ -5,18 +5,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/style.css"/>
 </head>
 <body>
-<table>
+<div id="maine">
 
     <c:forEach items="${allCosmetics}" var="cosmetics">
-        <form action="/addBasket">
-        <c:forEach items="${cosmetics.products}" var="product">${product.productName}
-            <p><input type="submit" value="Add basket" name="addBasket"></p>
+        <c:forEach items="${cosmetics.products}" var="product">
+            <form>
+            ${product.productName}
+            ${product.id}
+            <p><a href="/dietarySupplement/${product.id}">Add</a></p>
             </form>
         </c:forEach>
     </c:forEach>
-</table>
+</div>
 </body>
 </html>

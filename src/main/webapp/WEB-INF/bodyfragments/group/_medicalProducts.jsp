@@ -8,15 +8,17 @@
 
 </head>
 <body>
-<table>
+<div id="maine">
 
     <c:forEach items="${allMedicalProducts}" var="medicalProduct">
-        <form action="/addBasket">
-        <c:forEach items="${medicalProduct.products}" var="product">${product.productName}
-            <p><input type="submit" value="Add basket" name="addBasket"></p>
+        <c:forEach items="${medicalProduct.products}" var="product">
+            <form>
+                    ${product.productName}
+                <p><a href="/dietarySupplement/${product.id}">Add</a></p>
+            </form>
             </form>
         </c:forEach>
     </c:forEach>
-</table>
+</div>
 </body>
 </html>

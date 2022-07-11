@@ -2,7 +2,7 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <div style="background: #E0E0E0; height: 55px; padding: 5px;">
     <div style="float: left">
-        <h1>This is headerStart page</h1>
+        <h3>This is headerStart page</h3>
     </div>
 
     <sec:authorize access="!isAuthenticated()">

@@ -52,6 +52,16 @@
         <put-attribute name="body" value="/WEB-INF/bodyfragments/group/_cosmetics.jsp" />
     </definition>
 
+    <definition name="administration"
+                extends="basePage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/_administration.jsp" />
+    </definition>
+    <definition name="newGroups"
+                extends="basePage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/_newGroupe.jsp" />
+    </definition>
+
+
     <definition name="list"
                 extends="basePage">
         <put-attribute name="body" value="/WEB-INF/bodyfragments/_list.jsp" />

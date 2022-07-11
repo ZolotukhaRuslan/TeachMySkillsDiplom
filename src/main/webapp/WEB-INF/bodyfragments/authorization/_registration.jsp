@@ -1,4 +1,4 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 
@@ -7,12 +7,15 @@
 <head>
     <meta charset="utf-8">
     <title>Registration</title>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/style.css"/>
 </head>
 <body>
 <div>
+    <h1>Sign In Form</h1>
+    </div>
+    <div id="wrapper">
     <%--@elvariable id="userForm" type=""--%>
-    <form:form method="POST" modelAttribute="userForm">
-        <h2>Регистрация</h2>
+    <form:form id="signin" method="POST" modelAttribute="userForm"  autocomplete="off" >
         <div>
             <form:input type="text" path="username" placeholder="Username"
                         autofocus="true"></form:input>
@@ -29,7 +32,7 @@
                 ${passwordError}
         </div>
         <div>
-            <form:input type="int" path="age" placeholder="age"></form:input>
+            <form:input type="text" path="age" placeholder="age"></form:input>
         </div>
         <div>
             <form:input type="text" path="mail" placeholder="mail"></form:input>
@@ -37,9 +40,11 @@
         <div>
             <form:input type="text" path="sex" placeholder="sex"></form:input>
         </div>
-        <button type="submit">Зарегистрироваться</button>
+        <button type="submit">&#xf0da;</button>
+
     </form:form>
     <a href="/">Главная</a>
+</div>
 </div>
 </body>
 </html>

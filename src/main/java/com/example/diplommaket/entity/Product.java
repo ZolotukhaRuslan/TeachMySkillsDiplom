@@ -3,7 +3,6 @@ package com.example.diplommaket.entity;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity
 @NoArgsConstructor
@@ -20,11 +19,18 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String productName;
+
 @ManyToOne(optional=false, cascade=CascadeType.ALL)
 @ToString.Exclude
 @EqualsAndHashCode.Exclude
     private  Group groups ;
 
+
+
+    @OneToOne(mappedBy = "product")
+@ToString.Exclude
+@EqualsAndHashCode.Exclude
+    private Item items;
 
 
 }

@@ -2,10 +2,13 @@ package com.example.diplommaket.entity;
 
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -27,10 +30,17 @@ public class User implements UserDetails {
     @Transient
     private String passwordConfirm;
     @ManyToMany
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     private Set<Role> roles;
+    @OneToOne
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    private Basket basket;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
+
         return null;
     }
 
