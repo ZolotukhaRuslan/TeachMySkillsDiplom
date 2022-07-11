@@ -21,7 +21,6 @@
         <p><input type="submit" value="Cosmetics" name="cosmetics"></p>
     </form>
 </div>
-
 <div style="padding: 5px;">
     <form action="/admins">
         <p><input type="submit" value="ADMIN" name="admin"></p>

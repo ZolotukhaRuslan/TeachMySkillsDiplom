@@ -1,9 +1,6 @@
 package com.example.diplommaket.service;
 
-import com.example.diplommaket.entity.Group;
-import com.example.diplommaket.entity.Product;
-import com.example.diplommaket.entity.Role;
-import com.example.diplommaket.entity.User;
+import com.example.diplommaket.entity.*;
 import com.example.diplommaket.repository.GroupRepository;
 import com.example.diplommaket.repository.ProductRepository;
 import com.example.diplommaket.repository.RoleRepository;
@@ -63,6 +60,10 @@ public class UserService implements UserDetailsService {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         userRepository.save(user);
         return true;
+    }
+
+    public void save(User user){
+        userRepository.save(user);
     }
 
     public boolean deleteUserById(Long id) {
