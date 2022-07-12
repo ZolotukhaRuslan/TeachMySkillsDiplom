@@ -29,12 +29,13 @@ public class AuthorizationController {
 
     @RequestMapping("/login")
     public String login(){
-
         return "login";
     }
 
     @RequestMapping("/")
     public String homePage() {
+
+        System.out.println("home");
         return "homePage";
     }
 

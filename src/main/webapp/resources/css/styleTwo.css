@@ -1,0 +1,22 @@
+body {
+  display: grid;
+  grid-template-areas:
+    'header header'
+    'menu   content'
+    ;
+  grid-template-columns: 12rem 1fr;
+  grid-template-rows: 5rem 1fr 3rem;
+}
+
+header {
+  grid-area: header;
+}
+
+article {
+  grid-area: content;
+}
+
+aside {
+  grid-area: menu;
+}
+

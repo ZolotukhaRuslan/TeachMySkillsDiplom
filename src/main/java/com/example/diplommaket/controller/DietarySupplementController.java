@@ -40,28 +40,8 @@ public class DietarySupplementController {
     private ProductService productService;
     @RequestMapping("/dietarySupplement/{id}")
     public String addItem(@PathVariable Long id){
-
-        System.out.println(id);
-      //  basketItemService.add();
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        Optional<User> userFromDB = userService.loadUserById(id);
-if(userFromDB.get().getBasket() == null){
-    BasketItems basketItems = new BasketItems();
-    basketItemService.save(basketItems);
-    Basket basket = new Basket();
-    basket.setBasketItem(basketItems);
-    basketService.save(basket);
-    userFromDB.get().setBasket(basket);
-    System.out.println( userFromDB.get().getBasket());
-   userService.save(userFromDB.get());
-
-
-
-   // userFromDB.get().setBasket(basket);
-   // userService.saveUser();
-
-}
-
+basketService.newBasket(user.getId());
         return "redirect:/dietarySupplement";
   }
 
