@@ -4,6 +4,7 @@ import com.example.diplommaket.entity.User;
 import com.example.diplommaket.service.BasketService;
 import com.example.diplommaket.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -22,20 +23,22 @@ public class AuthorizationController {
     private BasketService basketService;
 
     @RequestMapping("/administration")
-    public String administration(){
+    public String administration() {
         return "administration";
     }
 
 
     @RequestMapping("/login")
-    public String login(){
+    public String login() {
         return "login";
     }
 
     @RequestMapping("/")
     public String homePage() {
-
-        System.out.println("home");
+        if (SecurityContextHolder.getContext().getAuthentication().getPrincipal() != "anonymousUser") {
+            User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            basketService.CreateNewBasket(user.getId());
+        }
         return "homePage";
     }
 

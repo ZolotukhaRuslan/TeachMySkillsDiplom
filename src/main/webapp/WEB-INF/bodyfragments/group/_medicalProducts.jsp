@@ -14,7 +14,7 @@
         <c:forEach items="${medicalProduct.products}" var="product">
             <form>
                     ${product.productName}
-                <p><a href="/dietarySupplement/${product.id}">Add</a></p>
+                        <p><a href="/dietarySupplement/${product.id}"><img src="/resources/icons/basket.png"></a></p>
             </form>
             </form>
         </c:forEach>

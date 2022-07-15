@@ -2,8 +2,8 @@ package com.example.diplommaket.service;
 
 import com.example.diplommaket.entity.BasketItems;
 import com.example.diplommaket.entity.Item;
-import com.example.diplommaket.repository.BasketItem;
-import com.example.diplommaket.repository.ItemRep;
+import com.example.diplommaket.repository.BasketItemRepository;
+import com.example.diplommaket.repository.ItemRepository;
 import com.example.diplommaket.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,11 +13,11 @@ import java.util.Optional;
 @Service
 public class BasketItemService {
 @Autowired
-    private BasketItem basketItem;
+    private BasketItemRepository basketItem;
 @Autowired
 private ProductRepository productRepository;
 @Autowired
-private ItemRep itemRep;
+private ItemRepository itemRep;
 
 
 public void add(){

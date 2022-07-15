@@ -17,7 +17,7 @@
             <form>
             ${product.productName}
             ${product.id}
-            <p><a href="/dietarySupplement/${product.id}"><img src="/WEB-INF/view/icons/basket.png"></a></p>
+            <p><a href="/dietarySupplement/${product.id}"><img src="/resources/icons/basket.png"></a></p>
             </form>
         </c:forEach>
     </c:forEach>

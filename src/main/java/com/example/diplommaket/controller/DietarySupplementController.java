@@ -21,27 +21,14 @@ public class DietarySupplementController {
     private EntityManager em;
     @Autowired
     private GroupService groupService;
-    @Autowired
-    private ProductRepository productRepository;
-    @Autowired
-    private BasketItemService basketItemService;
-    @Autowired
-    private GroupRepository groupRepository;
-    @Autowired
-    private ItemRep itemRep;
-    @Autowired
-    private BasketItem basketItem;
-    @Autowired
-    private UserService userService;
-    @Autowired
-    private BasketService basketService;
+   @Autowired
+   private BasketService basketService;
 
     @Autowired
     private ProductService productService;
     @RequestMapping("/dietarySupplement/{id}")
-    public String addItem(@PathVariable Long id){
-        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-basketService.newBasket(user.getId());
+    public String addItemInBasket(@PathVariable Long id){
+       basketService.addItemInBasket(id);
         return "redirect:/dietarySupplement";
   }
 

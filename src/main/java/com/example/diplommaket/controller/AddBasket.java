@@ -2,8 +2,8 @@ package com.example.diplommaket.controller;
 
 import com.example.diplommaket.entity.BasketItems;
 import com.example.diplommaket.entity.Item;
-import com.example.diplommaket.repository.BasketItem;
-import com.example.diplommaket.repository.ItemRep;
+import com.example.diplommaket.repository.BasketItemRepository;
+import com.example.diplommaket.repository.ItemRepository;
 import com.example.diplommaket.repository.ProductRepository;
 import com.example.diplommaket.service.BasketItemService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,11 +18,11 @@ public class AddBasket {
     @Autowired
     private ProductRepository productRepository;
     @Autowired
-    private BasketItem basketItem;
+    private BasketItemRepository basketItem;
     @Autowired
   private  BasketItemService basketItemService;
     @Autowired
-    private ItemRep itemRep;
+    private ItemRepository itemRep;
     @RequestMapping("/addBasketItem")
     public String addBasket(HttpServletRequest req, Long id){
 BasketItems basket = new BasketItems();
