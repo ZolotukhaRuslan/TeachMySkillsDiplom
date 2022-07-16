@@ -23,31 +23,15 @@ public class PageController {
 @Autowired
     private GroupService groupService;
 
-    @RequestMapping("/bad")
-    public String bad() {
-        return "basePage";
-    }
-
-    @GetMapping("/go")
-    public String userList(Model model) {
-        model.addAttribute("allUsers", userService.allUsers());
-        return "list";
-    }
 
 
-
-
-@GetMapping("/group")
-    public String groupList(Model model) {
-model.addAttribute("allGroup",userService.category());
-return "list";
+@RequestMapping("/basket")
+    public String basketPage(){
+    return "basket";
 }
-    @GetMapping("/product")
-    public String productList(Model model) {
-        model.addAttribute("allProduct", userService.allProduct());
-        return "list";
 
-    }
+
+
 
 
 }

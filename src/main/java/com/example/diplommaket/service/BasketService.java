@@ -1,16 +1,11 @@
 package com.example.diplommaket.service;
 
-import com.example.diplommaket.entity.Basket;
-import com.example.diplommaket.entity.BasketItems;
-import com.example.diplommaket.entity.Item;
-import com.example.diplommaket.entity.User;
-import com.example.diplommaket.repository.BasketItemRepository;
+import com.example.diplommaket.entity.*;
 import com.example.diplommaket.repository.BasketRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -25,6 +20,8 @@ public class BasketService {
     private UserService userService;
     @Autowired
     private ItemService itemService;
+    @Autowired
+    private ProductService productService;
 
     public boolean CreateNewBasket(Long id) {
         Optional<User> userFromDB = userService.loadUserById(id);
@@ -41,15 +38,14 @@ public class BasketService {
         return true;
     }
 
-    public boolean addItemInBasket(long id){
+    public boolean addItemInBasket(long id) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        if(user!=null){
+        if (user != null) {
             Optional<User> userFromDB = userService.loadUserById(user.getId());
-           List<Item> itemFromUserDB = userFromDB.get().getBasket().getBasketItem().getItem();
-           itemFromUserDB.add(itemService.loadItemById(1L));
-           userFromDB.get().getBasket().getBasketItem().setItem(itemFromUserDB);
-           userService.save(userFromDB.get());
-
+            Optional<Product> product = productService.findProductById(id);
+            Item item = itemService.loadItemById(product.get().getItems().getItemId());
+            item.setBasketItems(userFromDB.get().getBasket().getBasketItem());
+            itemService.save(item);
         }
         return true;
     }

@@ -7,6 +7,8 @@ import com.example.diplommaket.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class ProductService {
 
@@ -21,5 +23,10 @@ private GroupRepository groupRepository;
        productRepository.save(product);
 
         return true;
+    }
+
+    public Optional<Product> findProductById(Long id){
+        return  productRepository.findById(id);
+
     }
 }

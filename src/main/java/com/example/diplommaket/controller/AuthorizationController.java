@@ -27,7 +27,6 @@ public class AuthorizationController {
         return "administration";
     }
 
-
     @RequestMapping("/login")
     public String login() {
         return "login";

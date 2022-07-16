@@ -2,9 +2,8 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <div style="background: #E0E0E0; height: 55px; padding: 5px;">
     <div style="float: left">
-        <h3>This is headerStart page</h3>
+        <a href="/basket">Basket</a>
     </div>
-
     <sec:authorize access="!isAuthenticated()">
     <div style="float: right; padding: 10px; text-align: right;">
         <h4><a href="/login">Sign in</a></h4></div>
@@ -14,7 +13,7 @@
     </sec:authorize>
       <sec:authorize access="isAuthenticated()">
     <div style="float: right; padding: 10px; text-align: right;">
-        <h3>${pageContext.request.userPrincipal.name}</h3>
+        <h3>   ${pageContext.request.userPrincipal.name}</h3>
         <h4><a href="/logout">Log out</a></h4>
      </sec:authorize>
 </div>

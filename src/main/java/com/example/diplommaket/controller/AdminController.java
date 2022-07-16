@@ -27,18 +27,18 @@ public class AdminController {
     private BasketService basketService;
 
     @RequestMapping("/admins")
-    public String admin(){
+    public String admin() {
         return "administration";
     }
 
     @RequestMapping("/showAppGroups")
-    public String showAllGrops(Model model){
+    public String showAllGrops(Model model) {
         model.addAttribute("allGroups", groupService.allGroup());
         return "administration";
     }
 
     @RequestMapping("/addNewGroup")
-    public String addNewGroup(){
+    public String addNewGroup() {
         return "administration";
     }
 
@@ -49,37 +49,38 @@ public class AdminController {
     }
 
     @PostMapping(value = "/addNewGroup")
-    public String addUser(@ModelAttribute("groupForm") @Valid Group groupForm,  Model model) {
+    public String addUser(@ModelAttribute("groupForm") @Valid Group groupForm, Model model) {
         groupService.addGroup(groupForm);
-    return "redirect:/";
+        return "redirect:/";
     }
 
     @RequestMapping("/findGroupById")
-    public String searchGroupById(){
+    public String searchGroupById() {
         System.out.println(groupService.searchGroupById(4L));
         System.out.println(groupService.searchGroupByName("medicine"));
         return "redirect:/";
     }
+
     @RequestMapping("/editGroupById")
-    public String editGroupById(){
+    public String editGroupById() {
         String a = "cardio";
         Long b = 5L;
-        groupService.editGroup(b,a);
+        groupService.editGroup(b, a);
         return "redirect:/";
     }
 
     @RequestMapping("/deleteGroupById")
-    public String deleteGroupById(){
+    public String deleteGroupById() {
         groupService.deleteGroupById(5L);
         return "redirect:/";
     }
 
 
-@RequestMapping("/editRole")
-    public String editRole(){
+    @RequestMapping("/editRole")
+    public String editRole() {
         //userService.editRoleById(3L);
 
-    return "redirect:/";
-}
-
+        return "redirect:/";
     }
+
+}

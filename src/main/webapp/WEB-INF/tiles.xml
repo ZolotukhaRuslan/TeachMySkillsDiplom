@@ -56,11 +56,16 @@
                 extends="basePage">
         <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/_administration.jsp" />
     </definition>
+
     <definition name="newGroups"
                 extends="basePage">
         <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/_newGroupe.jsp" />
     </definition>
 
+    <definition name = "basket"
+                extends="basePage">
+    <put-attribute name="body" value="/WEB-INF/bodyfragments/basket/_basket.jsp" />
+</definition>
 
     <definition name="list"
                 extends="basePage">

@@ -82,6 +82,34 @@ h1{
 #signin  input[type="text"]:focus, #signin  input[type="password"]:focus{
 	color: rgb(255, 255, 255);
 }
+
+#signin  select[type="select"]:focus{
+	color: rgb(255, 255, 255);
+}
+#signin  select[type="select"], #signin  select[type="text"]{
+	background: rgb(56, 110, 255);
+	box-shadow: inset -100px -100px 0 rgb(28, 30, 33); /*Prevent yellow autofill color*/
+	color: rgb(56, 110, 255);
+}
+#signin  select[type="select"], #signin  select[type="text"]{
+	position: relative;
+	display: block;
+	width: 280px;
+	height: 45px;
+	border: 0;
+	outline: 0;
+	top: -2px;
+	padding: 0 0 0 20px;
+	font-weight: 700;
+}
+#signin select:first-of-type{
+	border-top-right-radius: 8px;
+	border-top-left-radius: 8px;
+}
+#signin select:last-of-type{
+	border-bottom-right-radius: 8px;
+	border-bottom-left-radius: 8px;
+}
 #signin button[type="submit"]{
 	display: block;
 	position: absolute;

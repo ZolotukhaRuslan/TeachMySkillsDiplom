@@ -17,20 +17,10 @@ import java.util.*;
 
 @Controller
 public class DietarySupplementController {
-    @PersistenceContext
-    private EntityManager em;
     @Autowired
     private GroupService groupService;
-   @Autowired
-   private BasketService basketService;
-
     @Autowired
-    private ProductService productService;
-    @RequestMapping("/dietarySupplement/{id}")
-    public String addItemInBasket(@PathVariable Long id){
-       basketService.addItemInBasket(id);
-        return "redirect:/dietarySupplement";
-  }
+    private BasketService basketService;
 
     @RequestMapping("/dietarySupplement")
     public String showDietarySupplements(Model model, HttpServletRequest request) {
@@ -38,6 +28,11 @@ public class DietarySupplementController {
         return "dietarySupplement";
     }
 
+    @RequestMapping("/dietarySupplement/{id}")
+    public String addItemInBasket(@PathVariable Long id){
+        basketService.addItemInBasket(id);
+        return "redirect:/dietarySupplement";
+    }
 
 }
 

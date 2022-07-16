@@ -38,7 +38,11 @@
             <form:input type="text" path="mail" placeholder="mail"></form:input>
         </div>
         <div>
-            <form:input type="text" path="sex" placeholder="sex"></form:input>
+         <%//  < <form:input type="text" path="sex" placeholder="sex"></form:input>%>
+            <form:select type="select" path="sex">
+                <option>Man</option>
+                <option>Woman</option>
+            </form:select>
         </div>
         <button type="submit">&#xf0da;</button>
 
