@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -55,5 +56,11 @@ public class BasketService {
         basketRepository.save(basket);
     }
 
+    public Optional<Basket> findBasketById(Long id){
+       return basketRepository.findById(id);
+    }
 
+    public List<Item> allItemsInBasket(Long id){
+        return basketService.findBasketById(id).get().getBasketItem().getItem();
+    }
 }

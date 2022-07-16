@@ -24,6 +24,7 @@ public class DietarySupplementController {
 
     @RequestMapping("/dietarySupplement")
     public String showDietarySupplements(Model model, HttpServletRequest request) {
+        System.out.println(SecurityContextHolder.getContext().getAuthentication().getAuthorities());
         model.addAttribute("allDietarySupplement", groupService.allProductByCategoryDietarySupplement());
         return "dietarySupplement";
     }

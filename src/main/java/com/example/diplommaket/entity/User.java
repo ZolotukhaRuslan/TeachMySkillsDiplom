@@ -29,7 +29,7 @@ public class User implements UserDetails {
     private String sex;
     @Transient
     private String passwordConfirm;
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     private Set<Role> roles;
@@ -40,8 +40,8 @@ public class User implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-
-        return null;
+return roles;
+       // return getRoles();
     }
 
     @Override

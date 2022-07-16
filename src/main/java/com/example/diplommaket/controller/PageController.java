@@ -25,13 +25,5 @@ public class PageController {
 
 
 
-@RequestMapping("/basket")
-    public String basketPage(){
-    return "basket";
-}
-
-
-
-
 
 }

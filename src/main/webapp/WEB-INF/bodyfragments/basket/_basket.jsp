@@ -9,7 +9,15 @@
 </head>
 <body>
 <table>
-This is basket page
+
+    <c:forEach items="${allItemsInBasket}" var="item">
+        <form>
+            <div>
+                <p> Name: ${item.product.productName}
+                <p> Coast: ${item.coast}
+            </div>
+        </form>
+    </c:forEach>
 
 </table>
 </body>
