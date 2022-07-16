@@ -1,3 +1,4 @@
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 
@@ -21,8 +22,13 @@
         <p><input type="submit" value="Cosmetics" name="cosmetics"></p>
     </form>
 </div>
-<div style="padding: 5px;">
-    <form action="/admins">
-        <p><input type="submit" value="ADMIN" name="admin"></p>
-    </form>
+<div>
+<sec:authorize access="isAuthenticated()">
+    <sec:authorize access="hasAuthority('ADMIN_ROLE')">
+        <form action="/admins">
+            <p><input type="submit" value="ADMIN" name="admin"></p>
+        </form>
+    </sec:authorize>
+</sec:authorize>
+
 </div>
