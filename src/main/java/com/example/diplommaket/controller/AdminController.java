@@ -30,6 +30,10 @@ public class AdminController {
     public String admin() {
         return "administration";
     }
+    @RequestMapping("/operationWithUsers")
+    public String usersOperation(){
+        return "handlerAdminOperation";
+    }
 
     @RequestMapping("/showAppGroups")
     public String showAllGrops(Model model) {

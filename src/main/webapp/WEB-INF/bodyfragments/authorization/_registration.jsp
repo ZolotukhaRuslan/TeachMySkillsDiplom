@@ -17,9 +17,9 @@
     <%--@elvariable id="userForm" type=""--%>
     <form:form id="signin" method="POST" modelAttribute="userForm"  autocomplete="off" >
         <div>
-            <form:input type="text" path="username" placeholder="Username"
+            <form:input type="text" path="login" placeholder="Login"
                         autofocus="true"></form:input>
-            <form:errors path="username"></form:errors>
+            <form:errors path="login"></form:errors>
                 ${usernameError}
         </div>
         <div>
@@ -30,6 +30,10 @@
                         placeholder="Confirm your password"></form:input>
             <form:errors path="password"></form:errors>
                 ${passwordError}
+        </div>
+        <div>
+            <form:input type="text" path="username" placeholder="Username"
+            ></form:input>
         </div>
         <div>
             <form:input type="text" path="age" placeholder="age"></form:input>

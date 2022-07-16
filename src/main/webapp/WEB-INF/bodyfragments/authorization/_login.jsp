@@ -22,7 +22,7 @@
 <h1>Sign In Form</h1>
 <div id="wrapper">
     <form id="signin" method="POST" action="/login" autocomplete="off">
-        <input  type="text" id="user" name="username" placeholder="username" />
+        <input  type="text" id="user" name="username" placeholder="login" />
         <input type="password" id="pass" name="password" placeholder="password" />
         <button type="submit">&#xf0da;</button>
       <p><a href="/registration">Registration</a></p>
