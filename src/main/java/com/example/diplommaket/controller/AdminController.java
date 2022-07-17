@@ -56,7 +56,26 @@ model.addAttribute("User", userService.loadUserById(id).get());
         return "showUserById";
     }
 
-    
+    @RequestMapping("/showUserByLogin")
+    public String showUserByLogin(){
+        return "loadUserByLogin";
+    }
+    @RequestMapping("/loadUserByLogin")
+    public String loadUserByLogin(Model model, HttpServletRequest request){
+        String login = request.getParameter("login");
+        model.addAttribute("User", userService.loadUserByLogin(login));
+        return "showUserByLogin";
+    }
+    @RequestMapping("/showUsersByName")
+    public String loadUsersByName(){
+        return "loadUsersByName";
+    }
+    @RequestMapping("/loadUsersByName")
+    public String showUsersByName(Model model, HttpServletRequest request){
+        String name = request.getParameter("nameUser");
+        model.addAttribute("User", userService.findUserByUserName(name));
+        return "showUsersByName";
+    }
 
 
 

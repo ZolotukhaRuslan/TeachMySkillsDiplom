@@ -88,6 +88,22 @@
                 extends="adminPage">
         <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithUsers/showUsers/_showUserById.jsp" />
     </definition>
+    <definition name = "loadUserByLogin"
+                extends="adminPage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithUsers/showUsers/_loadUserByLogin.jsp" />
+    </definition>
+    <definition name = "showUserByLogin"
+                extends="adminPage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithUsers/showUsers/_showUserByLogin.jsp" />
+    </definition>
+    <definition name = "showUsersByName"
+                extends="adminPage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithUsers/showUsers/_showUsersByName.jsp" />
+    </definition>
+    <definition name = "loadUsersByName"
+                extends="adminPage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithUsers/showUsers/_loadUsersByName.jsp" />
+    </definition>
 
 
 
