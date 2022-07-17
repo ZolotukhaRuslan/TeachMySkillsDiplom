@@ -27,7 +27,7 @@ public class User implements UserDetails {
     private String password;
     private int age;
     private String mail;
-    private String sex;
+    private String gender;
     @Transient
     private String passwordConfirm;
     @ManyToMany(fetch = FetchType.EAGER)

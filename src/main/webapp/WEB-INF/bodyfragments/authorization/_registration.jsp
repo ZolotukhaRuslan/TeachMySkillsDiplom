@@ -43,7 +43,7 @@
         </div>
         <div>
          <%//  < <form:input type="text" path="sex" placeholder="sex"></form:input>%>
-            <form:select type="select" path="sex">
+            <form:select type="select" path="gender">
                 <option>Man</option>
                 <option>Woman</option>
             </form:select>

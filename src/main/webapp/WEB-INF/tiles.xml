@@ -76,6 +76,20 @@
                 extends="adminPage">
         <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithUsers/_handlerUsersCRUD.jsp" />
     </definition>
+    <definition name = "allUsers"
+                extends="adminPage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithUsers/showUsers/_showAllUsers.jsp" />
+    </definition>
+    <definition name = "loadUserById"
+                extends="adminPage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithUsers/showUsers/_loadUserById.jsp" />
+    </definition>
+    <definition name = "showUserById"
+                extends="adminPage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithUsers/showUsers/_showUserById.jsp" />
+    </definition>
+
+
 
     <definition name="list"
                 extends="basePage">

@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import java.net.http.HttpRequest;
 
 @Controller
 public class AdminController {
@@ -30,11 +32,39 @@ public class AdminController {
     public String admin() {
         return "administration";
     }
+
     @RequestMapping("/operationWithUsers")
-    public String usersOperation(){
+    public String usersOperation() {
         return "handlerAdminOperation";
     }
 
+    @RequestMapping("/showAllUsers")
+    public String showAllUsers(Model model) {
+
+        model.addAttribute("allUsers", userService.allUsers());
+        return "allUsers";
+    }
+
+    @RequestMapping("/showUserById")
+    public String showUserById(){
+        return "loadUserById";
+    }
+    @RequestMapping("/loadUserById")
+    public String loadUserById(Model model, HttpServletRequest request){
+Long id = Long.valueOf(request.getParameter("id"));
+model.addAttribute("User", userService.loadUserById(id).get());
+        return "showUserById";
+    }
+
+    
+
+
+
+
+
+
+
+    /*
     @RequestMapping("/showAppGroups")
     public String showAllGrops(Model model) {
         model.addAttribute("allGroups", groupService.allGroup());
@@ -86,5 +116,5 @@ public class AdminController {
 
         return "redirect:/";
     }
-
+*/
 }
