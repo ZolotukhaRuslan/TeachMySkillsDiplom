@@ -73,7 +73,7 @@ model.addAttribute("User", userService.loadUserById(id).get());
     @RequestMapping("/loadUsersByName")
     public String showUsersByName(Model model, HttpServletRequest request){
         String name = request.getParameter("nameUser");
-        model.addAttribute("User", userService.findUserByUserName(name));
+        model.addAttribute("User", userService.findByUsernameContains(name));
         return "showUsersByName";
     }
 
