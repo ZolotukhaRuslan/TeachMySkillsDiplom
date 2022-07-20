@@ -90,19 +90,22 @@ model.addAttribute("User", userService.loadUserById(id).get());
         return "deleteUserByLogin";
     }
 
-    @RequestMapping ("/deleteUser/{id}/{login}")
-    public String deleteUser(@PathVariable Long id, @PathVariable String login){
-if(id!=null) {
+    @RequestMapping ("/deleteUser/{id}")
+    public String deleteUser(@PathVariable Long id){
+
     userService.deleteUserById(id);
+    return "deleteUserById";
+
 }
-if(login!=null){
-    userService.deleteUserByLogin(login);
-}
-        return "deleteUserById";
-    }
+@RequestMapping("/deleteUserLogin/{login}")
+        public String deleteUserLogin(@PathVariable String login){
+    Long id = userService.loadUserByLogin(login).getId();
+    userService.deleteUserById(id);
+   return "deleteUserByLogin"; }
+
     @RequestMapping("/deleteUserByLogin")
     public String deleteUserByLogin(){
-        return "deleteUserById";
+        return "deleteUserByLogin";
     }
 
 

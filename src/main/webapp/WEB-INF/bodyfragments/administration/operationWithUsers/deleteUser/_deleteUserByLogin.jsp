@@ -1,5 +1,4 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -36,7 +35,7 @@
                 <td><c:forEach items="${User.roles}" var="role">
                     ${role.name}
                 </c:forEach></td>
-                <td><p> <a href="/deleteUser/${User.login}">delete</a></td>
+                <td><p> <a href="/deleteUserLogin/${User.login}">delete</a></td>
             </tr>
 
         </table>
