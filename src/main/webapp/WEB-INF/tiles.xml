@@ -105,6 +105,15 @@
         <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithUsers/showUsers/_loadUsersByName.jsp" />
     </definition>
 
+    <definition name = "deleteUserById"
+                extends="adminPage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithUsers/deleteUser/_deleteUserById.jsp" />
+    </definition>
+    <definition name = "deleteUserByLogin"
+                extends="adminPage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithUsers/deleteUser/_deleteUserByLogin.jsp" />
+    </definition>
+
 
 
     <definition name="list"

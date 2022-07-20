@@ -10,10 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -76,7 +73,37 @@ model.addAttribute("User", userService.loadUserById(id).get());
         model.addAttribute("User", userService.findByUsernameContains(name));
         return "showUsersByName";
     }
+    @RequestMapping("/deleteUserById")
+    public String deleteUserById(){
+        return "deleteUserById";
+    }
+    @RequestMapping("/loadUserByIdForDelete")
+    public String loadUserByIdForDelete(Model model, HttpServletRequest request){
+        Long id = Long.valueOf(request.getParameter("id"));
+        model.addAttribute("User",userService.loadUserById(id).get()) ;
+        return "deleteUserById";
+    }
+    @RequestMapping("/loadUserByLoginForDelete")
+    public String loadUserByLoginForDelete(Model model, HttpServletRequest request){
+        String login = (request.getParameter("login"));
+        model.addAttribute("User",userService.loadUserByLogin(login)) ;
+        return "deleteUserByLogin";
+    }
 
+    @RequestMapping ("/deleteUser/{id}/{login}")
+    public String deleteUser(@PathVariable Long id, @PathVariable String login){
+if(id!=null) {
+    userService.deleteUserById(id);
+}
+if(login!=null){
+    userService.deleteUserByLogin(login);
+}
+        return "deleteUserById";
+    }
+    @RequestMapping("/deleteUserByLogin")
+    public String deleteUserByLogin(){
+        return "deleteUserById";
+    }
 
 
 

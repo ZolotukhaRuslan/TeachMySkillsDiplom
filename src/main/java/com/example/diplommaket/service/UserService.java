@@ -75,8 +75,12 @@ public class UserService implements UserDetailsService {
         userRepository.deleteById(id);
         return true;
     }
+    public boolean deleteUserByLogin(String login){
+        userRepository.deleteByLogin(login);
+        return true;
+    }
 
-    public boolean deeleteByUserName(String userName) {
+    public boolean deeByUserName(String userName) {
         userRepository.deleteByUsername(userName);
         return true;
     }
