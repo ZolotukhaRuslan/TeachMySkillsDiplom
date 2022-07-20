@@ -19,98 +19,103 @@ import java.net.http.HttpRequest;
 @Controller
 public class AdminController {
     @Autowired
-    private GroupService groupService;
-    @Autowired
     private UserService userService;
-    @Autowired
-    private BasketService basketService;
 
     @RequestMapping("/admins")
     public String admin() {
         return "administration";
     }
-
     @RequestMapping("/operationWithUsers")
     public String usersOperation() {
         return "handlerAdminOperation";
     }
-
     @RequestMapping("/showAllUsers")
     public String showAllUsers(Model model) {
-
         model.addAttribute("allUsers", userService.allUsers());
         return "allUsers";
     }
-
     @RequestMapping("/showUserById")
-    public String showUserById(){
+    public String showUserById() {
         return "loadUserById";
     }
     @RequestMapping("/loadUserById")
-    public String loadUserById(Model model, HttpServletRequest request){
-Long id = Long.valueOf(request.getParameter("id"));
-model.addAttribute("User", userService.loadUserById(id).get());
-        return "showUserById";
-    }
-
+    public String loadUserById(Model model, HttpServletRequest request) {
+        Long id = Long.valueOf(request.getParameter("id"));
+        model.addAttribute("User", userService.loadUserById(id).get());
+        return "showUserById";}
     @RequestMapping("/showUserByLogin")
-    public String showUserByLogin(){
+    public String showUserByLogin() {
         return "loadUserByLogin";
     }
     @RequestMapping("/loadUserByLogin")
-    public String loadUserByLogin(Model model, HttpServletRequest request){
+    public String loadUserByLogin(Model model, HttpServletRequest request) {
         String login = request.getParameter("login");
         model.addAttribute("User", userService.loadUserByLogin(login));
         return "showUserByLogin";
     }
     @RequestMapping("/showUsersByName")
-    public String loadUsersByName(){
+    public String loadUsersByName() {
         return "loadUsersByName";
     }
     @RequestMapping("/loadUsersByName")
-    public String showUsersByName(Model model, HttpServletRequest request){
+    public String showUsersByName(Model model, HttpServletRequest request) {
         String name = request.getParameter("nameUser");
         model.addAttribute("User", userService.findByUsernameContains(name));
-        return "showUsersByName";
-    }
+        return "showUsersByName";}
     @RequestMapping("/deleteUserById")
-    public String deleteUserById(){
+    public String deleteUserById() {
         return "deleteUserById";
     }
     @RequestMapping("/loadUserByIdForDelete")
-    public String loadUserByIdForDelete(Model model, HttpServletRequest request){
+    public String loadUserByIdForDelete(Model model, HttpServletRequest request) {
         Long id = Long.valueOf(request.getParameter("id"));
-        model.addAttribute("User",userService.loadUserById(id).get()) ;
+        model.addAttribute("User", userService.loadUserById(id).get());
         return "deleteUserById";
     }
     @RequestMapping("/loadUserByLoginForDelete")
-    public String loadUserByLoginForDelete(Model model, HttpServletRequest request){
+    public String loadUserByLoginForDelete(Model model, HttpServletRequest request) {
         String login = (request.getParameter("login"));
-        model.addAttribute("User",userService.loadUserByLogin(login)) ;
+        model.addAttribute("User", userService.loadUserByLogin(login));
         return "deleteUserByLogin";
     }
-
-    @RequestMapping ("/deleteUser/{id}")
-    public String deleteUser(@PathVariable Long id){
-
-    userService.deleteUserById(id);
-    return "deleteUserById";
-
-}
-@RequestMapping("/deleteUserLogin/{login}")
-        public String deleteUserLogin(@PathVariable String login){
-    Long id = userService.loadUserByLogin(login).getId();
-    userService.deleteUserById(id);
-   return "deleteUserByLogin"; }
-
+    @RequestMapping("/deleteUser/{id}")
+    public String deleteUser(@PathVariable Long id) {
+        userService.deleteUserById(id);
+        return "deleteUserById";
+    }
+    @RequestMapping("/deleteUserLogin/{login}")
+    public String deleteUserLogin(@PathVariable String login) {
+        Long id = userService.loadUserByLogin(login).getId();
+        userService.deleteUserById(id);
+        return "deleteUserByLogin";
+    }
     @RequestMapping("/deleteUserByLogin")
-    public String deleteUserByLogin(){
+    public String deleteUserByLogin() {
         return "deleteUserByLogin";
     }
 
 
+@GetMapping("/createNewUser")
+    public String createNewUser(Model model){
+        model.addAttribute("UserForm", new User());
+        return null;
+}
+@PostMapping("/createNewUser")
+    public String newUser(@ModelAttribute("userForm") @Valid User userForm, BindingResult bindingResult, Model model) {
 
-
+        if (bindingResult.hasErrors()) {
+            return "";
+        }
+        if (!userForm.getPassword().equals(userForm.getPasswordConfirm())) {
+            model.addAttribute("passwordError", "nonono");
+            return null;
+        }
+        if (!userService.saveUser(userForm)) {
+            model.addAttribute("usernameError", "use estn");
+            return "";
+        }
+        return "";
+    }
 
 
     /*
