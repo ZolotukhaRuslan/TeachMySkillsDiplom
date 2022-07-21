@@ -122,6 +122,20 @@
         <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithUsers/updateUser/_updateUserById.jsp" />
     </definition>
 
+    <definition name = "handlerGroup"
+                extends="adminPage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithGroup/_handlerGroupCRUD.jsp" />
+    </definition>
+
+    <definition name = "showGroup"
+                extends="adminPage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithGroup/_showGroup.jsp" />
+    </definition>
+    <definition name = "newGroup"
+                extends="adminPage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithGroup/_createGroup.jsp" />
+    </definition>
+
 
 
     <definition name="list"
