@@ -113,6 +113,14 @@
                 extends="adminPage">
         <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithUsers/deleteUser/_deleteUserByLogin.jsp" />
     </definition>
+    <definition name = "createUser"
+                extends="adminPage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithUsers/createUser/_createUser.jsp" />
+    </definition>
+    <definition name = "updateUserById"
+                extends="adminPage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithUsers/updateUser/_updateUserById.jsp" />
+    </definition>
 
 
 

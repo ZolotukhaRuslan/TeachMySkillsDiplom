@@ -7,6 +7,7 @@ import com.example.diplommaket.service.BasketService;
 import com.example.diplommaket.service.GroupService;
 import com.example.diplommaket.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -97,26 +98,36 @@ public class AdminController {
 
 @GetMapping("/createNewUser")
     public String createNewUser(Model model){
-        model.addAttribute("UserForm", new User());
-        return null;
+        model.addAttribute("usersForm", new User());
+        return "createUser";
 }
 @PostMapping("/createNewUser")
-    public String newUser(@ModelAttribute("usersForm") @Valid User userForm, BindingResult bindingResult, Model model) {
+    public String newUser(@ModelAttribute("usersForm") @Valid User usersForm, Model model) {
 
-        if (bindingResult.hasErrors()) {
-            return "";
-        }
-        if (!userForm.getPassword().equals(userForm.getPasswordConfirm())) {
+
+        if (!usersForm.getPassword().equals(usersForm.getPasswordConfirm())) {
             model.addAttribute("passwordError", "nonono");
-            return null;
+            return "createUser";
         }
-        if (!userService.saveUser(userForm)) {
+        if (!userService.saveUser(usersForm)) {
             model.addAttribute("usernameError", "use estn");
-            return "";
+            return "createUser";
         }
-        return "";
+        return "createUser";
     }
 
+    @GetMapping("/updateUserById")
+    public String updateUserById(Model model, HttpServletRequest request){
+      //  Long id = Long.valueOf(request.getParameter("id"));
+        model.addAttribute("updateUserForm", userService.loadUserById(20L));
+        return "updateUserById";
+    }
+
+    @PostMapping("/updateUserById")
+    public String update(@ModelAttribute("usersForm") @Valid User usersForm, Model model){
+userService.saveUser(usersForm);
+        return "updateUserById";
+    }
 
     /*
     @RequestMapping("/showAppGroups")

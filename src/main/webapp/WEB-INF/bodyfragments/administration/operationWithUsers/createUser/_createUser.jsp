@@ -13,35 +13,37 @@
 </head>
 <body>
 <%--@elvariable id="usersForm" type=""--%>
-<form:form method = "POST" modelAttribute="usersForm">
-<div><form:input type = "text" path="login" placeholder = "Login"></form:input>
-</form:form> </div>
-<div>
-    <form:input type="password" path="password" placeholder="Password"></form:input>
-</div>
-<div>
-    <form:input type="password" path="passwordConfirm"
-                placeholder="Confirm your password"></form:input>
-    <form:errors path="password"></form:errors>
-    ${passwordError}
-</div>
-<div>
-    <form:input type="text" path="username" placeholder="Username"
-    ></form:input>
-</div>
-<div>
-    <form:input type="text" path="age" placeholder="age"></form:input>
-</div>
-<div>
-    <form:input type="text" path="mail" placeholder="mail"></form:input>
-</div>
-<div>
-    <%//  < <form:input type="text" path="sex" placeholder="sex"></form:input>%>
-    <form:select type="select" path="gender">
-        <option>Man</option>
-        <option>Woman</option>
-    </form:select>
-</div>
-<button type="submit">&#xf0da;</button>
+<form:form method="POST" modelAttribute="usersForm">
+    <div><form:input type="text" path="login" placeholder="Login"></form:input>
+    </div>
+    <div>
+        <form:input type="password" path="password" placeholder="Password"></form:input>
+    </div>
+    <div>
+        <form:input type="password" path="passwordConfirm"
+                    placeholder="Confirm your password"></form:input>
+        <form:errors path="password"></form:errors>
+            ${passwordError}
+    </div>
+    <div>
+        <form:input type="text" path="username" placeholder="Username"
+        ></form:input>
+    </div>
+    <div>
+        <form:input type="text" path="age" placeholder="age"></form:input>
+    </div>
+    <div>
+        <form:input type="text" path="mail" placeholder="mail"></form:input>
+    </div>
+    <div>
+        <%//  < <form:input type="text" path="sex" placeholder="sex"></form:input>%>
+        <form:select type="select" path="gender">
+            <option>Man</option>
+            <option>Woman</option>
+        </form:select>
+    </div>
+
+<button type="submit">ok</button>
+</form:form>
 </body>
 </html>
