@@ -101,7 +101,7 @@ public class AdminController {
         return null;
 }
 @PostMapping("/createNewUser")
-    public String newUser(@ModelAttribute("userForm") @Valid User userForm, BindingResult bindingResult, Model model) {
+    public String newUser(@ModelAttribute("usersForm") @Valid User userForm, BindingResult bindingResult, Model model) {
 
         if (bindingResult.hasErrors()) {
             return "";
