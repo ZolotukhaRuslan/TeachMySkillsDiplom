@@ -25,10 +25,6 @@ public class UserService implements UserDetailsService {
     private UserRepository userRepository;
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
-    @Autowired
-    private ProductRepository productRepository;
-    @Autowired
-    private GroupRepository groupRepository;
     @Override
     public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
         User user = userRepository.findByLogin(login);
@@ -61,14 +57,6 @@ public class UserService implements UserDetailsService {
     }
     public boolean deleteUserById(Long id) {
         userRepository.deleteById(id);
-        return true;
-    }
-    public boolean deleteUserByLogin(String login) {
-        userRepository.deleteByLogin(login);
-        return true;
-    }
-    public boolean deeByUserName(String userName) {
-        userRepository.deleteByUsername(userName);
         return true;
     }
     public void editRoleById(Long id) {

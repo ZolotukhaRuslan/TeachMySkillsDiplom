@@ -14,22 +14,26 @@ import javax.validation.Valid;
 public class AdminGroupController {
     @Autowired
     private GroupService groupService;
+
     @RequestMapping("/operationWithGroupProduct")
-    public String getGroupOperation(){
+    public String getGroupOperation() {
         return "handlerGroup";
     }
+
     @RequestMapping("/showGroup")
-    public String showGroup(Model model){
+    public String showGroup(Model model) {
         model.addAttribute("Group", groupService.allGroup());
         return "showGroup";
     }
+
     @GetMapping("/createGroup")
-    public String createNewGroup(Model model){
+    public String createNewGroup(Model model) {
         model.addAttribute("groupForm", new Group());
         return "newGroup";
     }
+
     @PostMapping("/createGroup")
-public String newGroup(@ModelAttribute ("groupForm") @Valid Group groupForm, Model model, BindingResult bindingResult){
+    public String newGroup(@ModelAttribute("groupForm") @Valid Group groupForm, Model model, BindingResult bindingResult) {
         groupService.addGroup(groupForm);
         return "redirect:/operationWithGroupProduct";
     }
