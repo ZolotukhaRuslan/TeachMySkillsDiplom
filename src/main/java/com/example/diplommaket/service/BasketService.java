@@ -23,7 +23,6 @@ public class BasketService {
     private ItemService itemService;
     @Autowired
     private ProductService productService;
-
     public boolean CreateNewBasket(Long id) {
         Optional<User> userFromDB = userService.loadUserById(id);
         if (userFromDB.get().getBasket() != null) {
@@ -38,7 +37,6 @@ public class BasketService {
         userService.save(userFromDB.get());
         return true;
     }
-
     public boolean addItemInBasket(long id) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if (user != null) {
@@ -50,17 +48,13 @@ public class BasketService {
         }
         return true;
     }
-
-
     public void save(Basket basket) {
         basketRepository.save(basket);
     }
-
-    public Optional<Basket> findBasketById(Long id){
-       return basketRepository.findById(id);
+    public Optional<Basket> findBasketById(Long id) {
+        return basketRepository.findById(id);
     }
-
-    public List<Item> allItemsInBasket(Long id){
+    public List<Item> allItemsInBasket(Long id) {
         return basketService.findBasketById(id).get().getBasketItem().getItem();
     }
 }

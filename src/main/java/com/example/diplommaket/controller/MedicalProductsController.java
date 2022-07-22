@@ -14,15 +14,13 @@ public class MedicalProductsController {
     private GroupService groupService;
     @Autowired
     private BasketService basketService;
-
     @RequestMapping("/medicalProducts")
-    public String showMedicalProducts(Model model){
-        model.addAttribute("allMedicalProducts" ,groupService.allProductByCategoryMedicalProduct());
+    public String showMedicalProducts(Model model) {
+        model.addAttribute("allMedicalProducts", groupService.allProductByCategoryMedicalProduct());
         return "medicalProducts";
     }
-
     @RequestMapping("/medicalProducts/{id}")
-    public String addItemInBasket(@PathVariable Long id){
+    public String addItemInBasket(@PathVariable Long id) {
         basketService.addItemInBasket(id);
         return "redirect:/medicalProducts";
     }

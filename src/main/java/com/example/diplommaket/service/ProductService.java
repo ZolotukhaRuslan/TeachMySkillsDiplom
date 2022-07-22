@@ -11,22 +11,17 @@ import java.util.Optional;
 
 @Service
 public class ProductService {
-
     @Autowired
     private ProductRepository productRepository;
-@Autowired
-private GroupRepository groupRepository;
-
-    public boolean addProduct(Product product){
+    @Autowired
+    private GroupRepository groupRepository;
+    public boolean addProduct(Product product) {
         product.setProductName("Metamizolum");
         product.setGroups(groupRepository.findById(1L).orElse(new Group()));
-       productRepository.save(product);
-
+        productRepository.save(product);
         return true;
     }
-
-    public Optional<Product> findProductById(Long id){
-        return  productRepository.findById(id);
-
+    public Optional<Product> findProductById(Long id) {
+        return productRepository.findById(id);
     }
 }

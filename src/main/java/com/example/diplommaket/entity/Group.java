@@ -10,10 +10,10 @@ import java.util.Set;
 @Data
 @Table(name = "productgroupe")
 public class Group {
-    public Group(Long id){
+    public Group(Long id) {
         this.id = id;
     }
-    public Group(Long id, String name){
+    public Group(Long id, String name) {
         this.id = id;
         this.groupName = name;
     }
@@ -22,13 +22,13 @@ public class Group {
     private long id;
     private String groupName;
 
-@OneToMany(mappedBy = "groups", fetch=FetchType.EAGER)
-@ToString.Exclude
-@EqualsAndHashCode.Exclude
+    @OneToMany(mappedBy = "groups", fetch = FetchType.EAGER)
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     private Set<Product> products;
 
-@OneToMany(mappedBy = "group", fetch = FetchType.EAGER)
-@ToString.Exclude
-@EqualsAndHashCode.Exclude
+    @OneToMany(mappedBy = "group", fetch = FetchType.EAGER)
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     private Set<Item> items;
 }

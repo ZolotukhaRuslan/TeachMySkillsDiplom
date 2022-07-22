@@ -15,15 +15,11 @@ import java.util.List;
 public class BasketController {
     @Autowired
     private BasketService basketService;
-
     @RequestMapping("/basket")
     public String basketPage(Model model){
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        //List<Item> itemsInBasket= basketService.findBasketById(user.getBasket().getId()).get().getBasketItem().getItem();
         List<Item> itemsInBasket = basketService.allItemsInBasket(user.getBasket().getId());
         model.addAttribute("allItemsInBasket", itemsInBasket);
-
         return "basket";
     }
-
 }

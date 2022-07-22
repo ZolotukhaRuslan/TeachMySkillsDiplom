@@ -21,13 +21,13 @@ public class Role implements GrantedAuthority {
     public Role(Long id) {
         this.id = id;
     }
+
     @Id
     private Long id;
     private String name;
     @Transient
     @ManyToMany(mappedBy = "roles", fetch = FetchType.EAGER)
     private Set<User> users;
-
     @Override
     public String getAuthority() {
         return getName();

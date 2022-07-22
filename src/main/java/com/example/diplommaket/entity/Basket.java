@@ -6,13 +6,10 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
-
 @Data
 @Entity
 @NoArgsConstructor
 public class Basket {
-
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;

@@ -1,30 +1,20 @@
 package com.example.diplommaket.controller;
-
-import com.example.diplommaket.entity.Group;
 import com.example.diplommaket.entity.User;
-import com.example.diplommaket.repository.GroupRepository;
-import com.example.diplommaket.service.BasketService;
-import com.example.diplommaket.service.GroupService;
 import com.example.diplommaket.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-import java.net.http.HttpRequest;
-
 @Controller
 public class AdminController {
     @Autowired
     private UserService userService;
-
     @RequestMapping("/admins")
     public String admin() {
         return "administration";
+
     }
     @RequestMapping("/operationWithUsers")
     public String usersOperation() {
@@ -62,7 +52,8 @@ public class AdminController {
     public String showUsersByName(Model model, HttpServletRequest request) {
         String name = request.getParameter("nameUser");
         model.addAttribute("User", userService.findByUsernameContains(name));
-        return "showUsersByName";}
+        return "showUsersByName";
+    }
     @RequestMapping("/deleteUserById")
     public String deleteUserById() {
         return "deleteUserById";
@@ -94,8 +85,6 @@ public class AdminController {
     public String deleteUserByLogin() {
         return "deleteUserByLogin";
     }
-
-
 @GetMapping("/createNewUser")
     public String createNewUser(Model model){
         model.addAttribute("usersForm", new User());
@@ -103,8 +92,6 @@ public class AdminController {
 }
 @PostMapping("/createNewUser")
     public String newUser(@ModelAttribute("usersForm") @Valid User usersForm, Model model) {
-
-
         if (!usersForm.getPassword().equals(usersForm.getPasswordConfirm())) {
             model.addAttribute("passwordError", "nonono");
             return "createUser";
@@ -115,71 +102,17 @@ public class AdminController {
         }
         return "createUser";
     }
-
+    //this method needs improvement
     @GetMapping("/updateUserById")
-    public String updateUserById(Model model, HttpServletRequest request){
-      //  Long id = Long.valueOf(request.getParameter("id"));
+    public String updateUserById(Model model){
         model.addAttribute("updateUserForm", userService.loadUserById(20L));
         return "updateUserById";
     }
-
     @PostMapping("/updateUserById")
     public String update(@ModelAttribute("usersForm") @Valid User usersForm, Model model){
 userService.saveUser(usersForm);
         return "updateUserById";
     }
+//this method needs improvement
 
-    /*
-    @RequestMapping("/showAppGroups")
-    public String showAllGrops(Model model) {
-        model.addAttribute("allGroups", groupService.allGroup());
-        return "administration";
-    }
-
-    @RequestMapping("/addNewGroup")
-    public String addNewGroup() {
-        return "administration";
-    }
-
-    @GetMapping("/addNewGroup")
-    public String registration(Model model) {
-        model.addAttribute("groupForm", new Group());
-        return "newGroups";
-    }
-
-    @PostMapping(value = "/addNewGroup")
-    public String addUser(@ModelAttribute("groupForm") @Valid Group groupForm, Model model) {
-        groupService.addGroup(groupForm);
-        return "redirect:/";
-    }
-
-    @RequestMapping("/findGroupById")
-    public String searchGroupById() {
-        System.out.println(groupService.searchGroupById(4L));
-        System.out.println(groupService.searchGroupByName("medicine"));
-        return "redirect:/";
-    }
-
-    @RequestMapping("/editGroupById")
-    public String editGroupById() {
-        String a = "cardio";
-        Long b = 5L;
-        groupService.editGroup(b, a);
-        return "redirect:/";
-    }
-
-    @RequestMapping("/deleteGroupById")
-    public String deleteGroupById() {
-        groupService.deleteGroupById(5L);
-        return "redirect:/";
-    }
-
-
-    @RequestMapping("/editRole")
-    public String editRole() {
-        //userService.editRoleById(3L);
-
-        return "redirect:/";
-    }
-*/
 }

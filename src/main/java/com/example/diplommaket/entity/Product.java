@@ -8,10 +8,10 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Data
 public class Product {
-    public Product(Long id){
+    public Product(Long id) {
         this.id = id;
     }
-    public Product(Long id, String name){
+    public Product(Long id, String name) {
         this.id = id;
         this.productName = name;
     }
@@ -20,16 +20,14 @@ public class Product {
     private long id;
     private String productName;
 
-@ManyToOne(optional=false, cascade=CascadeType.ALL)
-@ToString.Exclude
-@EqualsAndHashCode.Exclude
-    private  Group groups ;
-
-
+    @ManyToOne(optional = false, cascade = CascadeType.ALL)
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    private Group groups;
 
     @OneToOne(mappedBy = "product")
-@ToString.Exclude
-@EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     private Item items;
 
 

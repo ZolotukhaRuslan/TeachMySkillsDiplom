@@ -28,7 +28,6 @@ public class AdminGroupController {
         model.addAttribute("groupForm", new Group());
         return "newGroup";
     }
-
     @PostMapping("/createGroup")
 public String newGroup(@ModelAttribute ("groupForm") @Valid Group groupForm, Model model, BindingResult bindingResult){
         groupService.addGroup(groupForm);

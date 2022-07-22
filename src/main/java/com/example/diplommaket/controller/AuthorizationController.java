@@ -21,17 +21,14 @@ public class AuthorizationController {
     private UserService userService;
     @Autowired
     private BasketService basketService;
-
     @RequestMapping("/administration")
     public String administration() {
         return "administration";
     }
-
     @RequestMapping("/login")
     public String login() {
         return "login";
     }
-
     @RequestMapping("/")
     public String homePage() {
         if (SecurityContextHolder.getContext().getAuthentication().getPrincipal() != "anonymousUser") {
@@ -40,16 +37,13 @@ public class AuthorizationController {
         }
         return "homePage";
     }
-
     @GetMapping("/registration")
     public String registration(Model model) {
         model.addAttribute("userForm", new User());
         return "registration";
     }
-
     @PostMapping(value = "/registration")
     public String addUser(@ModelAttribute("userForm") @Valid User userForm, BindingResult bindingResult, Model model) {
-
         if (bindingResult.hasErrors()) {
             return "registration";
         }
