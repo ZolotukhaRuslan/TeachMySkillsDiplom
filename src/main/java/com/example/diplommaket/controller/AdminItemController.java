@@ -6,6 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
+
 @Controller
 public class AdminItemController {
     @Autowired
@@ -19,5 +21,15 @@ public class AdminItemController {
     public String showAllItem(Model model){
 model.addAttribute("Items", itemService.allItem());
         return "showAllItem";
+    }
+    @RequestMapping("/deleteItem")
+    public String deleteItem(){
+        return "deleteItem";
+    }
+    @RequestMapping("/deleteItemById")
+    public String deleteItemById(HttpServletRequest request){
+        Long id = Long.valueOf(request.getParameter("id"));
+        itemService.deleteItemById(id);
+        return "deleteItem";
     }
 }

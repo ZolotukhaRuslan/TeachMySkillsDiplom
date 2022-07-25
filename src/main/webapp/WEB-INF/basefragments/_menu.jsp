@@ -23,7 +23,7 @@
             <p><input type="submit" value="Cosmetics" name="cosmetics"></p>
         </form>
     <div>
-<sec:authorize access="hasAuthority('ROLE_ADMIN')" >
+<sec:authorize access="hasAuthority('ADMIN_ROLE')" >
     <form action="/admins">
         <p><input type="submit" value="ADMIN" name="admin"></p>
     </form>

@@ -28,8 +28,8 @@
     </form>
 </div>
 <div>
-    <form action="/deleteProduct">
-        <p><input type="submit" value="deleteProduct">
+    <form action="/deleteItem">
+        <p><input type="submit" value="delete Item">
     </form>
 </div>
 <div>

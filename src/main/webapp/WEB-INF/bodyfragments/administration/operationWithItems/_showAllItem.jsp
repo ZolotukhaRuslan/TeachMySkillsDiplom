@@ -9,19 +9,24 @@
     <table>
         <thead>
         <th>Id</th>
-        <th>Name</th>
-        <th>Name</th>
-        <th>Name</th>
-        <th>Name</th>
-        <th>Name</th>
+        <th>Coast</th>
+        <th>Amount</th>
+        <th>Basket Item Id</th>
+        <th>Product Name</th>
+        <th>Product Id</th>
+        <th>Group Id</th>
+        <th>Group Name</th>
         </thead>
         <c:forEach items="${Items}" var="item">
             <tr>
                 <td>${item.itemId}</td>
                 <td>${item.coast}</td>
                 <td>${item.amountProduct}</td>
-                <td>${item.product.id}</td>
+                <td>${item.basketItems.id}</td>
                 <td>${item.product.productName}</td>
+                <td>${item.product.id}</td>
+                <td>${item.group.id}</td>
+                <td>${item.group.groupName}</td>
             </tr>
         </c:forEach>
     </table>
