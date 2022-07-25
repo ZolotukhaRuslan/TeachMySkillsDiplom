@@ -23,8 +23,8 @@
     </form>
 </div>
 <div>
-    <form action="/createProduct">
-        <p><input type="submit" value="createProduct">
+    <form action="/createItem">
+        <p><input type="submit" value="create Item">
     </form>
 </div>
 <div>

@@ -172,6 +172,10 @@
                 extends="adminPage">
         <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithItems/_deleteItem.jsp" />
     </definition>
+    <definition name = "createItem"
+                extends="adminPage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithItems/_createItem.jsp" />
+    </definition>
 
 
     <definition name="list"
