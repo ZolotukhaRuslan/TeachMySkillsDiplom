@@ -152,6 +152,11 @@
         <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithProduct/_showAllProduct.jsp" />
     </definition>
 
+    <definition name = "createProduct"
+                extends="adminPage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithProduct/_createProduct.jsp" />
+    </definition>
+
 
     <definition name="list"
                 extends="basePage">

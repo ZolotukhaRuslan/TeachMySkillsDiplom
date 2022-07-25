@@ -1,6 +1,7 @@
 package com.example.diplommaket.service;
 
 import com.example.diplommaket.entity.Group;
+import com.example.diplommaket.entity.Item;
 import com.example.diplommaket.entity.Product;
 import com.example.diplommaket.repository.GroupRepository;
 import com.example.diplommaket.repository.ProductRepository;
@@ -16,8 +17,18 @@ public class ProductService {
     private ProductRepository productRepository;
     @Autowired
     private GroupRepository groupRepository;
+    @Autowired
+    private ItemService itemService;
     public boolean addProduct(Product product) {
+        Optional<Group> group = groupRepository.findById(product.getGroups().getId());
+        Item item = new Item();
+        item.setGroup(group.get());
+        itemService.save(item);
+        product.setItems(item);
+        product.setGroups(group.get());
         productRepository.save(product);
+        item.setProduct(product);
+        itemService.save(item);
         return true;
     }
     public Optional<Product> findProductById(Long id) {
