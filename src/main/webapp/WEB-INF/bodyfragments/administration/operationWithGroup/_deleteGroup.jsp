@@ -11,7 +11,6 @@
     <title>Title</title>
 </head>
 <body>
-<body>
 <form action="/deleteGroupById">
     <p ><strong>id go</strong>
         <input maxlength="25" size="40" name="id"></p>

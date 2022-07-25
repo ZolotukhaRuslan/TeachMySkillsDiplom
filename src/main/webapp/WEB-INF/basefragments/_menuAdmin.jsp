@@ -8,6 +8,11 @@
 <head>
 <body>
 <table>
+    <div>
+        <form action="/">
+            <p><input type="submit" value="start page">
+        </form>
+    </div>
 
     <div>
         <form action="/operationWithUsers">

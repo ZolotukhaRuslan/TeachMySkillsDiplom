@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.swing.*;
 import javax.validation.Valid;
 
@@ -40,5 +41,16 @@ public class AdminProductController {
     public String createProductPost(@ModelAttribute("productForm") @Valid Product productForm){
         productService.addProduct(productForm);
         return "createProduct";
+}
+
+@RequestMapping("/deleteProduct")
+public String deleteProduct(){
+        return "deleteProduct";
+}
+@RequestMapping("/deleteProductById")
+    public String delete(HttpServletRequest request){
+        Long id = Long.valueOf(request.getParameter("id"));
+        productService.delete(id);
+        return "deleteProduct";
 }
 }
