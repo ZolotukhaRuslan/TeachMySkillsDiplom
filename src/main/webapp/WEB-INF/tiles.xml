@@ -135,7 +135,22 @@
                 extends="adminPage">
         <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithGroup/_createGroup.jsp" />
     </definition>
+    <definition name = "deleteGroup"
+                extends="adminPage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithGroup/_deleteGroup.jsp" />
+    </definition>
 
+
+    <definition name = "handlerProduct"
+                extends="adminPage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithProduct/_handlerAdminProduct.jsp" />
+    </definition>
+
+
+    <definition name = "showAllProduct"
+                extends="adminPage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithProduct/_showAllProduct.jsp" />
+    </definition>
 
 
     <definition name="list"

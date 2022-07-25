@@ -129,7 +129,7 @@ public class AdminController {
     }
 
     @PostMapping("/updateUserById")
-    public String update(@ModelAttribute("usersForm") @Valid User usersForm, Model model) {
+    public String update(@ModelAttribute("usersForm") @Valid User usersForm) {
         userService.saveUser(usersForm);
         return "updateUserById";
     }

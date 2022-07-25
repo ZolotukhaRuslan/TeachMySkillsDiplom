@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 @Controller
@@ -33,8 +34,25 @@ public class AdminGroupController {
     }
 
     @PostMapping("/createGroup")
-    public String newGroup(@ModelAttribute("groupForm") @Valid Group groupForm, Model model, BindingResult bindingResult) {
+    public String newGroup(@ModelAttribute("groupForm") @Valid Group groupForm) {
         groupService.addGroup(groupForm);
         return "redirect:/operationWithGroupProduct";
     }
+
+    @RequestMapping("/deleteGroup")
+    public String deleteGroup(){
+        return "deleteGroup";
+    }
+    @RequestMapping("/deleteGroupById")
+    public String deleteGroupById(HttpServletRequest request){
+        Long id = Long.valueOf(request.getParameter("id"));
+        groupService.deleteGroupById(id);
+        return "deleteGroup";
+    }
+
+    @RequestMapping("/updateGroup")
+    public String updateGroup(){
+        return "updateGroup";
+    }
+
 }
