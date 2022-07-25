@@ -160,7 +160,14 @@
                 extends="adminPage">
         <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithProduct/_deleteProductById.jsp" />
     </definition>
-
+    <definition name = "handlerItem"
+                extends="adminPage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithItems/_handlerItem.jsp" />
+    </definition>
+    <definition name = "showAllItem"
+                extends="adminPage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithItems/_showAllItem.jsp" />
+    </definition>
 
     <definition name="list"
                 extends="basePage">
