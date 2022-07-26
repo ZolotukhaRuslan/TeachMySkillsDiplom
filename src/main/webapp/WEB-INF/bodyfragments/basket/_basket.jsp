@@ -10,14 +10,21 @@
 <body>
 <table>
 
-    <c:forEach items="${allItemsInBasket}" var="item">
-        <form>
-            <div>
-                <p> Name: ${item.product.productName}
-                <p> Coast: ${item.coast}
-            </div>
-        </form>
-    </c:forEach>
+    <div>
+        <table>
+            <thead>
+            <th>Name Product</th>
+            <th>Coast</th>
+            </thead>
+            <c:forEach items="${allItemsInBasket}" var="item">
+                <tr>
+                    <td>${item.product.productName}</td>
+                    <td>${item.coast} <a href="/dietarySupplement/${product.id}"><+></a><a href="/dietarySupplement/${product.id}"><-></a></></td>
+                </tr>
+            </c:forEach>
+        </table>
+    </div>
+
 
 </table>
 </body>

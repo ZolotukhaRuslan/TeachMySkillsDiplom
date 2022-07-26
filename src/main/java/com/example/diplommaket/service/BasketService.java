@@ -57,4 +57,9 @@ public class BasketService {
     public List<Item> allItemsInBasket(Long id) {
         return basketService.findBasketById(id).get().getBasketItem().getItem();
     }
+
+    public boolean delete(long id){
+        basketRepository.deleteById(id);
+        return true;
+    }
 }

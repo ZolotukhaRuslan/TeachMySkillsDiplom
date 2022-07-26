@@ -177,6 +177,14 @@
         <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithItems/_createItem.jsp" />
     </definition>
 
+<definition name = "handlerBasketItem"
+            extends="adminPage">
+<put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithBasketItems/_handlerBasketItem.jsp" />
+</definition>
+    <definition name = "createBasketItem"
+                extends="adminPage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithBasketItems/_createBasketItem.jsp" />
+    </definition>
 
     <definition name="list"
                 extends="basePage">
