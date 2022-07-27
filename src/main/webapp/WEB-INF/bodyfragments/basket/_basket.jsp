@@ -20,8 +20,8 @@
             <c:forEach items="${allItemsInBasket}" var="item">
                 <tr>
                     <td>${item.product.productName}</td>
-                   <td>${item.amountZakaz}</td>
-                    <td>${item.coast} <a href="/dietarySupplement/${product.id}"><+></a><a href="/dietarySupplement/${product.id}"><-></a></></td>
+                   <td>${item.zakaz}</td>
+                    <td>${item.coast} <a href="/add/${item.id}"><+></a><a href="/ad/${product.id}"><-></a></></td>
                 </tr>
             </c:forEach>
         </table>
