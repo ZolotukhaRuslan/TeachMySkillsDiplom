@@ -15,10 +15,12 @@
             <thead>
             <th>Name Product</th>
             <th>Coast</th>
+            <th>amountZakaz</th>
             </thead>
             <c:forEach items="${allItemsInBasket}" var="item">
                 <tr>
                     <td>${item.product.productName}</td>
+                   <td>${item.amountZakaz}</td>
                     <td>${item.coast} <a href="/dietarySupplement/${product.id}"><+></a><a href="/dietarySupplement/${product.id}"><-></a></></td>
                 </tr>
             </c:forEach>
