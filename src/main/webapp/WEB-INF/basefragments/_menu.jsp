@@ -6,6 +6,11 @@
 
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/style.css"/>
 <div id = "one">
+    <div>
+        <form action="/AllProduct">
+            <p><input type="submit" value="AllProduct">
+        </form>
+    </div>
     <div >
     <form action="/medicine">
         <p><input type="submit" value="Medicine" name="medicine"></p>

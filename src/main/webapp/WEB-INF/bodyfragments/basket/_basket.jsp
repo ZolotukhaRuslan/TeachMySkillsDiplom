@@ -8,37 +8,42 @@
 
 </head>
 <body>
-<table>
-    <div>
-        <table>
-            <thead>
-            <th>Name Product</th>
-            <th>Amount</th>
-            <th>Coast</th>
-            <th>Price</th>
-            </thead>
-            <c:forEach items="${allItemsInBasket}" var="item">
+<form>
+    <table>
+        <div>
+            <table>
+                <thead>
+                <th>Name Product</th>
+                <th>Amount</th>
+                <th>Coast</th>
+                <th>Price</th>
+                <th>AllPrice</th>
+                </thead>
+                <c:forEach items="${allItemsInBasket}" var="item">
                 <tr>
                     <td>${item.product.productName}</td>
-                   <td>${item.quantityToOrder}</td>
+                    <td>${item.quantityToOrder}</td>
                     <td>${item.coast}</td>
                     <td>${item.quantityToOrder * item.coast}</td>
-                    <td> <a href="/add/${item.itemId}">+</a><a href="/minus/${item.itemId}">-</a></td>
+                    <td><a href="/add/${item.itemId}"><img src="/resources/icons/iconPlus.png"></a> <a
+                            href="/minus/${item.itemId}"><img src="/resources/icons/iconMinus.png"></a></td>
+
+                    </c:forEach>
                     <td> ${AllPrice}</td>
-
                 </tr>
-            </c:forEach>
-
-        </table>
-    </div>
-    <div>
-
-        <select type="select" path="gender">
-            <option>Adress one</option>
-            <option>Adress two</option>
-            <option>Adress three</option>
-        </select>
-    </div>
-</table>
+            </table>
+        </div>
+        <div>
+            <select type="select" path="gender">
+                <option>Adress one</option>
+                <option>Adress two</option>
+                <option>Adress three</option>
+            </select>
+        </div>
+        <form action="/submitBasket">
+            <p><input type="submit" value="&#xf0da;">
+        </form>
+    </table>
+</form>
 </body>
 </html>

@@ -25,31 +25,22 @@ public class BasketController {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         List<Item> itemsInBasket = basketService.allItemsInBasket(user.getBasket().getId());
         model.addAttribute("allItemsInBasket", itemsInBasket);
-        Long allPrice;
+        double allPrice = 0;
         for(int a=0; a< itemsInBasket.size(); a++){
-            
+        allPrice +=itemsInBasket.get(a).getQuantityToOrder()*itemsInBasket.get(a).getCoast();
         }
-        model.addAttribute("AllPrice");
+        model.addAttribute("AllPrice", allPrice);
         return "basket";
     }
 
     @RequestMapping("/add/{id}")
     public String add(@PathVariable Long id) {
-        Item item = itemService.loadItemById(id);
-        int basketAmount = item.getQuantityToOrder();
-        basketAmount = basketAmount + 1;
-        item.setQuantityToOrder(basketAmount);
-        itemService.save(item);
+       basketService.addQuantityToArder(id);
         return "redirect:/basket";
     }
     @RequestMapping("/minus/{id}")
     public String minus(@PathVariable long id) {
-        Item item = itemService.loadItemById(id);
-        int basketAmount = item.getQuantityToOrder();
-        if(basketAmount>0){
-        basketAmount = basketAmount -1;
-        item.setQuantityToOrder(basketAmount);
-        itemService.save(item);}
+        basketService.minusQuantityToOrder(id);
         return "redirect:/basket";
     }
 }

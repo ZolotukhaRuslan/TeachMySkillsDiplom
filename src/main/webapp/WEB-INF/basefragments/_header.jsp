@@ -2,7 +2,7 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <div style="background: #E0E0E0; height: 55px; padding: 5px;">
     <div style="float: left">
-        <a href="/basket">Basket</a>
+        <a href="/basket"><img src="/resources/icons/iconBasket.png"></a>
     </div>
     <sec:authorize access="!isAuthenticated()">
     <div style="float: right; padding: 10px; text-align: right;">

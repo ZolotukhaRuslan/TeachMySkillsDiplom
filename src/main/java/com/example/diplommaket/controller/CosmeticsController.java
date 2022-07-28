@@ -21,6 +21,7 @@ public class CosmeticsController {
     @RequestMapping("/cosmetics/{id}")
     public String addItemInBasket(@PathVariable Long id) {
         basketService.addItemInBasket(id);
+        basketService.addItemInBasket(id);
         return "redirect:/cosmetics";
     }
 }

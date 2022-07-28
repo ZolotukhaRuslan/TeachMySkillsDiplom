@@ -62,4 +62,20 @@ public class BasketService {
         basketRepository.deleteById(id);
         return true;
     }
+    public void addQuantityToArder(long id){
+        Item item = itemService.loadItemById(id);
+        int basketAmount = item.getQuantityToOrder();
+        basketAmount +=1;
+        item.setQuantityToOrder(basketAmount);
+        itemService.save(item);
+    }
+
+    public void minusQuantityToOrder(long id){
+        Item item = itemService.loadItemById(id);
+        int basketAmount = item.getQuantityToOrder();
+        if(basketAmount>0){
+            basketAmount -=1;
+            item.setQuantityToOrder(basketAmount);
+            itemService.save(item);}
+    }
 }

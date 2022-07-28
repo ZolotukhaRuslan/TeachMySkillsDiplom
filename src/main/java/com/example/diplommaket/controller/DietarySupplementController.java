@@ -22,6 +22,7 @@ public class DietarySupplementController {
     @RequestMapping("/dietarySupplement/{id}")
     public String addItemInBasket(@PathVariable Long id){
         basketService.addItemInBasket(id);
+        basketService.addQuantityToArder(id);
         return "redirect:/dietarySupplement";
     }
 }

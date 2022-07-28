@@ -21,6 +21,7 @@ public class MedicineController {
     @RequestMapping("/medicine/{id}")
     public String addItemInBasket(@PathVariable Long id) {
         basketService.addItemInBasket(id);
+        basketService.addQuantityToArder(id);
         return "redirect:/medicine";
     }
 }
