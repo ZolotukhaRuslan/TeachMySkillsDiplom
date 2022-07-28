@@ -9,25 +9,36 @@
 </head>
 <body>
 <table>
-
     <div>
         <table>
             <thead>
             <th>Name Product</th>
+            <th>Amount</th>
             <th>Coast</th>
-            <th>amountZakaz</th>
+            <th>Price</th>
             </thead>
             <c:forEach items="${allItemsInBasket}" var="item">
                 <tr>
                     <td>${item.product.productName}</td>
-                   <td>${item.zakaz}</td>
-                    <td>${item.coast} <a href="/add/${item.id}"><+></a><a href="/ad/${product.id}"><-></a></></td>
+                   <td>${item.quantityToOrder}</td>
+                    <td>${item.coast}</td>
+                    <td>${item.quantityToOrder * item.coast}</td>
+                    <td> <a href="/add/${item.itemId}">+</a><a href="/minus/${item.itemId}">-</a></td>
+                    <td> ${AllPrice}</td>
+
                 </tr>
             </c:forEach>
+
         </table>
     </div>
+    <div>
 
-
+        <select type="select" path="gender">
+            <option>Adress one</option>
+            <option>Adress two</option>
+            <option>Adress three</option>
+        </select>
+    </div>
 </table>
 </body>
 </html>

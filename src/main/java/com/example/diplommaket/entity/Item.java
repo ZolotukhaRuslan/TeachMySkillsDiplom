@@ -12,7 +12,7 @@ public class Item {
     private long itemId;
     private double coast;
     private long amountProduct;
-    private int zakaz;
+    private int quantityToOrder;
 
     @OneToOne
     @ToString.Exclude
