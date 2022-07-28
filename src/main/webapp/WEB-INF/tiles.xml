@@ -43,6 +43,10 @@
                extends="basePage">
         <put-attribute name="body" value="/WEB-INF/bodyfragments/group/_medicine.jsp" />
     </definition>
+    <definition name="allProduct"
+                extends="basePage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/group/_allProducts.jsp" />
+    </definition>
 
     <definition name="medicalProducts"
                 extends="basePage">

@@ -34,15 +34,14 @@
             </table>
         </div>
         <div>
-            <select type="select" path="gender">
+            <select type="select" path="gender" class="ButtonSubmit">
                 <option>Adress one</option>
                 <option>Adress two</option>
                 <option>Adress three</option>
             </select>
         </div>
-        <form action="/submitBasket">
-            <p><input type="submit" value="&#xf0da;">
-        </form>
+
+       <p> <a href="/submitBasket" class="ButtonSubmit">Submit</a>
     </table>
 </form>
 </body>

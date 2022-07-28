@@ -1,38 +1,36 @@
-
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 
 
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/style.css"/>
-<div id = "one">
+<div id="one">
+    <form>
     <div>
-        <form action="/AllProduct">
-            <p><input type="submit" value="AllProduct">
-        </form>
+        <a href="/allProduct" class="myButtonMenu">All products</a>
     </div>
-    <div >
-    <form action="/medicine">
-        <p><input type="submit" value="Medicine" name="medicine"></p>
+
+    <div>
+        <a href="/medicine" class="myButtonMenu">Medicine</a>
+    </div>
+
+    <div>
+        <a href="/dietarySupplement" class="myButtonMenu">Dietary Supplement</a>
+    </div>
+
+    <div>
+        <a href="/medicalProducts" class="myButtonMenu">Medical Products</a>
+    </div>
+
+    <div>
+        <a href="/cosmetics" class="myButtonMenu">Cosmetics</a>
+    </div>
+
+    <div>
+        <sec:authorize access="hasAuthority('ADMIN_ROLE')">
+            <a href="/admins" class="ButtonForAdmin">Admin Operation</a>
+        </sec:authorize>
+    </div>
     </form>
-    </div>
-    <div>
-        <form action="/dietarySupplement">
-            <p><input type="submit" value="Dietary Supplement" name="dietarySupplement"></p>
-        </form>
-    </div>
-    <form action="/medicalProducts">
-            <p><input type="submit" value="Medical Products" name="medicalProducts"></p>
-        </form>
-        <form action="/cosmetics">
-            <p><input type="submit" value="Cosmetics" name="cosmetics"></p>
-        </form>
-    <div>
-<sec:authorize access="hasAuthority('ADMIN_ROLE')" >
-    <form action="/admins">
-        <p><input type="submit" value="ADMIN" name="admin"></p>
-    </form>
-</sec:authorize>
-    </div>
 </div>
 

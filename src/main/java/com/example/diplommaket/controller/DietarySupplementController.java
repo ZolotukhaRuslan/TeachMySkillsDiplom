@@ -6,7 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import javax.servlet.http.HttpServletRequest;
+
 @Controller
 public class DietarySupplementController {
     @Autowired
@@ -22,7 +22,7 @@ public class DietarySupplementController {
     @RequestMapping("/dietarySupplement/{id}")
     public String addItemInBasket(@PathVariable Long id){
         basketService.addItemInBasket(id);
-        basketService.addQuantityToArder(id);
+        basketService.addQuantityToOrder(id);
         return "redirect:/dietarySupplement";
     }
 }

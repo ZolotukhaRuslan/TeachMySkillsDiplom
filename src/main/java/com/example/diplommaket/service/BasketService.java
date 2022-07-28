@@ -62,7 +62,7 @@ public class BasketService {
         basketRepository.deleteById(id);
         return true;
     }
-    public void addQuantityToArder(long id){
+    public void addQuantityToOrder(long id){
         Item item = itemService.loadItemById(id);
         int basketAmount = item.getQuantityToOrder();
         basketAmount +=1;

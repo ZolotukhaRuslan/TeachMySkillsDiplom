@@ -19,9 +19,9 @@ public class MedicineController {
         return "medicine";
     }
     @RequestMapping("/medicine/{id}")
-    public String addItemInBasket(@PathVariable Long id) {
+    public String addItemMedicineInBasket(@PathVariable Long id) {
         basketService.addItemInBasket(id);
-        basketService.addQuantityToArder(id);
+        basketService.addQuantityToOrder(id);
         return "redirect:/medicine";
     }
 }

@@ -6,38 +6,29 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/style.css"/>
+</head>
 <body>
 <table>
     <div>
-        <form action="/">
-            <p><input type="submit" value="start page">
-        </form>
+        <a href="/" class="ButtonForAdmin">Home Page</a>
     </div>
 
     <div>
-        <form action="/operationWithUsers">
-            <p><input type="submit" value="CRUD operation with users">
-        </form>
+        <a href="/operationWithUsers" class="ButtonForAdmin">Operation with Users</a>
     </div>
     <div>
-        <form action="/operationWithGroupProduct">
-            <p><input type="submit" value="CRUD operation with group product">
-        </form>
+        <a href="/operationWithGroupProduct" class="ButtonForAdmin">Operation with Group</a>
     </div>
     <div>
-        <form action="/operationWithProduct">
-            <p><input type="submit" value="CRUD operation with product">
-        </form>
+        <a href="/operationWithProduct" class="ButtonForAdmin">Operation with Product</a>
     </div>
     <div>
-        <form action="/operationWithItem">
-            <p><input type="submit" value="CRUD operation with items">
-        </form>
+        <a href="/operationWithItem" class="ButtonForAdmin">Operation with Item</a>
     </div>
+
     <div>
-        <form action="/operationWithBasket">
-            <p><input type="submit" value="CRUD operation with Basket">
-        </form>
+        <a href="/operationWithBasket" class="ButtonForAdmin">Operation with Basket</a>
     </div>
 
 

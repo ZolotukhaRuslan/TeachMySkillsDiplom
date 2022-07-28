@@ -3,7 +3,6 @@ package com.example.diplommaket.controller;
 import com.example.diplommaket.entity.Item;
 import com.example.diplommaket.entity.User;
 import com.example.diplommaket.service.BasketService;
-import com.example.diplommaket.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -17,8 +16,7 @@ import java.util.List;
 public class BasketController {
     @Autowired
     private BasketService basketService;
-    @Autowired
-    private ItemService itemService;
+
 
     @RequestMapping("/basket")
     public String basketPage(Model model) {
@@ -35,7 +33,7 @@ public class BasketController {
 
     @RequestMapping("/add/{id}")
     public String add(@PathVariable Long id) {
-       basketService.addQuantityToArder(id);
+       basketService.addQuantityToOrder(id);
         return "redirect:/basket";
     }
     @RequestMapping("/minus/{id}")

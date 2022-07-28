@@ -5,49 +5,31 @@
 <table>
 
     <div>
-        <form action="/showAllUsers">
-            <p><input type="submit" value="Show all users">
-        </form>
+        <a href="/showAllUsers" class="ButtonForAdminBody">Show all users</a>
     </div>
     <div>
-        <form action="/showUserById">
-            <p><input type="submit" value="Show user by id">
-        </form>
+        <a href="/showUserById" class="ButtonForAdminBody">Show user by id</a>
     </div>
     <div>
-        <form action="/showUserByLogin">
-            <p><input type="submit" value="Show user by ligin">
-        </form>
+        <a href="/showUserByLogin" class="ButtonForAdminBody">Show user by login</a>
     </div>
     <div>
-        <form action="/showUsersByName">
-            <p><input type="submit" value="Show users by name">
-        </form>
+        <a href="/showUsersByName" class="ButtonForAdminBody">Show users by name</a>
     </div>
     <div>
-        <form action="/createNewUser">
-            <p><input type="submit" value="Create new User">
-        </form>
+        <a href="/createNewUser" class="ButtonForAdminBody">Create new User</a>
     </div>
     <div>
-        <form action="/updateUserById">
-            <p><input type="submit" value="Update user by id">
-        </form>
+        <a href="/updateUserById" class="ButtonForAdminBody">Update user by id</a>
     </div>
     <div>
-        <form action="/updateUserByLogin">
-            <p><input type="submit" value="Update user by login">
-        </form>
+        <a href="/updateUserByLogin" class="ButtonForAdminBody">Update user by login</a>
     </div>
     <div>
-        <form action="/deleteUserById">
-            <p><input type="submit" value="Delete user by id">
-        </form>
+        <a href="/deleteUserById" class="ButtonForAdminBody">Delete user by id</a>
     </div>
     <div>
-        <form action="/deleteUserByLogin">
-            <p><input type="submit" value="Delete user by login">
-        </form>
+        <a href="/deleteUserByLogin" class="ButtonForAdminBody">Delete user by login</a>
     </div>
 
 

@@ -11,8 +11,11 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @Configuration
 @EnableWebMvc
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+
+
 @Autowired
     UserService userService;
+
     @Bean
     public BCryptPasswordEncoder bCryptPasswordEncoder() {
         return new BCryptPasswordEncoder();
