@@ -1,3 +1,4 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: User
@@ -12,24 +13,21 @@
 </head>
 <body>
 <div>
-    <form action="/updateGroup">
-        <p><input type="submit" value="Update group">
-    </form>
+    <a href="/updateGroup" class="ButtonAdmin"><spring:message
+            code="Update.Group"></spring:message></a>
 </div>
 <div>
-    <form action="/showGroup">
-        <p><input type="submit" value="show group">
-    </form>
+    <a href="/showGroup" class="ButtonAdmin"><spring:message
+            code="Show.Group"></spring:message></a>
 </div>
 <div>
-    <form action="/deleteGroup">
-        <p><input type="submit" value="Deletegroup">
-    </form>
+    <a href="/deleteGroup" class="ButtonAdmin"><spring:message
+            code="Delete.Group"></spring:message></a>
 </div>
 <div>
-    <form action="/createGroup">
-        <p><input type="submit" value="createGroup">
-    </form>
+    <a href="/createGroup" class="ButtonAdmin"><spring:message
+            code="Create.Group"></spring:message></a>
+
 </div>
 
 </body>

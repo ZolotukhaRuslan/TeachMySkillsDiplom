@@ -1,3 +1,4 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: User
@@ -12,7 +13,8 @@
 </head>
 <body>
 <form action="/deleteProductById">
-    <p ><strong>id go</strong>
+    <p ><strong><spring:message
+            code="Enter.id.product"></spring:message></strong>
         <input maxlength="25" size="40" name="id"></p>
     <p><input type="submit" value="id" name="start"></p>
 </form>

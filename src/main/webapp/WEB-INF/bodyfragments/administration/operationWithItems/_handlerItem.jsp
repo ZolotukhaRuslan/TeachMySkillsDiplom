@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: User
-  Date: 25.07.2022
-  Time: 20:53
-  To change this template use File | Settings | File Templates.
---%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -13,29 +7,25 @@
 <body>
 <body>
 <div>
-    <form action="/showAllItems">
-        <p><input type="submit" value="showAllItems">
+            <a href="/showAllItems" class="ButtonAdmin"><spring:message
+                    code="Show.All.Items"></spring:message></a>
+</div>
+<div>
+            <a href="/showItemById" class="ButtonAdmin"><spring:message
+                    code="Show.Item.By.Id"></spring:message></a>
     </form>
 </div>
 <div>
-    <form action="/showAllProduct">
-        <p><input type="submit" value="showAllProduct">
-    </form>
+            <a href="/createItem" class="ButtonAdmin"><spring:message
+                    code="Create.item"></spring:message></a>
 </div>
 <div>
-    <form action="/createItem">
-        <p><input type="submit" value="create Item">
-    </form>
+            <a href="/deleteItem" class="ButtonAdmin"><spring:message
+                    code="Delete.Item"></spring:message></a>
 </div>
 <div>
-    <form action="/deleteItem">
-        <p><input type="submit" value="delete Item">
-    </form>
-</div>
-<div>
-    <form action="/updateProduct">
-        <p><input type="submit" value="updateProduct">
-    </form>
+            <a href="/updateItem" class="ButtonAdmin"><spring:message
+                    code="Update.item"></spring:message></a>
 </div>
 </body>
 </body>

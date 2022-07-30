@@ -8,9 +8,10 @@
 <body>
 <form action="/loadUserByLoginForDelete">
     <p ><strong><spring:message
-            code="Enter.id.user"></spring:message></strong>
+            code="Enter.login.user"></spring:message></strong>
         <input maxlength="25" size="40" name="login"></p>
-    <p><input type="submit" value="login" name="start"></p>
+    <p><input type="submit" value="<spring:message
+            code="Confirm"></spring:message>"  class="ButtonForAdmin"></p>
 </form>
 <form>
     <div>
@@ -45,7 +46,7 @@
                 <td><c:forEach items="${User.roles}" var="role">
                     ${role.name}
                 </c:forEach></td>
-                <td><p> <a href="/deleteUserLogin/${User.login}"><spring:message
+                <td><p> <a href="/deleteUserLogin/${User.login}" class="ButtonForAdmin"><spring:message
                         code="Delete"></spring:message></a></td>
             </tr>
 

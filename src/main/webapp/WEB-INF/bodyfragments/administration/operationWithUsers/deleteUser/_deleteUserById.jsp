@@ -1,6 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -11,7 +10,8 @@
     <p ><strong><spring:message
             code="Enter.id.user"></spring:message></strong>
         <input maxlength="25" size="40" name="id"></p>
-    <p><input type="submit" value="id" name="start"></p>
+    <p><input type="submit" value="<spring:message
+            code="Confirm"></spring:message>"  class="ButtonForAdmin"> </p>
 </form>
 <form>
     <div>
@@ -33,7 +33,7 @@
                     code="Basket.id"></spring:message></th>
             <th><spring:message
                     code="Role"></spring:message></th>
-            <th></th>
+
             </thead>
             <tr>
                 <td>${User.id}</td>
@@ -46,7 +46,7 @@
                 <td><c:forEach items="${User.roles}" var="role">
                     ${role.name}
                 </c:forEach></td>
-                <td><p> <a href="/deleteUser/${User.id}"><spring:message
+                <td><p> <a href="/deleteUser/${User.id}" class="ButtonForAdmin"><spring:message
                         code="Delete"></spring:message></a></td>
                             </tr>
 

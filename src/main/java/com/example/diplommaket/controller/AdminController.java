@@ -38,7 +38,7 @@ public class AdminController {
 
     @RequestMapping("/loadUserById")
     public String loadUserById(Model model, HttpServletRequest request) {
-        Long id = Long.valueOf(request.getParameter("id"));
+       Long id = Long.valueOf(request.getParameter("id"));
         model.addAttribute("User", userService.loadUserById(id).get());
         return "showUserById";
     }

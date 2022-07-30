@@ -24,7 +24,7 @@
     </div>
     <div>
         <a href="/operationWithItem" class="ButtonAdmin"><spring:message
-                code="Operation.with.Group"></spring:message></a>
+                code="Operation.with.Item"></spring:message></a>
     </div>
     <div>
         <a href="/operationWithBasket" class="ButtonAdmin"><spring:message

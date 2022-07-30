@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -8,14 +9,22 @@
 <div>
     <table>
         <thead>
-        <th>Id</th>
-        <th>Coast</th>
-        <th>Amount</th>
-        <th>Basket Item Id</th>
-        <th>Product Name</th>
-        <th>Product Id</th>
-        <th>Group Id</th>
-        <th>Group Name</th>
+        <th><spring:message
+                code="Id"></spring:message></th>
+        <th><spring:message
+                code="Coast"></spring:message></th>
+        <th><spring:message
+                code="Amount"></spring:message></th>
+        <th><spring:message
+                code="Basket.Item.Id"></spring:message></th>
+        <th><spring:message
+                code="Name.Product"></spring:message></th>
+        <th><spring:message
+                code="Product.id"></spring:message></th>
+        <th><spring:message
+                code="Group.Id"></spring:message></th>
+        <th><spring:message
+                code="Group.Name"></spring:message></th>
         </thead>
         <c:forEach items="${Items}" var="item">
             <tr>

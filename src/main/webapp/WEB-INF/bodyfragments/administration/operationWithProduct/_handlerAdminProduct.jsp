@@ -1,3 +1,4 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -6,29 +7,24 @@
 </head>
 <body>
 <div>
-    <form action="/showProductById">
-        <p><input type="submit" value="showProductById">
-    </form>
+            <a href="/showProductById" class="ButtonAdmin"><spring:message
+                    code="Show.product"></spring:message></a>
 </div>
 <div>
-    <form action="/showAllProduct">
-        <p><input type="submit" value="showAllProduct">
-    </form>
+            <a href="/showAllProduct" class="ButtonAdmin"><spring:message
+                    code="Show.all.product"></spring:message></a>
 </div>
 <div>
-    <form action="/createProduct">
-        <p><input type="submit" value="createProduct">
-    </form>
+            <a href="/createProduct" class="ButtonAdmin"><spring:message
+                    code="Create.product"></spring:message></a>
 </div>
 <div>
-    <form action="/deleteProduct">
-        <p><input type="submit" value="deleteProduct">
-    </form>
+            <a href="/deleteProduct" class="ButtonAdmin"><spring:message
+                    code="Delete.product"></spring:message></a>
 </div>
 <div>
-    <form action="/updateProduct">
-        <p><input type="submit" value="updateProduct">
-    </form>
+            <a href="/updateProduct" class="ButtonAdmin"><spring:message
+                    code="Update.product"></spring:message></a>
 </div>
 </body>
 </html>

@@ -1,38 +1,45 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
 <body>
 <table>
-
     <div>
-        <a href="/showAllUsers" class="ButtonAdmin">Show all users</a>
+        <a href="/showAllUsers" class="ButtonAdmin"><spring:message
+                code="Show.all.users"></spring:message></a>
     </div>
     <div>
-        <a href="/showUserById" class="ButtonAdmin">Show user by id</a>
+        <a href="/showUserById" class="ButtonAdmin"><spring:message
+                code="Show.user.by.id"></spring:message></a>
     </div>
     <div>
-        <a href="/showUserByLogin" class="ButtonForAdminBody">Show user by login</a>
+        <a href="/showUserByLogin" class="ButtonAdmin"><spring:message
+                code="Show.user.by.login"></spring:message></a>
     </div>
     <div>
-        <a href="/showUsersByName" class="ButtonForAdminBody">Show users by name</a>
+        <a href="/showUsersByName" class="ButtonAdmin"><spring:message
+                code="Show.users.by.name"></spring:message></a>
     </div>
     <div>
-        <a href="/createNewUser" class="ButtonForAdminBody">Create new User</a>
+        <a href="/createNewUser" class="ButtonAdmin"><spring:message
+                code="Create.new.User"></spring:message></a>
     </div>
     <div>
-        <a href="/updateUserById" class="ButtonForAdminBody">Update user by id</a>
+        <a href="/updateUserById" class="ButtonAdmin"><spring:message
+                code="Update.user.by.id"></spring:message></a>
     </div>
     <div>
-        <a href="/updateUserByLogin" class="ButtonForAdminBody">Update user by login</a>
+        <a href="/updateUserByLogin" class="ButtonAdmin"><spring:message
+                code="Update.user.by.login"></spring:message></a>
     </div>
     <div>
-        <a href="/deleteUserById" class="ButtonForAdminBody">Delete user by id</a>
+        <a href="/deleteUserById" class="ButtonAdmin"><spring:message
+                code="Delete.user.by.id"></spring:message></a>
     </div>
     <div>
-        <a href="/deleteUserByLogin" class="ButtonForAdminBody">Delete user by login</a>
+        <a href="/deleteUserByLogin" class="ButtonAdmin"><spring:message
+                code="Delete.user.by.login"></spring:message></a>
     </div>
-
-
 </table>
 </body>
 </html>
