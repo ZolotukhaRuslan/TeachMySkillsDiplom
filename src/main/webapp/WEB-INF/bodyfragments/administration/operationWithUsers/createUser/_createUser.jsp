@@ -1,4 +1,5 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: User
@@ -42,8 +43,7 @@
             <option>Woman</option>
         </form:select>
     </div>
-
-<button type="submit">ok</button>
+    <a href type="submit" class="ButtonForAdmin"><spring:message code = "Confirm"></spring:message></a>
 </form:form>
 </body>
 </html>

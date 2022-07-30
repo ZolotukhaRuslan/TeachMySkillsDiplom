@@ -5,10 +5,10 @@
 <table>
 
     <div>
-        <a href="/showAllUsers" class="ButtonForAdminBody">Show all users</a>
+        <a href="/showAllUsers" class="ButtonAdmin">Show all users</a>
     </div>
     <div>
-        <a href="/showUserById" class="ButtonForAdminBody">Show user by id</a>
+        <a href="/showUserById" class="ButtonAdmin">Show user by id</a>
     </div>
     <div>
         <a href="/showUserByLogin" class="ButtonForAdminBody">Show user by login</a>

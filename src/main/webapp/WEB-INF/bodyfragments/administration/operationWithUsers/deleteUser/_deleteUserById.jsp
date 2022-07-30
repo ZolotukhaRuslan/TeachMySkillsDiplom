@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -7,7 +8,8 @@
 </head>
 <body>
 <form action="/loadUserByIdForDelete">
-    <p ><strong>id go</strong>
+    <p ><strong><spring:message
+            code="Enter.id.user"></spring:message></strong>
         <input maxlength="25" size="40" name="id"></p>
     <p><input type="submit" value="id" name="start"></p>
 </form>
@@ -15,14 +17,22 @@
     <div>
         <table>
             <thead>
-            <th>Id</th>
-            <th>Login</th>
-            <th>Name</th>
-            <th>Age</th>
-            <th>Mail</th>
-            <th>Gender</th>
-            <th>Basket id</th>
-            <th>Role</th>
+            <th><spring:message
+                    code="Id"></spring:message></th>
+            <th><spring:message
+                    code="Login"></spring:message></th>
+            <th><spring:message
+                    code="Name"></spring:message></th>
+            <th><spring:message
+                    code="Age"></spring:message></th>
+            <th><spring:message
+                    code="Mail"></spring:message></th>
+            <th><spring:message
+                    code="Gender"></spring:message></th>
+            <th><spring:message
+                    code="Basket.id"></spring:message></th>
+            <th><spring:message
+                    code="Role"></spring:message></th>
             <th></th>
             </thead>
             <tr>
@@ -36,7 +46,8 @@
                 <td><c:forEach items="${User.roles}" var="role">
                     ${role.name}
                 </c:forEach></td>
-                <td><p> <a href="/deleteUser/${User.id}">delete</a></td>
+                <td><p> <a href="/deleteUser/${User.id}"><spring:message
+                        code="Delete"></spring:message></a></td>
                             </tr>
 
         </table>

@@ -64,7 +64,7 @@
 
     <definition name="administration"
                 extends="basePage">
-        <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/_administration.jsp" />
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/_handlerAdminOperation.jsp" />
     </definition>
 
     <definition name="newGroups"

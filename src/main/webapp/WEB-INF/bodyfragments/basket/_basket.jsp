@@ -1,6 +1,7 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 
 <!DOCTYPE html>
 <html>
@@ -13,11 +14,11 @@
         <div>
             <table>
                 <thead>
-                <th>Name Product</th>
-                <th>Amount</th>
-                <th>Coast</th>
-                <th>Price</th>
-                <th>AllPrice</th>
+                <th><spring:message code = "Name.Product"></spring:message></th>
+                <th> <spring:message code = "Amount"></spring:message></th>
+                <th> <spring:message code = "Coast"></spring:message></th>
+                <th> <spring:message code = "Price"></spring:message></th>
+                <th> <spring:message code = "AllPrice"></spring:message></th>
                 </thead>
                 <c:forEach items="${allItemsInBasket}" var="item">
                 <tr>

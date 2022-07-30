@@ -14,14 +14,14 @@
     </div>
     <sec:authorize access="!isAuthenticated()">
     <div style="float: right; padding: 10px; text-align: right;">
-        <h4><a href="/login"><spring:message code="Sign.in"/> Sign in</a></h4></div>
+        <h4><a href="/login"><spring:message code="Sign.in"/></a></h4></div>
     <div style="float: right; padding: 10px; text-align: right;">
-        <h4><a href="/registration">Registration</a></h4>
+        <h4><a href="/registration"><spring:message code = "Registration"/></a></h4>
     </div>
     </sec:authorize>
       <sec:authorize access="isAuthenticated()">
     <div style="float: right; padding: 10px; text-align: right;">
         <h3>   ${pageContext.request.userPrincipal.name}</h3>
-        <h4><a href="/logout">Log out</a></h4>
+        <h4><a href="/logout"><spring:message code = "Log.out"/></a></h4>
      </sec:authorize>
 </div>
