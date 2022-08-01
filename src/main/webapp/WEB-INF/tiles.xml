@@ -180,6 +180,10 @@
                 extends="adminPage">
         <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithItems/_createItem.jsp" />
     </definition>
+    <definition name = "addImageProduct"
+                extends="adminPage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithProduct/_addImage.jsp" />
+    </definition>
 
 <definition name = "handlerBasketItem"
             extends="adminPage">

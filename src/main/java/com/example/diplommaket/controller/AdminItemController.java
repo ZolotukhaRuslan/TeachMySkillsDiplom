@@ -1,22 +1,29 @@
 package com.example.diplommaket.controller;
 
 import com.example.diplommaket.entity.Item;
+import com.example.diplommaket.entity.Product;
 import com.example.diplommaket.service.ItemService;
+import com.example.diplommaket.service.ProductService;
+import com.mysql.cj.jdbc.Blob;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import java.io.*;
+import java.sql.PreparedStatement;
+
+import static java.lang.System.out;
 
 @Controller
 public class AdminItemController {
     @Autowired
     private ItemService itemService;
+    @Autowired
+    private ProductService productService;
     @RequestMapping("/operationWithItem")
     public String handlerItems(){
         return "handlerItem";
@@ -48,4 +55,25 @@ model.addAttribute("Items", itemService.allItem());
         return "createItem";
     }
 
+    @GetMapping("/addImage")
+    public String addImage() {
+
+        return "addImageItem";
+    }
+    @PostMapping("/addImage")
+    public String addImagePost(Model model, HttpServletRequest request, @RequestParam ("file") MultipartFile file) throws IOException {
+
+       /*
+        Product product = productService.findProductById(1L).get();
+        byte[] bytes = file.getBytes();
+        BufferedOutputStream stream =
+                new BufferedOutputStream(System.out);
+        stream.write(bytes);
+        stream.close();
+        product.setImageProduct(bytes);
+        productService.save(product);
+        return "addImageItem";
+    }*/
+        return "addImageItem";
+    }
 }

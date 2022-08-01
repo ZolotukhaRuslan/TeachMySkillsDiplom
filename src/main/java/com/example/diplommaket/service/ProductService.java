@@ -40,4 +40,7 @@ public class ProductService {
     public List<Product> getAllProduct(){
         return productRepository.findAll();
     }
+    public void save(Product product){
+        productRepository.save(product);
+    }
 }

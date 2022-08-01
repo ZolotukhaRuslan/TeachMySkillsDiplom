@@ -120,19 +120,20 @@ public class AdminController {
         }
         return "createUser";
     }
+    @RequestMapping("/updateUserById")
+    public String update() {
+        return "updateUserById";
+    }
 
     //this method needs improvement
-    @GetMapping("/updateUserById")
-    public String updateUserById(Model model) {
-        model.addAttribute("updateUserForm", userService.loadUserById(20L));
+    @RequestMapping("/updateUser")
+    public String updateUserById(Model model, HttpServletRequest request) {
+        Long id = Long.valueOf(request.getParameter("id"));
+       // Long id = 7L;
+      model.addAttribute("User", userService.loadUserById(id).get());
         return "updateUserById";
     }
 
-    @PostMapping("/updateUserById")
-    public String update(@ModelAttribute("usersForm") @Valid User usersForm) {
-        userService.saveUser(usersForm);
-        return "updateUserById";
-    }
 //this method needs improvement
 
 }
