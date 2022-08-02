@@ -1,7 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -49,8 +48,21 @@
                 ${role.name}
             </c:forEach></td
         </tr>
-
     </table>
+    <form>
+
+        <p><a href="/updateLogin/${User.id}" class="ButtonForAdmin"> Update Login</a>
+        <a href="/updateUserName/${User.id}" class="ButtonForAdmin"> Update Name</a>
+      <p>  <a href="/updateAge/${User.id}" class="ButtonForAdmin"> Update Age</a>
+            <a href="/updateMail/${User.id}" class="ButtonForAdmin"> Update Mail</a>
+        <p>  <a href="/updateBasketId/${User.id}" class="ButtonForAdmin"> Update Basket Id</a>
+        <a href="/updateGender/${User.id}" class="ButtonForAdmin"> Update Gender</a>
+        <p><a href="/updateRole/${User.id}" class="ButtonForAdmin"> Update Role</a></p>
+
+    </form>
+
+
+
 </div>
 </body>
 </html>

@@ -129,10 +129,19 @@ public class AdminController {
     @RequestMapping("/updateUser")
     public String updateUserById(Model model, HttpServletRequest request) {
         Long id = Long.valueOf(request.getParameter("id"));
-       // Long id = 7L;
       model.addAttribute("User", userService.loadUserById(id).get());
         return "updateUserById";
     }
+    @RequestMapping("/updateLogin/{id}")
+    public String updateLogin(@PathVariable Long id, HttpServletRequest request){
+        User user = userService.loadUserById(id).get();
+        user.setLogin(request.getParameter("login"));
+        System.out.println(user.getLogin());
+        userService.save(user);
+        return "updateLogin";
+
+    }
+
 
 //this method needs improvement
 

@@ -125,6 +125,10 @@
                 extends="adminPage">
         <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithUsers/updateUser/_updateUserById.jsp" />
     </definition>
+    <definition name = "updateLogin"
+                extends="adminPage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithUsers/updateUser/_updateLogin.jsp" />
+    </definition>
 
     <definition name = "handlerGroup"
                 extends="adminPage">
