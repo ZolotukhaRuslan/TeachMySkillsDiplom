@@ -125,11 +125,39 @@
                 extends="adminPage">
         <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithUsers/updateUser/_updateUserById.jsp" />
     </definition>
+    <definition name = "updateUserByLogin"
+                extends="adminPage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithUsers/updateUser/_updateUserBy.jsp" />
+    </definition>
     <definition name = "updateLogin"
                 extends="adminPage">
-        <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithUsers/updateUser/_updateLogin.jsp" />
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithUsers/updateUser/_updateLoginById.jsp" />
+    </definition>
+    <definition name = "updateUserByLogin"
+                extends="adminPage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithUsers/updateUser/_updateUserByLogin.jsp" />
     </definition>
 
+    <definition name = "updateUserLogin"
+                extends="adminPage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithUsers/updateUser/_updateLoginByLogin.jsp" />
+    </definition>
+    <definition name = "updateUserNameById"
+                extends="adminPage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithUsers/updateUser/_updateUserNameById.jsp" />
+    </definition>
+    <definition name = "updateUserNameByLogin"
+                extends="adminPage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithUsers/updateUser/_updateUserNameByLogin.jsp" />
+    </definition>
+    <definition name = "updateAgeByLogin"
+                extends="adminPage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithUsers/updateUser/_updateAgeByLogin.jsp" />
+    </definition>
+    <definition name = "updateAgeById"
+                extends="adminPage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithUsers/updateUser/_updateAgeById.jsp" />
+    </definition>
     <definition name = "handlerGroup"
                 extends="adminPage">
         <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithGroup/_handlerGroupCRUD.jsp" />

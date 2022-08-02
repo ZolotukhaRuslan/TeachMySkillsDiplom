@@ -38,7 +38,7 @@ public class AdminController {
 
     @RequestMapping("/loadUserById")
     public String loadUserById(Model model, HttpServletRequest request) {
-       Long id = Long.valueOf(request.getParameter("id"));
+        Long id = Long.valueOf(request.getParameter("id"));
         model.addAttribute("User", userService.loadUserById(id).get());
         return "showUserById";
     }
@@ -78,12 +78,14 @@ public class AdminController {
         model.addAttribute("User", userService.loadUserById(id).get());
         return "deleteUserById";
     }
+
     @RequestMapping("/loadUserByLoginForDelete")
     public String loadUserByLoginForDelete(Model model, HttpServletRequest request) {
         String login = (request.getParameter("login"));
         model.addAttribute("User", userService.loadUserByLogin(login));
         return "deleteUserByLogin";
     }
+
     @RequestMapping("/deleteUser/{id}")
     public String deleteUser(@PathVariable Long id) {
         userService.deleteUserById(id);
@@ -120,6 +122,7 @@ public class AdminController {
         }
         return "createUser";
     }
+
     @RequestMapping("/updateUserById")
     public String update() {
         return "updateUserById";
@@ -129,20 +132,80 @@ public class AdminController {
     @RequestMapping("/updateUser")
     public String updateUserById(Model model, HttpServletRequest request) {
         Long id = Long.valueOf(request.getParameter("id"));
-      model.addAttribute("User", userService.loadUserById(id).get());
+        model.addAttribute("User", userService.loadUserById(id).get());
         return "updateUserById";
     }
+
     @RequestMapping("/updateLogin/{id}")
-    public String updateLogin(@PathVariable Long id, HttpServletRequest request){
+    public String updateLogin(@PathVariable Long id, HttpServletRequest request) {
         User user = userService.loadUserById(id).get();
         user.setLogin(request.getParameter("login"));
-        System.out.println(user.getLogin());
         userService.save(user);
         return "updateLogin";
+    }
 
+    @RequestMapping("/updateUserByLogin")
+    public String updateUserById() {
+        return "updateUserByLogin";
+    }
+
+    @RequestMapping("/updateLoginUser/{login}")
+    public String updateLoginUser(@PathVariable String login, HttpServletRequest request) {
+        User user = userService.loadUserByLogin(login);
+        String log = request.getParameter("logins");
+        if (log != null) {
+            user.setLogin(log);
+            userService.save(user);
+        }
+        return "updateUserLogin";
+    }
+
+    @RequestMapping("/updateUserWithLogin")
+    public String updateUserByLogin(Model model, HttpServletRequest request) {
+        String login = request.getParameter("login");
+        model.addAttribute("User", userService.loadUserByLogin(login));
+        return "updateUserByLogin";
+    }
+
+    @RequestMapping("/updateUserName/{id}")
+    public String updateUserNameById(@PathVariable Long id, HttpServletRequest request) {
+        User user = userService.loadUserById(id).get();
+        user.setUsername(request.getParameter("userName"));
+        userService.save(user);
+        return "updateUserNameById";
+    }
+
+    @RequestMapping("/updateUserNameByLogin/{login}")
+    public String updateUserNameByLogin(@PathVariable String login, HttpServletRequest request) {
+        User user = userService.loadUserByLogin(login);
+        user.setUsername(request.getParameter("userName"));
+        userService.save(user);
+        return "updateUserNameByLogin";
     }
 
 
-//this method needs improvement
+    @RequestMapping("/updateAge/{id}")
+    public String updateAgeById(@PathVariable Long id, HttpServletRequest request){
+        User user = userService.loadUserById(id).get();
+       String age = request.getParameter("age");
+       if(age!=null){
+        user.setAge(Integer.parseInt(request.getParameter("age")));
+        userService.save(user);}
+        return "updateAgeById";
+    }
+
+    @RequestMapping("/updateAgeByLogin/{login}")
+    public String updateAgeByLogin(@PathVariable String login, HttpServletRequest request){
+        User user = userService.loadUserByLogin(login);
+        String age = request.getParameter("age");
+        if(age!=null){
+        user.setAge(Integer.parseInt(request.getParameter("age")));
+        userService.save(user);}
+    return "updateAgeByLogin";
+    }
+
 
 }
+
+
+
