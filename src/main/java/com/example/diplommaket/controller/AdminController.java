@@ -1,6 +1,7 @@
 package com.example.diplommaket.controller;
 
 import com.example.diplommaket.entity.User;
+import com.example.diplommaket.service.BasketService;
 import com.example.diplommaket.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,6 +15,8 @@ import javax.validation.Valid;
 public class AdminController {
     @Autowired
     private UserService userService;
+    @Autowired
+    private BasketService basketService;
 
     @RequestMapping("/admins")
     public String admin() {
@@ -185,23 +188,83 @@ public class AdminController {
 
 
     @RequestMapping("/updateAge/{id}")
-    public String updateAgeById(@PathVariable Long id, HttpServletRequest request){
+    public String updateAgeById(@PathVariable Long id, HttpServletRequest request) {
         User user = userService.loadUserById(id).get();
-       String age = request.getParameter("age");
-       if(age!=null){
-        user.setAge(Integer.parseInt(request.getParameter("age")));
-        userService.save(user);}
+        String age = request.getParameter("age");
+        if (age != null) {
+            user.setAge(Integer.parseInt(request.getParameter("age")));
+            userService.save(user);
+        }
         return "updateAgeById";
     }
 
     @RequestMapping("/updateAgeByLogin/{login}")
-    public String updateAgeByLogin(@PathVariable String login, HttpServletRequest request){
+    public String updateAgeByLogin(@PathVariable String login, HttpServletRequest request) {
         User user = userService.loadUserByLogin(login);
         String age = request.getParameter("age");
-        if(age!=null){
-        user.setAge(Integer.parseInt(request.getParameter("age")));
-        userService.save(user);}
-    return "updateAgeByLogin";
+        if (age != null) {
+            user.setAge(Integer.parseInt(request.getParameter("age")));
+            userService.save(user);
+        }
+        return "updateAgeByLogin";
+    }
+
+    @RequestMapping("/updateMail/{id}")
+    public String updateMailById(Model model, @PathVariable Long id, HttpServletRequest request) {
+        User user = userService.loadUserById(id).get();
+        String mail = request.getParameter("mail");
+        model.addAttribute("User", user);
+        if (mail != null) {
+            user.setMail(request.getParameter("mail"));
+            userService.save(user);
+        }
+        return "updateMailById";
+    }
+
+    @RequestMapping("/updateMailByLogin/{login}")
+    public String updateMailByLogin(HttpServletRequest request, @PathVariable String login, Model model) {
+        User user = userService.loadUserByLogin(login);
+        String mail = request.getParameter("mail");
+        model.addAttribute("User", user);
+        if (mail != null) {
+            user.setMail(request.getParameter("mail"));
+            userService.save(user);
+        }
+        return "updateMailByLogin";
+    }
+
+    @RequestMapping("/updateBasketId/{id}")
+    public String updateBasketId(Model model, @PathVariable Long id, HttpServletRequest request) {
+        User user = userService.loadUserById(id).get();
+        model.addAttribute("User", user);
+        String basketId = (request.getParameter("basketId"));
+        if (basketId != null) {
+            Long basketIdLong = Long.valueOf(basketId);
+            // This function needs a improvement
+            //  if (basketService.findBasketById(basketIdLong).get() == null) {
+            // basketService.CreateNewBasket(user.getId());
+            //  }
+            // else{
+            user.setBasket(basketService.findBasketById(basketIdLong).get());
+            userService.save(user);
+            return "updateUserBasketId";
+        }
+        return "updateUserBasketId";
+    }
+
+
+    @RequestMapping("/updateBasketIdByLogin/{login}")
+    public String updateBasketIdByLogin(Model model, @PathVariable String login, HttpServletRequest request) {
+        User user = userService.loadUserByLogin(login);
+        model.addAttribute("User", user);
+        String basketId = (request.getParameter("basketId"));
+        if (basketId != null) {
+            Long basketIdLong = Long.valueOf(basketId);
+            user.setBasket(basketService.findBasketById(basketIdLong).get());
+            userService.save(user);
+            return "updateBasketIdByLogin";
+        }
+        return "updateBasketIdByLogin";
     }
 
 

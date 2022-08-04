@@ -158,6 +158,22 @@
                 extends="adminPage">
         <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithUsers/updateUser/_updateAgeById.jsp" />
     </definition>
+    <definition name = "updateMailById"
+                extends="adminPage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithUsers/updateUser/_updateMailById.jsp" />
+    </definition>
+    <definition name = "updateMailByLogin"
+                extends="adminPage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithUsers/updateUser/_updateMailByLogin.jsp" />
+    </definition>
+    <definition name = "updateUserBasketId"
+                extends="adminPage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithUsers/updateUser/_updateBasketId.jsp" />
+    </definition>
+    <definition name = "updateBasketIdByLogin"
+                extends="adminPage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithUsers/updateUser/_updateBasketIdByLogin.jsp" />
+    </definition>
     <definition name = "handlerGroup"
                 extends="adminPage">
         <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithGroup/_handlerGroupCRUD.jsp" />
