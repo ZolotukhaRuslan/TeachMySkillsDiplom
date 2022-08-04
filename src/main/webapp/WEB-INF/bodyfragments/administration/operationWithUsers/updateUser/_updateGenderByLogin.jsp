@@ -7,14 +7,6 @@
     <title>Title</title>
 </head>
 <body>
-<form action="/updateUserWithLogin">
-    <p><strong><spring:message
-            code="Enter.id.user"></spring:message></strong>
-        <input maxlength="25" size="40" name="login"></p>
-    <p><input type="submit" value="<spring:message
-            code="Confirm"></spring:message>" class="ButtonForAdmin"></p>
-</form>
-
 <div>
     <table>
         <thead>
@@ -49,15 +41,18 @@
             </c:forEach></td
         </tr>
     </table>
+
     <form>
-
-        <p><a href="/updateLoginUser/${User.login}" class="ButtonForAdmin"> Update Login</a>
-            <a href="/updateUserNameByLogin/${User.login}" class="ButtonForAdmin"> Update Name</a>
-        <p>  <a href="/updateAgeByLogin/${User.login}" class="ButtonForAdmin"> Update Age</a>
-            <a href="/updateMailByLogin/${User.login}" class="ButtonForAdmin"> Update Mail</a>
-        <p>  <a href="/updateBasketIdByLogin/${User.login}" class="ButtonForAdmin"> Update Basket Id</a>
-            <a href="/updateGenderByLogin/${User.login}" class="ButtonForAdmin"> Update Gender</a>
-        <p><a href="/updateRole/${User.login}" class="ButtonForAdmin"> Update Role</a></p>
-
+        <p><strong>  new login</strong>
+        <div>
+            <select type="select" name="gender">
+                <option>Man</option>
+                <option>Woman</option>
+            </select>
+        </div>
+        <p><input type="submit" value="<spring:message
+            code="Confirm"></spring:message>" class="ButtonForAdmin">  <a href="/updateUserById" class="ButtonForAdmin"> back</a></p>
     </form>
 </div>
+</body>
+</html>

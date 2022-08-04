@@ -252,7 +252,6 @@ public class AdminController {
         return "updateUserBasketId";
     }
 
-
     @RequestMapping("/updateBasketIdByLogin/{login}")
     public String updateBasketIdByLogin(Model model, @PathVariable String login, HttpServletRequest request) {
         User user = userService.loadUserByLogin(login);
@@ -267,6 +266,32 @@ public class AdminController {
         return "updateBasketIdByLogin";
     }
 
+    @RequestMapping("/updateGender/{id}")
+    public String updateGender(@PathVariable Long id, HttpServletRequest request, Model model){
+        User user = userService.loadUserById(id).get();
+        model.addAttribute("User", user);
+        String gender = request.getParameter("gender");
+        user.setGender(gender);
+        userService.save(user);
+        return "updateGender";
+    }
+
+    @RequestMapping("/updateGenderByLogin/{login}")
+    public String updateGenderByLogin(@PathVariable String login, HttpServletRequest request, Model model){
+        User user = userService.loadUserByLogin(login);
+        model.addAttribute("User", user);
+        String gender = request.getParameter("gender");
+        user.setGender(gender);
+        userService.save(user);
+        return "updateGender";
+    }
+
+    @RequestMapping("/un/{login}")
+    public String updateGenderByLoginsad(@PathVariable String login, HttpServletRequest request, Model model){
+        User user = userService.loadUserByLogin(login);
+      
+        return "updateGender";
+    }
 
 }
 
