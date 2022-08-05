@@ -1,7 +1,9 @@
 package com.example.diplommaket.controller;
 
+import com.example.diplommaket.entity.Role;
 import com.example.diplommaket.entity.User;
 import com.example.diplommaket.service.BasketService;
+import com.example.diplommaket.service.RoleService;
 import com.example.diplommaket.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,6 +12,8 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import java.util.HashSet;
+import java.util.Set;
 
 @Controller
 public class AdminController {
@@ -17,6 +21,8 @@ public class AdminController {
     private UserService userService;
     @Autowired
     private BasketService basketService;
+    @Autowired
+    private RoleService roleService;
 
     @RequestMapping("/admins")
     public String admin() {
@@ -286,11 +292,37 @@ public class AdminController {
         return "updateGender";
     }
 
-    @RequestMapping("/un/{login}")
+   /* @RequestMapping("/un/{login}")
     public String updateGenderByLoginsad(@PathVariable String login, HttpServletRequest request, Model model){
         User user = userService.loadUserByLogin(login);
-      
         return "updateGender";
+    }*/
+@GetMapping("/updateRole/{id}")
+public String updateRoleGet(@PathVariable Long id, Model model){
+    model.addAttribute("User", userService.loadUserById(id).get());
+    return "updateRole";
+}
+
+    @PostMapping("/updateRole/{id}")
+    public String updateRole(@PathVariable Long id, HttpServletRequest request, Model model){
+        User user = userService.loadUserById(id).get();
+        model.addAttribute("User", user);
+        String role = request.getParameter("role");
+        if(role.equals("ADMIN")){
+            Role roleAdmin = roleService.findRoleById(2L).get();
+            Set<Role> roles = new HashSet<>();
+            roles.add(roleAdmin);
+           user.setRoles(roles);
+            userService.save(user);
+        }
+        else if(role.equals("USER")){
+            Role roleAdmin = roleService.findRoleById(1L).get();
+            Set<Role> roles = new HashSet<>();
+            roles.add(roleAdmin);
+            user.setRoles(roles);
+            userService.save(user);
+        }
+        return "updateRole";
     }
 
 }
