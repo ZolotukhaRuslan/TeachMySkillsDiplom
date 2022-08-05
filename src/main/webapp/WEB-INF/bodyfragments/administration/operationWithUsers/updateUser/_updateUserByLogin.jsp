@@ -50,14 +50,13 @@
         </tr>
     </table>
     <form>
-
         <p><a href="/updateLoginUser/${User.login}" class="ButtonForAdmin"> Update Login</a>
             <a href="/updateUserNameByLogin/${User.login}" class="ButtonForAdmin"> Update Name</a>
         <p>  <a href="/updateAgeByLogin/${User.login}" class="ButtonForAdmin"> Update Age</a>
             <a href="/updateMailByLogin/${User.login}" class="ButtonForAdmin"> Update Mail</a>
         <p>  <a href="/updateBasketIdByLogin/${User.login}" class="ButtonForAdmin"> Update Basket Id</a>
             <a href="/updateGenderByLogin/${User.login}" class="ButtonForAdmin"> Update Gender</a>
-        <p><a href="/updateRole/${User.login}" class="ButtonForAdmin"> Update Role</a></p>
+        <p><a href="/updateRoleByLogin/${User.login}" class="ButtonForAdmin"> Update Role</a></p>
 
     </form>
 </div>

@@ -186,6 +186,10 @@
                 extends="adminPage">
         <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithUsers/updateUser/_updateRoleById.jsp" />
     </definition>
+    <definition name = "updateRoleByLogin"
+                extends="adminPage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithUsers/updateUser/_updateRoleByLogin.jsp" />
+    </definition>
     <definition name = "handlerGroup"
                 extends="adminPage">
         <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithGroup/_handlerGroupCRUD.jsp" />
@@ -202,6 +206,10 @@
     <definition name = "deleteGroup"
                 extends="adminPage">
         <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithGroup/_deleteGroup.jsp" />
+    </definition>
+    <definition name = "updateGroup"
+                extends="adminPage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithGroup/_updateGroup.jsp" />
     </definition>
 
 
@@ -224,6 +232,11 @@
                 extends="adminPage">
         <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithProduct/_deleteProductById.jsp" />
     </definition>
+    <definition name = "addImageProduct"
+                extends="adminPage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/test/_addImage.jsp" />
+    </definition>
+
     <definition name = "handlerItem"
                 extends="adminPage">
         <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithItems/_handlerItem.jsp" />
@@ -240,10 +253,7 @@
                 extends="adminPage">
         <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithItems/_createItem.jsp" />
     </definition>
-    <definition name = "addImageProduct"
-                extends="adminPage">
-        <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithProduct/_addImage.jsp" />
-    </definition>
+
 
 <definition name = "handlerBasketItem"
             extends="adminPage">

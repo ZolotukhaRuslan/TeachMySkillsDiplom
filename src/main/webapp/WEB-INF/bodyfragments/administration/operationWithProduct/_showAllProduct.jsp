@@ -20,6 +20,7 @@
         </thead>
         <c:forEach items="${allProducts}" var="product">
             <tr>
+                <td>${product.imageProduct}</td>
                 <td>${product.id}</td>
                 <td>${product.productName}</td>
                 <td>${product.groups.id}</td>

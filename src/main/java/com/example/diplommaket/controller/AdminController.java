@@ -273,7 +273,7 @@ public class AdminController {
     }
 
     @RequestMapping("/updateGender/{id}")
-    public String updateGender(@PathVariable Long id, HttpServletRequest request, Model model){
+    public String updateGender(@PathVariable Long id, HttpServletRequest request, Model model) {
         User user = userService.loadUserById(id).get();
         model.addAttribute("User", user);
         String gender = request.getParameter("gender");
@@ -283,7 +283,7 @@ public class AdminController {
     }
 
     @RequestMapping("/updateGenderByLogin/{login}")
-    public String updateGenderByLogin(@PathVariable String login, HttpServletRequest request, Model model){
+    public String updateGenderByLogin(@PathVariable String login, HttpServletRequest request, Model model) {
         User user = userService.loadUserByLogin(login);
         model.addAttribute("User", user);
         String gender = request.getParameter("gender");
@@ -292,30 +292,24 @@ public class AdminController {
         return "updateGender";
     }
 
-   /* @RequestMapping("/un/{login}")
-    public String updateGenderByLoginsad(@PathVariable String login, HttpServletRequest request, Model model){
-        User user = userService.loadUserByLogin(login);
-        return "updateGender";
-    }*/
-@GetMapping("/updateRole/{id}")
-public String updateRoleGet(@PathVariable Long id, Model model){
-    model.addAttribute("User", userService.loadUserById(id).get());
-    return "updateRole";
-}
+    @GetMapping("/updateRole/{id}")
+    public String updateRoleGet(@PathVariable Long id, Model model) {
+        model.addAttribute("User", userService.loadUserById(id).get());
+        return "updateRole";
+    }
 
     @PostMapping("/updateRole/{id}")
-    public String updateRole(@PathVariable Long id, HttpServletRequest request, Model model){
+    public String updateRole(@PathVariable Long id, HttpServletRequest request, Model model) {
         User user = userService.loadUserById(id).get();
         model.addAttribute("User", user);
         String role = request.getParameter("role");
-        if(role.equals("ADMIN")){
+        if (role.equals("ADMIN")) {
             Role roleAdmin = roleService.findRoleById(2L).get();
             Set<Role> roles = new HashSet<>();
             roles.add(roleAdmin);
-           user.setRoles(roles);
+            user.setRoles(roles);
             userService.save(user);
-        }
-        else if(role.equals("USER")){
+        } else if (role.equals("USER")) {
             Role roleAdmin = roleService.findRoleById(1L).get();
             Set<Role> roles = new HashSet<>();
             roles.add(roleAdmin);
@@ -325,6 +319,32 @@ public String updateRoleGet(@PathVariable Long id, Model model){
         return "updateRole";
     }
 
+    @GetMapping("/updateRoleByLogin/{login}")
+    public String updateRoleByLogin(@PathVariable String login, Model model){
+        model.addAttribute("User", userService.loadUserByLogin(login));
+        return "updateRoleByLogin";
+    }
+
+    @PostMapping("/updateRoleByLogin/{login}")
+    public String updateRoleByLoginPost(@PathVariable String login, HttpServletRequest request, Model model) {
+        User user = userService.loadUserByLogin(login);
+        model.addAttribute("User", user);
+        String role = request.getParameter("role");
+        if (role.equals("ADMIN")) {
+            Role roleAdmin = roleService.findRoleById(2L).get();
+            Set<Role> roles = new HashSet<>();
+            roles.add(roleAdmin);
+            user.setRoles(roles);
+            userService.save(user);
+        } else if (role.equals("USER")) {
+            Role roleAdmin = roleService.findRoleById(1L).get();
+            Set<Role> roles = new HashSet<>();
+            roles.add(roleAdmin);
+            user.setRoles(roles);
+            userService.save(user);
+        }
+        return "updateRoleByLogin";
+    }
 }
 
 

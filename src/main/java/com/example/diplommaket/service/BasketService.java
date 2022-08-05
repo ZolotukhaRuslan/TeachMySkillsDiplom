@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
+import java.util.Base64;
 import java.util.List;
 import java.util.Optional;
 
@@ -45,6 +46,7 @@ public class BasketService {
             Item item = itemService.loadItemById(product.get().getItems().getItemId());
             item.setBasketItems(userFromDB.get().getBasket().getBasketItem());
             itemService.save(item);
+
         }
         return true;
     }

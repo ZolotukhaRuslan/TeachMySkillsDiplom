@@ -2,6 +2,7 @@ package com.example.diplommaket.controller;
 
 import com.example.diplommaket.entity.Product;
 import com.example.diplommaket.service.ProductService;
+import com.example.diplommaket.testImage.HibernateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,13 +14,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.servlet.http.HttpServletRequest;
 import javax.swing.*;
 import javax.validation.Valid;
+import java.util.Base64;
 
 @Controller
 public class AdminProductController {
     @Autowired
     private ProductService productService;
+    @Autowired
+    private HibernateUtil hibernateUtil;
     @RequestMapping("/operationWithProduct")
     public String handlerProduct(){
+
+        hibernateUtil.testSave();
         return "handlerProduct";
     }
     @RequestMapping("/showProductById")
@@ -29,6 +35,7 @@ public class AdminProductController {
 
     @RequestMapping("/showAllProduct")
     public String showAllProduct(Model model) {
+hibernateUtil.getImage();
         model.addAttribute("allProducts",  productService.getAllProduct());
      return "showAllProduct";
     }
@@ -53,4 +60,5 @@ public String deleteProduct(){
         productService.delete(id);
         return "deleteProduct";
 }
+
 }

@@ -19,7 +19,7 @@ public class GroupService {
         return groupRepository.findAll();
     }
 
-    public boolean addGroup(Group group) {
+    public boolean save(Group group) {
         groupRepository.save(group);
         return true;
     }

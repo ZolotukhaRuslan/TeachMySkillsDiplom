@@ -20,7 +20,6 @@ public class Product {
     private long id;
     private String productName;
     @Lob
-    //@Column(name="image_product", nullable=false, columnDefinition="mediumblob")
     private byte[] imageProduct;
 
     @ManyToOne(optional = false, cascade = CascadeType.ALL)

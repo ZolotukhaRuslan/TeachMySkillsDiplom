@@ -3,6 +3,7 @@ package com.example.diplommaket.controller;
 import com.example.diplommaket.entity.Group;
 import com.example.diplommaket.service.GroupService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import java.util.Optional;
 
 @Controller
 public class AdminGroupController {
@@ -35,7 +37,7 @@ public class AdminGroupController {
 
     @PostMapping("/createGroup")
     public String newGroup(@ModelAttribute("groupForm") @Valid Group groupForm) {
-        groupService.addGroup(groupForm);
+        groupService.save(groupForm);
         return "redirect:/operationWithGroupProduct";
     }
 
@@ -52,6 +54,20 @@ public class AdminGroupController {
 
     @RequestMapping("/updateGroup")
     public String updateGroup(){
+        return "updateGroup";
+    }
+
+    @GetMapping("/updateNameGroup")
+    public String updateNameGroup(HttpServletRequest request, Model model){
+        Optional<Group> group = groupService.searchGroupById(Long.valueOf(request.getParameter("id")));
+        model.addAttribute("Group", groupService.searchGroupById(Long.valueOf(request.getParameter("id"))).get());
+        return "updateGroup";
+    }
+    @PostMapping("/updateNameGroup")
+    public String updateNameGroupPost(HttpServletRequest request,  @ModelAttribute ("Group") Group group){
+        Optional<Group> groupFromDB = groupService.searchGroupById(group.getId());
+        groupFromDB.get().setGroupName(request.getParameter("newName"));
+      groupService.save(groupFromDB.get());
         return "updateGroup";
     }
 
