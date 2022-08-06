@@ -11,7 +11,7 @@
                     code="Show.All.Items"></spring:message></a>
 </div>
 <div>
-            <a href="/showItemById" class="ButtonAdmin"><spring:message
+            <a href="/showItem" class="ButtonAdmin"><spring:message
                     code="Show.Item.By.Id"></spring:message></a>
     </form>
 </div>

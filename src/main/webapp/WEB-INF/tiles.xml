@@ -245,6 +245,10 @@
                 extends="adminPage">
         <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithItems/_showAllItem.jsp" />
     </definition>
+    <definition name = "showItem"
+                extends="adminPage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithItems/_showItemById.jsp" />
+    </definition>
     <definition name = "deleteItem"
                 extends="adminPage">
         <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithItems/_deleteItem.jsp" />

@@ -54,6 +54,39 @@ model.addAttribute("Items", itemService.allItem());
         itemService.save(itemForm);
         return "createItem";
     }
+    @RequestMapping("/showItem")
+    public String OpenShowsItemPage(){
+        return "showItem";
+    }
+    @GetMapping("/showItemById")
+    public String showItem(){
+        return "showItem";
+    }
+    @PostMapping("/showItemById")
+    public String showItemPost(HttpServletRequest request, Model model){
+        model.addAttribute("Item", itemService.loadItemById(Long.valueOf(request.getParameter("id"))));
+        return "showItem";
+    }
+
+    @RequestMapping("/updateItem")
+    public String openUpdateItemPage(){
+        return "updateItem";
+    }
+    @GetMapping("/updateItemById")
+    public String updateItem(HttpServletRequest request, Model model){
+        model.addAttribute("Item", itemService.loadItemById(Long.valueOf(request.getParameter("id"))));
+        return "updateItem";
+    }
+    @PostMapping("/updateItemById")
+    public String updateItemPost(){
+
+        return "updateItem";
+    }
+
+
+
+
+
 
     @GetMapping("/addImage")
     public String addImage() {
