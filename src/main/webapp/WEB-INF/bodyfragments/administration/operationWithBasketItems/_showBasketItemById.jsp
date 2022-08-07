@@ -9,6 +9,13 @@
 
 </head>
 <body>
+<form action="/updateBasketItemById">
+    <p><strong><spring:message
+            code="Enter.id.user"></spring:message></strong>
+        <input maxlength="25" size="40" name="id"></p>
+    <p><input type="submit" value="<spring:message
+            code="Confirm"></spring:message>" class="ButtonForAdmin"></p>
+</form>
 <form>
     <table>
         <div>
@@ -41,9 +48,9 @@
                 <option>Adress three</option>
             </select>
         </div>
-
-       <p> <a href="/submitBasket" class="ButtonSubmit">Submit</a>
     </table>
+    <p><a href="/addProduct" class="ButtonForAdmin"> Add product by id</a>
 </form>
+
 </body>
 </html>

@@ -283,6 +283,15 @@
             extends="adminPage">
 <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithBasketItems/_handlerBasketItem.jsp" />
 </definition>
+    <definition name = "updateBasketItem"
+                extends="adminPage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithBasketItems/_showBasketItemById.jsp" />
+    </definition>
+    <definition name = "addProductInBasketItem"
+                extends="adminPage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithBasketItems/_updateProductInBasket.jsp" />
+    </definition>
+
     <definition name = "createBasketItem"
                 extends="adminPage">
         <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithBasketItems/_createBasketItem.jsp" />

@@ -46,7 +46,6 @@ public class BasketService {
             Item item = itemService.loadItemById(product.getItems().getItemId());
             item.setBasketItems(userFromDB.get().getBasket().getBasketItem());
             itemService.save(item);
-
         }
         return true;
     }

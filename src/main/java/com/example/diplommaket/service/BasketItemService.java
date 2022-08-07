@@ -19,13 +19,7 @@ public class BasketItemService {
     private ProductRepository productRepository;
     @Autowired
     private ItemRepository itemRep;
-    public void add() {
-        Optional<BasketItems> b = Optional.of(new BasketItems());
-        Item it = itemRep.findByItemId(1L);
-        b = basketItem.findById(1L);
-        //it.setBasketItems(b.get());
-        itemRep.save(it);
-    }
+
     public void save(BasketItems basketItems) {
         basketItem.save(basketItems);
     }

@@ -9,7 +9,7 @@
 
 </head>
 <body>
-<form>
+<form method="post">
     <table>
         <div>
             <table>
@@ -41,9 +41,15 @@
                 <option>Adress three</option>
             </select>
         </div>
-
-       <p> <a href="/submitBasket" class="ButtonSubmit">Submit</a>
     </table>
+    <form>
+        <p><strong><spring:message
+                code="Enter.id.user"></spring:message></strong>
+            <input maxlength="25" size="40" name="productId"></p>
+        <p><input type="submit" value="<spring:message
+            code="Confirm"></spring:message>" class="ButtonForAdmin"></p>
+    </form>
 </form>
+
 </body>
 </html>
