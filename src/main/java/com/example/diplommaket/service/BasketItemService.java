@@ -12,6 +12,8 @@ import java.util.Optional;
 @Service
 public class BasketItemService {
     @Autowired
+    private BasketItemRepository basketItemRepository;
+    @Autowired
     private BasketItemRepository basketItem;
     @Autowired
     private ProductRepository productRepository;
@@ -21,10 +23,14 @@ public class BasketItemService {
         Optional<BasketItems> b = Optional.of(new BasketItems());
         Item it = itemRep.findByItemId(1L);
         b = basketItem.findById(1L);
-        it.setBasketItems(b.get());
+        //it.setBasketItems(b.get());
         itemRep.save(it);
     }
     public void save(BasketItems basketItems) {
         basketItem.save(basketItems);
+    }
+
+    public BasketItems findById(Long id){
+        return basketItemRepository.findBasketItemsById(id);
     }
 }

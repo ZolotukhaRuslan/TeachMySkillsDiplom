@@ -1,19 +1,5 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Title</title>
-</head>
-<body>
-<form action="/updateItemById">
-    <p><strong><spring:message
-            code="Enter.id.user"></spring:message></strong>
-        <input maxlength="25" size="40" name="id"></p>
-    <p><input type="submit" value="<spring:message
-            code="Confirm"></spring:message>" class="ButtonForAdmin"></p>
-</form>
+<form method="post">
 <div>
     <table>
         <thead>
@@ -46,14 +32,13 @@
         </tr>
     </table>
 </div>
-    <form>
-        <p><a href="/updateCoast/${Item.itemId}" class="ButtonForAdmin"> Update Coast</a>
-            <a href="/updateAmount/${Item.itemId}" class="ButtonForAdmin"> Update Amount Product</a>
-        <p>  <a href="/updateBasketItemId/${Item.itemId}" class="ButtonForAdmin"> Update BasketItemId</a>
-            <a href="/updateProductId/${Item.itemId}" class="ButtonForAdmin"> Update Product Id</a>
-        <p>  <a href="/updateGroupId/${Item.itemId}" class="ButtonForAdmin"> Update Group Id</a>
-    </form>
-</div>
+<form>
+    <p><strong><spring:message
+            code="Enter.id.user"></spring:message></strong>
+        <input maxlength="25" size="40" name="coast"></p>
+    <p><input type="submit" value="<spring:message
+            code="Confirm"></spring:message>" class="ButtonForAdmin"></p>
+</form>
+</form>
 </body>
 </html>
-

@@ -29,7 +29,7 @@ public void testSave(){
         e.printStackTrace();
     }
 
-        Product product =  productService.findProductById(1L).get();
+        Product product =  productService.findProductById(1L);
         product.setImageProduct(bFile);
         productService.save(product);
 
@@ -37,7 +37,7 @@ public void testSave(){
 }
 
 public void getImage(){
-   Product product = productService.findProductById(1L).get();
+   Product product = productService.findProductById(1L);
 
         try{
             //FileOutputStream fos = new FileOutputStream("images\\output.jpg");  //windows

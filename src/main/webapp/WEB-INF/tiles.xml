@@ -249,6 +249,22 @@
                 extends="adminPage">
         <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithItems/_showItemById.jsp" />
     </definition>
+    <definition name = "updateCoastItem"
+                extends="adminPage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithItems/_updateCoastItem.jsp" />
+    </definition>
+    <definition name = "updateAmountItem"
+                extends="adminPage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithItems/_updateAmountProductItem.jsp" />
+    </definition>
+    <definition name = "updateBasketItemId"
+                extends="adminPage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithItems/_updateBasketItemId.jsp" />
+    </definition>
+    <definition name = "updateProductId"
+                extends="adminPage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithItems/_updateProductId.jsp" />
+    </definition>
     <definition name = "deleteItem"
                 extends="adminPage">
         <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithItems/_deleteItem.jsp" />
@@ -257,6 +273,10 @@
                 extends="adminPage">
         <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithItems/_createItem.jsp" />
     </definition>
+<definition name = "updateItem"
+            extends="adminPage">
+<put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithItems/_updateItem.jsp" />
+</definition>
 
 
 <definition name = "handlerBasketItem"

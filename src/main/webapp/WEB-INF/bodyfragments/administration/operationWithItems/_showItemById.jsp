@@ -6,7 +6,6 @@
     <title>Title</title>
 </head>
 <body>
-<form method="post">
 
 <form action="/showItemById">
     <p ><strong><spring:message
@@ -14,7 +13,6 @@
         <input maxlength="25" size="40" name="id"></p>
     <p><input type="submit" value="id" name="start"></p>
 </form>
-
 <div>
     <table>
         <thead>
@@ -47,6 +45,6 @@
             </tr>
     </table>
 </div>
-</form>
+
 </body>
 </html>

@@ -42,8 +42,8 @@ public class BasketService {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if (user != null) {
             Optional<User> userFromDB = userService.loadUserById(user.getId());
-            Optional<Product> product = productService.findProductById(id);
-            Item item = itemService.loadItemById(product.get().getItems().getItemId());
+            Product product = productService.findProductById(id);
+            Item item = itemService.loadItemById(product.getItems().getItemId());
             item.setBasketItems(userFromDB.get().getBasket().getBasketItem());
             itemService.save(item);
 
