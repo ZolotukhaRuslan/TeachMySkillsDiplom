@@ -5,21 +5,21 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 import java.util.Set;
 
 @Entity
 @NoArgsConstructor
 @Data
-public class OrderBasketEntity {
+public class OrderBasket {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @ManyToMany(mappedBy = "orderBasketEntity", fetch = FetchType.EAGER)
+    private String address;
+
+    @OneToOne(mappedBy = "orderBasket")
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
-   private Set<Basket> basket;
+   private Basket basket;
 }

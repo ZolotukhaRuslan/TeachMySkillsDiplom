@@ -25,7 +25,6 @@ public class DietarySupplementController {
     private ProductService productService;
     @RequestMapping("/dietarySupplement")
     public String showDietarySupplements(Model model) {
-        System.out.println(SecurityContextHolder.getContext().getAuthentication().getAuthorities());
         model.addAttribute("allDietarySupplement", groupService.allProductByCategoryDietarySupplement());
         return "dietarySupplement";
     }

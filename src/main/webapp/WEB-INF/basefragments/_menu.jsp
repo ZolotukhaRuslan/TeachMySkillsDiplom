@@ -27,7 +27,7 @@
     </div>
 
     <div>
-        <sec:authorize access="hasAuthority('ADMIN_ROLE')">
+        <sec:authorize access="hasAuthority('ROLE_ADMIN')">
             <a href="/admins" class="ButtonForAdmin"><spring:message code = "Admin.Operation"></spring:message></a>
         </sec:authorize>
     </div>

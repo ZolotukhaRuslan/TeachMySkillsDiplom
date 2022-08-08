@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.Base64;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Service
 public class BasketService {
@@ -37,6 +38,19 @@ public class BasketService {
         userFromDB.get().setBasket(basket);
         userService.save(userFromDB.get());
         return true;
+    }
+
+    public boolean newBasket(Long id){
+        Optional<User> userFromDB = userService.loadUserById(id);
+        BasketItems basketItems = new BasketItems();
+        basketItemService.save(basketItems);
+        Basket basket = new Basket();
+        basket.setBasketItem(basketItems);
+        basketService.save(basket);
+        userFromDB.get().setBasket(basket);
+        userService.save(userFromDB.get());
+        return true;
+
     }
     public boolean addItemInBasket(long id) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();

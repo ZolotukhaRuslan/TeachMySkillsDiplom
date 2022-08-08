@@ -35,7 +35,7 @@
             </table>
         </div>
         <div>
-            <select type="select" class="ButtonSubmit">
+            <select type="select" name = "address" class="ButtonSubmit">
                 <option>Adress one</option>
                 <option>Adress two</option>
                 <option>Adress three</option>

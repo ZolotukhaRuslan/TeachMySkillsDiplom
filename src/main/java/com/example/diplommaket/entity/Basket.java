@@ -26,8 +26,8 @@ public class Basket {
     @EqualsAndHashCode.Exclude
     private BasketItems basketItem;
 
-    @ManyToMany
+    @OneToOne
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
-    private Set<OrderBasketEntity> orderBasketEntity;
+    private OrderBasket orderBasket;
 }

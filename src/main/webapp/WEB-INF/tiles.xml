@@ -277,6 +277,10 @@
             extends="adminPage">
 <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithItems/_updateItem.jsp" />
 </definition>
+    <definition name = "submitBasket"
+                extends="adminPage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/basket/_sumbitBasket.jsp" />
+    </definition>
 
 
 <definition name = "handlerBasketItem"
