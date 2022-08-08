@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.Set;
+
 @Data
 @Entity
 @NoArgsConstructor
@@ -23,4 +25,9 @@ public class Basket {
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     private BasketItems basketItem;
+
+    @ManyToMany
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    private Set<OrderBasketEntity> orderBasketEntity;
 }

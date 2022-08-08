@@ -20,7 +20,7 @@
                 <th> <spring:message code = "Price"></spring:message></th>
                 <th> <spring:message code = "AllPrice"></spring:message></th>
                 </thead>
-                <c:forEach items="${allItemsInBasket}" var="item">
+                <c:forEach items="${basketItem}" var="item">
                 <tr>
                     <td>${item.product.productName}</td>
                     <td>${item.quantityToOrder}</td>

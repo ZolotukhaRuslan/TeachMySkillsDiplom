@@ -1,18 +1,18 @@
 package com.example.diplommaket.controller;
 
-import com.example.diplommaket.entity.Basket;
-import com.example.diplommaket.entity.BasketItems;
-import com.example.diplommaket.entity.Item;
+import com.example.diplommaket.entity.*;
 import com.example.diplommaket.service.BasketItemService;
 import com.example.diplommaket.service.BasketService;
 import com.example.diplommaket.service.ItemService;
 import com.example.diplommaket.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Optional;
 
 @Controller
 public class AdminBasketController {
@@ -63,21 +63,15 @@ public class AdminBasketController {
     @GetMapping("/updateBasketItemById")
     public String showBasketItem(Model model, HttpServletRequest request){
         model.addAttribute("allItemsInBasket", basketService.allItemsInBasket(Long.parseLong(request.getParameter("id"))));
+        model.addAttribute("BasketItemId", basketService.findBasketById(Long.valueOf(request.getParameter("id"))).get().getBasketItem());
         return "updateBasketItem";
     }
 
-    @GetMapping("/addProduct")
-    public String addProductInBasketItem(Model model, @PathVariable Long id, @ModelAttribute Basket basket){
-        model.addAttribute("allItemsInBasket", basketService.allItemsInBasket(id));
-        return "addProductInBasketItem";
-    }
-    @PostMapping("/addProduct")
-    String addProductInBasketItemPost(Model model, @PathVariable Long id, HttpServletRequest request, @ModelAttribute Basket basket){
-        model.addAttribute("allItemsInBasket", basketService.allItemsInBasket(basket.getId()));
-        Item item = itemService.loadItemById(productService.findProductById(Long.valueOf(request.getParameter("productId"))).getId());
-        BasketItems basketItems = basketService.findBasketById(id).get().getBasketItem();
-        basketItems.getItem().add(item);
-        basketItemService.save(basketItems);
-        return "addProductInBasketItem";
-    }
+@RequestMapping("/sumbitBasket")
+    public String sumditBasket(){
+    User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+    user.getBasket();
+        return "sumbitBasket";
+}
+
 }

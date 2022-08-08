@@ -59,6 +59,12 @@ public class BasketService {
         return basketService.findBasketById(id).get().getBasketItem().getItem();
     }
 
+    public BasketItems getBasketItems(Long id){
+        return basketService.findBasketById(id).get().getBasketItem();
+    }
+
+
+
     public boolean delete(long id){
         basketRepository.deleteById(id);
         return true;

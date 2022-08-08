@@ -49,7 +49,7 @@
             </select>
         </div>
     </table>
-    <p><a href="/addProduct" class="ButtonForAdmin"> Add product by id</a>
+    <p><a href="/addProduct/${BasketItemId.id}" class="ButtonForAdmin"> Add product by id</a>
 </form>
 
 </body>
