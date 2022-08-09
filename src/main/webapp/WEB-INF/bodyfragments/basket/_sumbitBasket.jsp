@@ -11,6 +11,9 @@
 <body>
 <form>
     this is good
+    ${numberOrder.id}
+    ${numberOrder.address}
+
 </form>
 </body>
 </html>

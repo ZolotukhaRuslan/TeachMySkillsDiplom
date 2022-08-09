@@ -18,6 +18,8 @@ public class BasketItems {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    private String address;
+
     @OneToMany(mappedBy = "basketItems", cascade = CascadeType.ALL)
     @ToString.Exclude
     @EqualsAndHashCode.Exclude

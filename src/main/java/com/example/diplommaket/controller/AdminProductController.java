@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.servlet.http.HttpServletRequest;
 import javax.swing.*;
 import javax.validation.Valid;
+import java.io.UnsupportedEncodingException;
 import java.util.Base64;
 
 @Controller
@@ -34,9 +35,12 @@ public class AdminProductController {
     }
 
     @RequestMapping("/showAllProduct")
-    public String showAllProduct(Model model) {
-hibernateUtil.getImage();
+    public String showAllProduct(Model model) throws UnsupportedEncodingException {
         model.addAttribute("allProducts",  productService.getAllProduct());
+
+        byte[] encodeBase64 = Base64.getEncoder().encode(productService.findProductById(1L).getImageProduct());
+        String base64Encoded = new String(encodeBase64, "UTF-8");
+        model.addAttribute("image", base64Encoded);
      return "showAllProduct";
     }
 @GetMapping("/createProduct")

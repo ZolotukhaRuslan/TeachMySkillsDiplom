@@ -50,7 +50,6 @@ public class BasketService {
         userFromDB.get().setBasket(basket);
         userService.save(userFromDB.get());
         return true;
-
     }
     public boolean addItemInBasket(long id) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();

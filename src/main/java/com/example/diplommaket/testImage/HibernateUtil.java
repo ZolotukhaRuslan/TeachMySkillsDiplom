@@ -17,9 +17,9 @@ public class HibernateUtil {
 
 @Autowired
   private  ProductService productService;
-public void testSave(){
-    File file = new File("D://Diplom//src//main//webapp//resources//icons//1.jpg");
-    byte[] bFile = new byte[(int) file.length()];
+public void testSave() {
+   /* File file = new File("D://Diplom//src//main//webapp//resources//icons//1.jpg");
+    Byte[] bFile = new Byte[(int) file.length()];
 
         try {
         FileInputStream fileInputStream = new FileInputStream(file);
@@ -49,7 +49,8 @@ public void getImage(){
             e.printStackTrace();
         }
     }
-}
+}*/
+}}
 
 
 
