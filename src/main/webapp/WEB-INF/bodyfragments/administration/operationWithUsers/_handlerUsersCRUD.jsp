@@ -1,8 +1,10 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
 <body>
+<sec:authorize access="hasAuthority('ROLE_ADMIN')">
 <table>
     <div>
         <a href="/showAllUsers" class="ButtonAdmin"><spring:message
@@ -41,6 +43,7 @@
                 code="Delete.user.by.login"></spring:message></a>
     </div>
 </table>
+</sec:authorize>
 </body>
 </html>
 

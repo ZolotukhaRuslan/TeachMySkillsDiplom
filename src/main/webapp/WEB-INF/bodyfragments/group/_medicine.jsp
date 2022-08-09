@@ -5,17 +5,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-
 </head>
 <body>
 <div id="maine">
-
     <c:forEach items="${allMedicine}" var="medicineProduct">
         <c:forEach items="${medicineProduct.products}" var="product">
             <form>
+                <img src="data:image/jpeg;base64,${product.imageProduct}"/>
                     ${product.productName}
-                  <p>  ${product.items.coast}byn
-                        <p><a href="/dietarySupplement/${product.id}"><img src="/resources/icons/basket.png"></a></p>
+                <p> ${product.items.coast}byn
+                <p><a href="/medicine/${product.id}"><img src="/resources/icons/basket.png"></a></p>
             </form>
         </c:forEach>
     </c:forEach>

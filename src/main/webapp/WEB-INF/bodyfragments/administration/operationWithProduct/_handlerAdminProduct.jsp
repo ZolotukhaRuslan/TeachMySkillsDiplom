@@ -7,7 +7,7 @@
 </head>
 <body>
 <div>
-    <a href="/addImage" class="ButtonAdmin">AddImage</a>
+    <a href="/addImageProduct" class="ButtonAdmin">AddImage</a>
 </div>
 <div>
             <a href="/showProductById" class="ButtonAdmin"><spring:message

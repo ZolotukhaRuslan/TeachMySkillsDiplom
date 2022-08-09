@@ -17,7 +17,9 @@ public class Product {
     private long id;
     private String productName;
     @Lob
-    private byte[] imageProduct;
+    private String imageProduct;
+  //  @Lob
+    //private byte[] imageProduct;
     @ManyToOne(optional = false, cascade = CascadeType.ALL)
     @ToString.Exclude
     @EqualsAndHashCode.Exclude

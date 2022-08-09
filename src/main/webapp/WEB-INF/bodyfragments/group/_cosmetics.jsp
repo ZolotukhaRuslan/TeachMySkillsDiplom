@@ -9,11 +9,11 @@
 </head>
 <body>
 <div id="maine">
-
     <c:forEach items="${allCosmetics}" var="cosmetics">
         <c:forEach items="${cosmetics.products}" var="product">
             <form>
-            ${product.productName}
+                <img src="data:image/jpeg;base64,${product.imageProduct}"/>
+                    ${product.productName}
                 <p>  ${product.items.coast}byn
                 <p><a href="/dietarySupplement/${product.id}"><img src="/resources/icons/basket.png"></a></p>
             </form>

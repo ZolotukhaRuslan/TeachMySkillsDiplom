@@ -1,28 +1,24 @@
 package com.example.diplommaket.controller;
 
 import com.example.diplommaket.entity.Product;
+import com.example.diplommaket.service.ImageService;
 import com.example.diplommaket.service.ProductService;
-import com.example.diplommaket.testImage.HibernateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.io.UnsupportedEncodingException;
-import java.util.Base64;
 @Controller
 public class AdminProductController {
     @Autowired
     private ProductService productService;
     @Autowired
-    private HibernateUtil hibernateUtil;
+    private ImageService imageService;
     @RequestMapping("/operationWithProduct")
     public String handlerProduct() {
-        hibernateUtil.testSave();
         return "handlerProduct";
     }
     @RequestMapping("/showProductById")
@@ -30,11 +26,8 @@ public class AdminProductController {
         return "showProductById";
     }
     @RequestMapping("/showAllProduct")
-    public String showAllProduct(Model model) throws UnsupportedEncodingException {
+    public String showAllProduct(Model model){
         model.addAttribute("allProducts", productService.getAllProduct());
-        byte[] encodeBase64 = Base64.getEncoder().encode(productService.findProductById(1L).getImageProduct());
-        String base64Encoded = new String(encodeBase64, "UTF-8");
-        model.addAttribute("image", base64Encoded);
         return "showAllProduct";
     }
     @GetMapping("/createProduct")
@@ -57,4 +50,26 @@ public class AdminProductController {
         productService.delete(id);
         return "deleteProduct";
     }
+    @RequestMapping("/addImageById")
+    public String showProduct(Model model, HttpServletRequest request){
+        model.addAttribute("product", productService.findProductById(Long.valueOf(request.getParameter("id"))));
+        System.out.println(productService.findProductById(Long.valueOf(request.getParameter("id"))));
+        return "addImageProduct";
+    }
+    @RequestMapping("/addImageProduct")
+    public String addImage() {
+        return "addImageProduct";
+    }
+    @GetMapping("/addImage/{id}")
+    public String upload(@PathVariable Long id, Model model){
+        model.addAttribute("product", productService.findProductById(id));
+        return "addImageProduct";
+    }
+    @PostMapping("/addImage/{id}")
+    public String uploadPost(@RequestParam("test") MultipartFile file, @PathVariable Long id, Model model) throws UnsupportedEncodingException {
+        model.addAttribute("product", productService.findProductById(id));
+        imageService.uploadImage(file, id);
+        return "addImageProduct";
+    }
 }
+

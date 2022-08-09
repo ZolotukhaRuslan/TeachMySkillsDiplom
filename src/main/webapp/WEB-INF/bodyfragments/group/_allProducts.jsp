@@ -11,6 +11,7 @@
 <div id="maine">
     <c:forEach items="${allItem}" var="item">
         <form>
+            <img src="data:image/jpeg;base64,${item.product.imageProduct}" />
                 ${item.product.productName}
             <p>  ${item.coast}byn
             <p><a href="/allProduct/${item.itemId}"><img src="/resources/icons/basket.png"></a></p>

@@ -6,9 +6,6 @@ import com.example.diplommaket.repository.GroupRepository;
 import com.example.diplommaket.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.io.OutputStream;
 import java.util.List;
 @Service
 public class ProductService {
@@ -18,16 +15,6 @@ public class ProductService {
     private GroupRepository groupRepository;
     @Autowired
     private ItemService itemService;
-    public void writeImageToRespose(Long id, HttpServletResponse response) {
-        response.setContentType("image/jpeg, image/jpg, image/png, image/gif");
-        response.setHeader("Cache-Control", "max-age=2628000");
-        byte[] imageData = productRepository.findProductById(id).getImageProduct();
-        try (OutputStream out = response.getOutputStream()) {
-            out.write(imageData);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
     public boolean addProduct(Product product) {
         Group group = groupRepository.findGroupById(product.getGroups().getId());
         Item item = new Item();

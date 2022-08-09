@@ -3,13 +3,12 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
-
 <!DOCTYPE html>
 <html>
 <head>
 <body>
+<sec:authorize access="hasAuthority('ROLE_ADMIN')">
 <table>
-
     <div>
         <a href="/operationWithUsers" class="ButtonAdmin"><spring:message
                 code="Operation.with.Users"></spring:message></a>
@@ -31,6 +30,7 @@
                 code="Operation.with.Basket"></spring:message></a>
     </div>
 </table>
+</sec:authorize>
 </body>
 </html>
 

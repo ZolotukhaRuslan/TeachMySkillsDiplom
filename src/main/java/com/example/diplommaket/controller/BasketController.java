@@ -31,8 +31,6 @@ public class BasketController {
             allPrice += itemsInBasket.get(a).getQuantityToOrder() * itemsInBasket.get(a).getCoast();
         }
         model.addAttribute("AllPrice", allPrice);
-        BasketItems basketItems = basketItemService.findById(user.getBasket().getBasketItem().getId());
-        System.out.println(request.getParameter("address") + "1");
         return "basket";
     }
     @PostMapping("/basket")
@@ -41,7 +39,6 @@ public class BasketController {
         BasketItems basketItems = basketItemService.findById(user.getBasket().getBasketItem().getId());
         basketItems.setAddress(request.getParameter("address"));
         basketItemService.save(basketItems);
-        System.out.println(request.getParameter("address") + "2");
         return "redirect:/submitBasket";
     }
     @RequestMapping("/add/{id}")

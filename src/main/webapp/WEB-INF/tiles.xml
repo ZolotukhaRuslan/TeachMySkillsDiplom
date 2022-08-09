@@ -2,9 +2,7 @@
 <!DOCTYPE tiles-definitions PUBLIC
         "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
         "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
-
 <tiles-definitions>
-
     <definition name="basePage"
                 template="/WEB-INF/view/basePage.jsp">
         <put-attribute name="title" value="" />
@@ -17,28 +15,22 @@
         <put-attribute name="header" value="/WEB-INF/basefragments/_header.jsp" />
         <put-attribute name="menu" value="/WEB-INF/basefragments/_menuAdmin.jsp"/>
     </definition>
-
-
     <definition name="homePage"
                 template="/WEB-INF/view/homePage.jsp">
         <put-attribute name="title" value="" />
         <put-attribute name="header" value="/WEB-INF/basefragments/_header.jsp" />
         <put-attribute name="body" value="/WEB-INF/bodyfragments/home/_homePage.jsp" />
     </definition>
-
-
     <definition name="registration"
                 template="/WEB-INF/view/authorizationPage.jsp">
         <put-attribute name="title" value="" />
         <put-attribute name="body" value="/WEB-INF/bodyfragments/authorization/_registration.jsp" />
     </definition>
-
     <definition name="login"
                template="/WEB-INF/view/authorizationPage.jsp">
         <put-attribute name="title" value="" />
         <put-attribute name="body" value="/WEB-INF/bodyfragments/authorization/_login.jsp" />
     </definition>
-
     <definition name="medicine"
                extends="basePage">
         <put-attribute name="body" value="/WEB-INF/bodyfragments/group/_medicine.jsp" />
@@ -47,12 +39,10 @@
                 extends="basePage">
         <put-attribute name="body" value="/WEB-INF/bodyfragments/group/_allProducts.jsp" />
     </definition>
-
     <definition name="medicalProducts"
                 extends="basePage">
         <put-attribute name="body" value="/WEB-INF/bodyfragments/group/_medicalProducts.jsp" />
     </definition>
-
     <definition name="dietarySupplement"
                 extends="basePage">
         <put-attribute name="body" value="/WEB-INF/bodyfragments/group/_dietarySupplement.jsp" />
@@ -61,17 +51,14 @@
                 extends="basePage">
         <put-attribute name="body" value="/WEB-INF/bodyfragments/group/_cosmetics.jsp" />
     </definition>
-
     <definition name="administration"
                 extends="basePage">
         <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/_handlerAdminOperation.jsp" />
     </definition>
-
     <definition name="newGroups"
                 extends="basePage">
         <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/_newGroupe.jsp" />
     </definition>
-
     <definition name = "basket"
                 extends="basePage">
     <put-attribute name="body" value="/WEB-INF/bodyfragments/basket/_basket.jsp" />
@@ -108,7 +95,6 @@
                 extends="adminPage">
         <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithUsers/showUsers/_loadUsersByName.jsp" />
     </definition>
-
     <definition name = "deleteUserById"
                 extends="adminPage">
         <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithUsers/deleteUser/_deleteUserById.jsp" />
@@ -137,7 +123,6 @@
                 extends="adminPage">
         <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithUsers/updateUser/_updateUserByLogin.jsp" />
     </definition>
-
     <definition name = "updateUserLogin"
                 extends="adminPage">
         <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithUsers/updateUser/_updateLoginByLogin.jsp" />
@@ -194,7 +179,6 @@
                 extends="adminPage">
         <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithGroup/_handlerGroupCRUD.jsp" />
     </definition>
-
     <definition name = "showGroup"
                 extends="adminPage">
         <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithGroup/_showGroup.jsp" />
@@ -211,19 +195,14 @@
                 extends="adminPage">
         <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithGroup/_updateGroup.jsp" />
     </definition>
-
-
     <definition name = "handlerProduct"
                 extends="adminPage">
         <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithProduct/_handlerAdminProduct.jsp" />
     </definition>
-
-
     <definition name = "showAllProduct"
                 extends="adminPage">
         <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithProduct/_showAllProduct.jsp" />
     </definition>
-
     <definition name = "createProduct"
                 extends="adminPage">
         <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithProduct/_createProduct.jsp" />
@@ -234,9 +213,8 @@
     </definition>
     <definition name = "addImageProduct"
                 extends="adminPage">
-        <put-attribute name="body" value="/WEB-INF/bodyfragments/test/_addImage.jsp" />
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithProduct/_addImageProduct.jsp" />
     </definition>
-
     <definition name = "handlerItem"
                 extends="adminPage">
         <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithItems/_handlerItem.jsp" />
@@ -281,8 +259,6 @@
                 extends="adminPage">
         <put-attribute name="body" value="/WEB-INF/bodyfragments/basket/_sumbitBasket.jsp" />
     </definition>
-
-
 <definition name = "handlerBasketItem"
             extends="adminPage">
 <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithBasketItems/_handlerBasketItem.jsp" />
@@ -295,26 +271,8 @@
                 extends="adminPage">
         <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithBasketItems/_updateProductInBasket.jsp" />
     </definition>
-
     <definition name = "createBasketItem"
                 extends="adminPage">
         <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithBasketItems/_createBasketItem.jsp" />
     </definition>
-
-    <definition name="list"
-                extends="basePage">
-        <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithUsers/_handlerUsersCRUD.jsp" />
-    </definition>
-
-
-
-
-
-
-
-
-
-
-
-
 </tiles-definitions>

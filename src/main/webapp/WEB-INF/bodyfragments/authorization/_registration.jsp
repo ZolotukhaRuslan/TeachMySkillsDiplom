@@ -5,16 +5,15 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title><spring:message code = "Registration"></spring:message></title>
+    <title><spring:message code="Registration"></spring:message></title>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/style.css"/>
 </head>
 <body>
 <div>
-    <h1>Sign In Form</h1>
-    </div>
-    <div id="wrapper">
+</div>
+<div id="wrapper">
     <%--@elvariable id="userForm" type=""--%>
-    <form:form id="signin" method="POST" modelAttribute="userForm"  autocomplete="off" >
+    <form:form id="signin" method="POST" modelAttribute="userForm" autocomplete="off">
         <div>
             <form:input type="text" path="login" placeholder="Login"
                         autofocus="true"></form:input>
@@ -41,7 +40,7 @@
             <form:input type="text" path="mail" placeholder="mail"></form:input>
         </div>
         <div>
-         <%//  < <form:input type="text" path="sex" placeholder="sex"></form:input>%>
+            <%//  < <form:input type="text" path="sex" placeholder="sex"></form:input>%>
             <form:select type="select" path="gender">
                 <option>Man</option>
                 <option>Woman</option>
@@ -49,7 +48,7 @@
         </div>
         <button type="submit">&#xf0da;</button>
     </form:form>
-    <a href="/">Главная</a>
+    <a href="/"><spring:message code="Home.Page"/></a>
 </div>
 </div>
 </body>
