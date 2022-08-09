@@ -1,9 +1,6 @@
 package com.example.diplommaket.entity;
-
 import lombok.*;
-
 import javax.persistence.*;
-
 @Entity
 @NoArgsConstructor
 @Data
@@ -21,18 +18,12 @@ public class Product {
     private String productName;
     @Lob
     private byte[] imageProduct;
-
     @ManyToOne(optional = false, cascade = CascadeType.ALL)
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     private Group groups;
-
     @OneToOne(mappedBy = "product")
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     private Item items;
-
-
-
-
 }

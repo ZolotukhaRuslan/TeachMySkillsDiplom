@@ -1,7 +1,6 @@
 package com.example.diplommaket.service;
 
 import com.example.diplommaket.entity.Group;
-import com.example.diplommaket.entity.Item;
 import com.example.diplommaket.repository.GroupRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,18 +23,18 @@ public class GroupService {
         return true;
     }
 
-    public Optional<Group> searchGroupById(Long id) {
-        return groupRepository.findById(id);
+    public Group searchGroupById(Long id) {
+        return groupRepository.findGroupById(id);
     }
 
-    public Optional<Group> searchGroupByName(String name) {
+    public Group searchGroupByName(String name) {
         return groupRepository.findGroupByGroupName(name);
     }
 
     public boolean editGroup(Long id, String name) {
-        Optional<Group> group = groupRepository.findById(id);
-        group.get().setGroupName(name);
-        groupRepository.save(group.get());
+        Group group = groupRepository.findGroupById(id);
+        group.setGroupName(name);
+        groupRepository.save(group);
         return true;
     }
 

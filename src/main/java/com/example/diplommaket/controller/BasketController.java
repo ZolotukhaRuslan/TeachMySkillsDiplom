@@ -1,5 +1,4 @@
 package com.example.diplommaket.controller;
-
 import com.example.diplommaket.entity.*;
 import com.example.diplommaket.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,11 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
-import java.util.Optional;
-
 @Controller
 public class BasketController {
     @Autowired
@@ -25,12 +21,10 @@ public class BasketController {
     private UserService userService;
     @Autowired
     private BasketItemService basketItemService;
-
-
     @GetMapping("/basket")
     public String basketPage(Model model, HttpServletRequest request) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        List<Item> itemsInBasket = basketService.allItemsInBasket(userService.loadUserById(user.getId()).get().getBasket().getId());
+        List<Item> itemsInBasket = basketService.allItemsInBasket(userService.loadUserById(user.getId()).getBasket().getId());
         model.addAttribute("allItemsInBasket", itemsInBasket);
         double allPrice = 0;
         for (int a = 0; a < itemsInBasket.size(); a++) {
@@ -39,34 +33,27 @@ public class BasketController {
         model.addAttribute("AllPrice", allPrice);
         BasketItems basketItems = basketItemService.findById(user.getBasket().getBasketItem().getId());
         System.out.println(request.getParameter("address") + "1");
-
         return "basket";
-
     }
-
-   @PostMapping("/basket")
+    @PostMapping("/basket")
     private String basketPagePost(Model model, HttpServletRequest request) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         BasketItems basketItems = basketItemService.findById(user.getBasket().getBasketItem().getId());
         basketItems.setAddress(request.getParameter("address"));
         basketItemService.save(basketItems);
-       System.out.println(request.getParameter("address") + "2");
+        System.out.println(request.getParameter("address") + "2");
         return "redirect:/submitBasket";
-       // return "basket";
     }
-
     @RequestMapping("/add/{id}")
     public String add(@PathVariable Long id) {
         basketService.addQuantityToOrder(id);
         return "redirect:/basket";
     }
-
     @RequestMapping("/minus/{id}")
     public String minus(@PathVariable long id) {
         basketService.minusQuantityToOrder(id);
         return "redirect:/basket";
     }
-
     @RequestMapping("/submitBasket")
     public String submitBasket(Model model, HttpServletRequest request) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -79,6 +66,4 @@ public class BasketController {
         model.addAttribute("numberOrder", orderBasket);
         return "submitBasket";
     }
-
-
 }

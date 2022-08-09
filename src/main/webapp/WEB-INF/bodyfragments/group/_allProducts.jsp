@@ -9,14 +9,12 @@
 </head>
 <body>
 <div id="maine">
-
     <c:forEach items="${allItem}" var="item">
-
-            <form>
-                    ${item.product.productName}
-                <p>  ${item.coast}byn
-                <p><a href="/allProduct/${id}"><img src="/resources/icons/basket.png"></a></p>
-            </form>
+        <form>
+                ${item.product.productName}
+            <p>  ${item.coast}byn
+            <p><a href="/allProduct/${item.itemId}"><img src="/resources/icons/basket.png"></a></p>
+        </form>
 
     </c:forEach>
 </div>

@@ -1,10 +1,7 @@
 package com.example.diplommaket.entity;
-
 import lombok.*;
-
 import javax.persistence.*;
 import java.util.Set;
-
 @Entity
 @NoArgsConstructor
 @Data
@@ -21,12 +18,10 @@ public class Group {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String groupName;
-
     @OneToMany(mappedBy = "groups", fetch = FetchType.EAGER)
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     private Set<Product> products;
-
     @OneToMany(mappedBy = "group", fetch = FetchType.EAGER)
     @ToString.Exclude
     @EqualsAndHashCode.Exclude

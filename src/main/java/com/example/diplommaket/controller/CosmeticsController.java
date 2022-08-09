@@ -1,5 +1,4 @@
 package com.example.diplommaket.controller;
-
 import com.example.diplommaket.service.BasketService;
 import com.example.diplommaket.service.GroupService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,8 +13,8 @@ public class CosmeticsController {
     @Autowired
     private BasketService basketService;
     @RequestMapping("/cosmetics")
-    public String showAllCosmetics(Model model)
-    { model.addAttribute("allCosmetics" , groupService.allProductByCategoryCosmetic());
+    public String showAllCosmetics(Model model) {
+        model.addAttribute("allCosmetics", groupService.allProductByCategoryCosmetic());
         return "cosmetics";
     }
     @RequestMapping("/cosmetics/{id}")

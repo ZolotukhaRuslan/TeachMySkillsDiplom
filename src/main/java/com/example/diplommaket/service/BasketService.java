@@ -5,12 +5,7 @@ import com.example.diplommaket.repository.BasketRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
-
-import java.util.Base64;
 import java.util.List;
-import java.util.Optional;
-import java.util.Set;
-
 @Service
 public class BasketService {
     @Autowired
@@ -26,8 +21,8 @@ public class BasketService {
     @Autowired
     private ProductService productService;
     public boolean CreateNewBasket(Long id) {
-        Optional<User> userFromDB = userService.loadUserById(id);
-        if (userFromDB.get().getBasket() != null) {
+        User userFromDB = userService.loadUserById(id);
+        if (userFromDB.getBasket() != null) {
             return false;
         }
         BasketItems basketItems = new BasketItems();
@@ -35,29 +30,28 @@ public class BasketService {
         Basket basket = new Basket();
         basket.setBasketItem(basketItems);
         basketService.save(basket);
-        userFromDB.get().setBasket(basket);
-        userService.save(userFromDB.get());
+        userFromDB.setBasket(basket);
+        userService.save(userFromDB);
         return true;
     }
-
-    public boolean newBasket(Long id){
-        Optional<User> userFromDB = userService.loadUserById(id);
+    public boolean newBasket(Long id) {
+        User userFromDB = userService.loadUserById(id);
         BasketItems basketItems = new BasketItems();
         basketItemService.save(basketItems);
         Basket basket = new Basket();
         basket.setBasketItem(basketItems);
         basketService.save(basket);
-        userFromDB.get().setBasket(basket);
-        userService.save(userFromDB.get());
+        userFromDB.setBasket(basket);
+        userService.save(userFromDB);
         return true;
     }
     public boolean addItemInBasket(long id) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if (user != null) {
-            Optional<User> userFromDB = userService.loadUserById(user.getId());
+            User userFromDB = userService.loadUserById(user.getId());
             Product product = productService.findProductById(id);
             Item item = itemService.loadItemById(product.getItems().getItemId());
-            item.setBasketItems(userFromDB.get().getBasket().getBasketItem());
+            item.setBasketItems(userFromDB.getBasket().getBasketItem());
             itemService.save(item);
         }
         return true;
@@ -65,37 +59,33 @@ public class BasketService {
     public void save(Basket basket) {
         basketRepository.save(basket);
     }
-    public Optional<Basket> findBasketById(Long id) {
-        return basketRepository.findById(id);
+    public Basket findBasketById(Long id) {
+        return basketRepository.findBasketById(id);
     }
     public List<Item> allItemsInBasket(Long id) {
-        return basketService.findBasketById(id).get().getBasketItem().getItem();
+        return basketService.findBasketById(id).getBasketItem().getItem();
     }
-
-    public BasketItems getBasketItems(Long id){
-        return basketService.findBasketById(id).get().getBasketItem();
+    public BasketItems getBasketItems(Long id) {
+        return basketService.findBasketById(id).getBasketItem();
     }
-
-
-
-    public boolean delete(long id){
+    public boolean delete(long id) {
         basketRepository.deleteById(id);
         return true;
     }
-    public void addQuantityToOrder(long id){
+    public void addQuantityToOrder(long id) {
         Item item = itemService.loadItemById(id);
         int basketAmount = item.getQuantityToOrder();
-        basketAmount +=1;
+        basketAmount += 1;
         item.setQuantityToOrder(basketAmount);
         itemService.save(item);
     }
-
-    public void minusQuantityToOrder(long id){
+    public void minusQuantityToOrder(long id) {
         Item item = itemService.loadItemById(id);
         int basketAmount = item.getQuantityToOrder();
-        if(basketAmount>0){
-            basketAmount -=1;
+        if (basketAmount > 0) {
+            basketAmount -= 1;
             item.setQuantityToOrder(basketAmount);
-            itemService.save(item);}
+            itemService.save(item);
+        }
     }
 }

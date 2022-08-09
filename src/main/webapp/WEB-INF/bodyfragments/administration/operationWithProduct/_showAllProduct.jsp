@@ -21,7 +21,6 @@
         <c:forEach items="${allProducts}" var="product">
             <tr>
                 <img src="data:image/jpeg;base64,${image}" />
-                <img th:src ="${"/img/"}${product.id}"/>
                 <td>${product.imageProduct}</td>
                 <td>${product.id}</td>
                 <td>${product.productName}</td>

@@ -1,11 +1,8 @@
 package com.example.diplommaket.entity;
-
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
-
 import javax.persistence.*;
 import java.util.Set;
-
 @Entity
 @Table(name = "roles")
 @NoArgsConstructor
@@ -21,7 +18,6 @@ public class Role implements GrantedAuthority {
     public Role(Long id) {
         this.id = id;
     }
-
     @Id
     private Long id;
     private String name;

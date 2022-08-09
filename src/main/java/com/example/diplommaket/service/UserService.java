@@ -1,23 +1,17 @@
 package com.example.diplommaket.service;
 
 import com.example.diplommaket.entity.*;
-import com.example.diplommaket.repository.GroupRepository;
-import com.example.diplommaket.repository.ProductRepository;
-import com.example.diplommaket.repository.RoleRepository;
 import com.example.diplommaket.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-
-
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.transaction.Transactional;
-import java.util.*;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Service
 public class UserService implements UserDetailsService {
@@ -39,8 +33,8 @@ public class UserService implements UserDetailsService {
     public List<User> findByUsernameContains(String userName) {
         return userRepository.findByUsernameContains(userName);
     }
-    public Optional<User> loadUserById(Long id) {
-        return userRepository.findById(id);
+    public User loadUserById(Long id) {
+        return userRepository.findUserById(id);
     }
     public boolean saveUser(User user) {
         User userFromDB = userRepository.findByLogin(user.getLogin());
@@ -60,11 +54,11 @@ public class UserService implements UserDetailsService {
         return true;
     }
     public void editRoleById(Long id) {
-        Optional<User> user = userRepository.findById(id);
+        User user = userRepository.findUserById(id);
         Set<Role> newRole = new HashSet<>();
         newRole.add(new Role(1L, "ROLE_USER"));
-        user.get().setRoles(newRole);
-        userRepository.save(user.get());
+        user.setRoles(newRole);
+        userRepository.save(user);
     }
     public List<User> allUsers() {
         return userRepository.findAll();

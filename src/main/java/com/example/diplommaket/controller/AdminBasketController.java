@@ -3,75 +3,60 @@ package com.example.diplommaket.controller;
 import com.example.diplommaket.entity.*;
 import com.example.diplommaket.service.BasketItemService;
 import com.example.diplommaket.service.BasketService;
-import com.example.diplommaket.service.ItemService;
-import com.example.diplommaket.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
 import javax.servlet.http.HttpServletRequest;
-import java.util.Optional;
-
 @Controller
 public class AdminBasketController {
     @Autowired
     private BasketItemService basketItemService;
     @Autowired
     private BasketService basketService;
-    @Autowired
-    private ItemService itemService;
-    @Autowired
-    private ProductService productService;
-
     @RequestMapping("/operationWithBasket")
-    public String createBasketItem(){
+    public String createBasketItem() {
         return "handlerBasketItem";
     }
     @RequestMapping("/createBasketItem")
-    public String basketItemPage(){
+    public String basketItemPage() {
         return "createBasketItem";
     }
-@GetMapping("/createNewBasketItem")
-    public String createNewBasketItem(Model model){
-    BasketItems basketItem = new BasketItems();
-    Basket basket = new Basket();
-    basketItemService.save(basketItem);
-    basket.setBasketItem(basketItem);
-    basketService.save(basket);
-    model.addAttribute("Basket", basket);
+    @GetMapping("/createNewBasketItem")
+    public String createNewBasketItem(Model model) {
+        BasketItems basketItem = new BasketItems();
+        Basket basket = new Basket();
+        basketItemService.save(basketItem);
+        basket.setBasketItem(basketItem);
+        basketService.save(basket);
+        model.addAttribute("Basket", basket);
         return "createBasketItem";
-}
-@RequestMapping("/deleteBasket")
-    public String deleteBasket(){
+    }
+    @RequestMapping("/deleteBasket")
+    public String deleteBasket() {
         return "deleteBasket";
-}
-@RequestMapping("/deleteBasketById")
-    public String delete(HttpServletRequest request){
+    }
+    @RequestMapping("/deleteBasketById")
+    public String delete(HttpServletRequest request) {
         long id = Long.parseLong(request.getParameter("id"));
         basketService.delete(id);
         return "deleteBasket";
-}
-
+    }
     @RequestMapping("/updateBasketItem")
-    public String showPageUpdateBasketItemById(){
+    public String showPageUpdateBasketItemById() {
         return "updateBasketItem";
     }
-
-
     @GetMapping("/updateBasketItemById")
-    public String showBasketItem(Model model, HttpServletRequest request){
+    public String showBasketItem(Model model, HttpServletRequest request) {
         model.addAttribute("allItemsInBasket", basketService.allItemsInBasket(Long.parseLong(request.getParameter("id"))));
-        model.addAttribute("BasketItemId", basketService.findBasketById(Long.valueOf(request.getParameter("id"))).get().getBasketItem());
+        model.addAttribute("BasketItemId", basketService.findBasketById(Long.valueOf(request.getParameter("id"))).getBasketItem());
         return "updateBasketItem";
     }
-
-@RequestMapping("/sumbitBasket")
-    public String sumditBasket(){
-    User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-    user.getBasket();
+    @RequestMapping("/sumbitBasket")
+    public String sumditBasket() {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        user.getBasket();
         return "sumbitBasket";
-}
-
+    }
 }
