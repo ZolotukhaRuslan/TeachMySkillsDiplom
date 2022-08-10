@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/style.css"/>
 </head>
 <body>
+<sec:authorize access="hasAuthority('ROLE_ADMIN')">
 <table>
     <div>
         <a href="/" class="ButtonForAdmin"><spring:message code ="Home.Page"/></a>
@@ -31,9 +32,8 @@
     <div>
         <a href="/operationWithBasket" class="ButtonForAdmin"><spring:message code ="Operation.with.Basket"></spring:message></a>
     </div>
-
-
 </table>
+</sec:authorize>
 </body>
 </html>
 
