@@ -1,4 +1,5 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -6,8 +7,10 @@
     <title>Title</title>
 </head>
 <body>
+<sec:authorize access="hasAuthority('ROLE_ADMIN')">
 <div>
-    <a href="/addImageProduct" class="ButtonAdmin">AddImage</a>
+    <a href="/addImageProduct" class="ButtonAdmin"><spring:message
+            code="Add.Image"></spring:message></a>
 </div>
 <div>
             <a href="/showProductById" class="ButtonAdmin"><spring:message
@@ -29,5 +32,6 @@
             <a href="/updateProduct" class="ButtonAdmin"><spring:message
                     code="Update.product"></spring:message></a>
 </div>
+</sec:authorize>
 </body>
 </html>

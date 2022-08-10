@@ -1,18 +1,13 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: User
-  Date: 21.07.2022
-  Time: 21:21
-  To change this template use File | Settings | File Templates.
---%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Title</title>
 </head>
 <body>
+<sec:authorize access="hasAuthority('ROLE_ADMIN')">
 <%--@elvariable id="usersForm" type=""--%>
 <form:form method="POST" modelAttribute="usersForm">
     <div><form:input type="text" path="login" placeholder="Login"></form:input>
@@ -45,5 +40,6 @@
     </div>
     <a href type="submit" class="ButtonForAdmin"><spring:message code = "Confirm"></spring:message></a>
 </form:form>
+</sec:authorize>
 </body>
 </html>

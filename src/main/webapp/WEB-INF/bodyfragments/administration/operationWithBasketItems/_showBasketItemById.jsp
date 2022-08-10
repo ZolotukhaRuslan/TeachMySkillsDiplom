@@ -6,9 +6,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-
 </head>
 <body>
+<sec:authorize access="hasAuthority('ROLE_ADMIN')">
 <form action="/updateBasketItemById">
     <p><strong><spring:message
             code="Enter.id.user"></spring:message></strong>
@@ -51,6 +51,6 @@
     </table>
     <p><a href="/addProduct/${BasketItemId.id}" class="ButtonForAdmin"> Add product by id</a>
 </form>
-
+</sec:authorize>
 </body>
 </html>

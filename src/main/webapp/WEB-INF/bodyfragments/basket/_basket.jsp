@@ -33,6 +33,7 @@
             </table>
         </div>
         <div>
+            <h2><spring:message code="pickup.address.confirm"/></h2>
             <select type="select" name="address" class="ButtonSubmit">
                 <option><spring:message code="Address.one"/></option>
                 <option><spring:message code="Address.two"/></option>
@@ -40,7 +41,6 @@
             </select>
         </div>
         <form>
-            <h2><spring:message code="pickup.address.confirm"/></h2>
             <p><input type="submit" value="<spring:message
             code="Confirm"></spring:message>" class="ButtonForAdmin"></p>
         </form>

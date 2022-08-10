@@ -1,4 +1,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<body>
+<sec:authorize access="hasAuthority('ROLE_ADMIN')">
 <form method="post">
     <div>
         <table>
@@ -40,5 +43,6 @@
             code="Confirm"></spring:message>" class="ButtonForAdmin"></p>
     </form>
 </form>
+</sec:authorize>
 </body>
 </html>

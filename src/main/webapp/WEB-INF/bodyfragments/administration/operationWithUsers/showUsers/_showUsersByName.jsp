@@ -1,11 +1,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <html>
 <head>
     <title>Title</title>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/table.css"/>
 </head>
 <body>
+<sec:authorize access="hasAuthority('ROLE_ADMIN')">
 <div>
     <table>
         <thead>
@@ -42,7 +44,6 @@
         </c:forEach>
     </table>
 </div>
-
-
+</sec:authorize>
 </body>
 </html>
