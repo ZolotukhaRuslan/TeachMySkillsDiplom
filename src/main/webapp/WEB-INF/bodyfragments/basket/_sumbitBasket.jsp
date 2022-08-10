@@ -9,8 +9,8 @@
 <body>
 <form>
     <h2><spring:message code="Thank.you.for.being.with.us"/></h2>
-    <spring:message code="your.order.number"/>${numberOrder.id}
-    <spring:message code="pickup.address"/> ${numberOrder.address}
+   <p><h2> <spring:message code="your.order.number"/>${numberOrder.id}
+    <p><h2><spring:message code="pickup.address"/> ${numberOrder.address}
 </form>
 </body>
 </html>

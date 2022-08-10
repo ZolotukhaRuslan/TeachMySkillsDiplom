@@ -7,11 +7,10 @@
 </head>
 <body>
 <sec:authorize access="hasAuthority('ROLE_ADMIN')">
-<div>
-</div>
     <%--@elvariable id="groupForm" type=""--%>
     <form:form  method="POST" modelAttribute="groupForm"  autocomplete="off" >
         <div>
+        <spring:message code="Enter.new.name.group"></spring:message>
             <form:input type="text" path="groupName" placeholder="groupName"
                         autofocus="true"></form:input>
         <button type="submit" class="ButtonForAdmin"><spring:message code ="Confirm"/></button>

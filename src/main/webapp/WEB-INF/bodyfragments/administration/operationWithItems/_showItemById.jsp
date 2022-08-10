@@ -10,12 +10,13 @@
 <sec:authorize access="hasAuthority('ROLE_ADMIN')">
     <form action="/showItemById">
         <p><strong><spring:message
-                code="Enter.id.product"></spring:message></strong>
+                code="Enter.id.item"></spring:message></strong>
             <input maxlength="25" size="40" name="id"></p>
-        <p><input type="submit" value="id" name="start"></p>
+        <p><input type="submit" value="<spring:message
+            code="Confirm"></spring:message>" class="ButtonForAdmin" name="start"></p>
     </form>
     <div>
-        <table>
+        <table class="AdminTable">
             <thead>
             <th><spring:message
                     code="Id"></spring:message></th>

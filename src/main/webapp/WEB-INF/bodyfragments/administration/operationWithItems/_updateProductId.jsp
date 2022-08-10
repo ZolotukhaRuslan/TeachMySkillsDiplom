@@ -4,7 +4,7 @@
 <sec:authorize access="hasAuthority('ROLE_ADMIN')">
 <form method="post">
     <div>
-        <table>
+        <table class="AdminTable">
             <thead>
             <th><spring:message
                     code="Id"></spring:message></th>
@@ -37,7 +37,7 @@
     </div>
     <form>
         <p><strong><spring:message
-                code="Enter.id.user"></spring:message></strong>
+                code="Enter.product.id"></spring:message></strong>
             <input maxlength="25" size="40" name="productId"></p>
         <p><input type="submit" value="<spring:message
             code="Confirm"></spring:message>" class="ButtonForAdmin"></p>

@@ -17,7 +17,7 @@
             code="Confirm"></spring:message>" class="ButtonForAdmin"></p>
 </form>
 <div>
-    <table>
+    <table class="AdminTable">
         <thead>
         <th><spring:message
                 code="Id"></spring:message></th>

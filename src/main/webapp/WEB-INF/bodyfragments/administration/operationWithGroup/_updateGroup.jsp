@@ -8,9 +8,10 @@
 <body>
 <sec:authorize access="hasAuthority('ROLE_ADMIN')">
     <form action="/updateNameGroup">
-        <p><strong>id go</strong>
+        <p><strong><spring:message code="Enter.id.group"></spring:message></strong>
             <input maxlength="25" size="40" name="id"></p>
-        <p><input type="submit" value="id" name="start"></p>
+        <p><input type="submit" value="<spring:message
+            code="Confirm"></spring:message>" class="ButtonForAdmin" name="start"></p>
     </form>
     <form method="post">
         <div>
@@ -26,15 +27,14 @@
                     <td>${Group.groupName}</td>
                 </tr>
             </table>
-        </div>
+
         <form>
-            <p><strong> new name</strong>
-                <input maxlength="25" size="40" name="newName"></p>
+            <p><strong><spring:message code="Enter.new.name.group"></spring:message></strong>
+               <p> <input maxlength="25" size="40" name="newName"></p>
             <p><input type="submit" value="<spring:message
             code="Confirm"></spring:message>" class="ButtonForAdmin"> <a href="/updateUserById" class="ButtonForAdmin">
                 back</a></p>
         </form>
-    </form>
 </sec:authorize>
 </body>
 </html>

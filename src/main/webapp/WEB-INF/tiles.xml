@@ -207,6 +207,22 @@
                 extends="adminPage">
         <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithProduct/_createProduct.jsp" />
     </definition>
+    <definition name = "showProduct"
+                extends="adminPage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithProduct/_showProductById.jsp" />
+    </definition>
+    <definition name = "updateProduct"
+                extends="adminPage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithProduct/_updateProduct.jsp" />
+    </definition>
+    <definition name = "updateProductGroup"
+                extends="adminPage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithProduct/_updateProductGroup.jsp" />
+    </definition>
+    <definition name = "updateProductName"
+                extends="adminPage">
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithProduct/_updateProductName.jsp" />
+    </definition>
     <definition name = "deleteProduct"
                 extends="adminPage">
         <put-attribute name="body" value="/WEB-INF/bodyfragments/administration/operationWithProduct/_deleteProductById.jsp" />

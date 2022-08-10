@@ -13,7 +13,7 @@
             code="Add.Image"></spring:message></a>
 </div>
 <div>
-            <a href="/showProductById" class="ButtonAdmin"><spring:message
+            <a href="/showProduct" class="ButtonAdmin"><spring:message
                     code="Show.product"></spring:message></a>
 </div>
 <div>

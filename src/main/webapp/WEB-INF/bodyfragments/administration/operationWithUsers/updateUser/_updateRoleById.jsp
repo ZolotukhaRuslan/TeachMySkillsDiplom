@@ -11,7 +11,7 @@
 <sec:authorize access="hasAuthority('ROLE_ADMIN')">
     <form method="post">
         <div>
-            <table>
+            <table class="AdminTable">
                 <thead>
                 <th><spring:message
                         code="Id"></spring:message></th>

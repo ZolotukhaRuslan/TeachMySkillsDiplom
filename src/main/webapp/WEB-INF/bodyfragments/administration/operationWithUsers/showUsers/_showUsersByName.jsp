@@ -4,12 +4,11 @@
 <html>
 <head>
     <title>Title</title>
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/table.css"/>
 </head>
 <body>
 <sec:authorize access="hasAuthority('ROLE_ADMIN')">
 <div>
-    <table>
+    <table class="AdminTable">
         <thead>
         <th><spring:message
                 code="Id"></spring:message></th>

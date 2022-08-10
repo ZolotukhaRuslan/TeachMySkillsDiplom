@@ -11,13 +11,13 @@
 <sec:authorize access="hasAuthority('ROLE_ADMIN')">
     <form action="/updateItemById">
         <p><strong><spring:message
-                code="Enter.id.user"></spring:message></strong>
+                code="Enter.id.item"></spring:message></strong>
             <input maxlength="25" size="40" name="id"></p>
         <p><input type="submit" value="<spring:message
             code="Confirm"></spring:message>" class="ButtonForAdmin"></p>
     </form>
     <div>
-        <table>
+        <table class="AdminTable">
             <thead>
             <th><spring:message
                     code="Id"></spring:message></th>
@@ -57,8 +57,6 @@
             code="Update.BasketItem.Id"></spring:message></a>
             <a href="/updateProductId/${Item.itemId}" class="ButtonForAdmin"><spring:message
                     code="Update.Product.Id"></spring:message></a>
-        <p><a href="/updateGroupId/${Item.itemId}" class="ButtonForAdmin"><spring:message
-            code="Update.Group.Id"></spring:message></a>
     </form>
     </div>
 </sec:authorize>

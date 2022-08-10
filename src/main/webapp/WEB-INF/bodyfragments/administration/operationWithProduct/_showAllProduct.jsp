@@ -9,16 +9,15 @@
 <body>
 <sec:authorize access="hasAuthority('ROLE_ADMIN')">
 <div>
-    <table>
+    <table class="AdminTable">
         <thead>
+        <th>Image</th>
         <th><spring:message
                 code="Id"></spring:message></th>
         <th><spring:message
                 code="Name.Product"></spring:message></th>
-        <td><spring:message
-                code="Group.Id"></spring:message></td>
-        <td><spring:message
-                code="Group.Name"></spring:message></td>
+        <th><spring:message code="Group.Id"></spring:message></th>
+        <th><spring:message code="Group.Name"></spring:message></th>
         </thead>
         <c:forEach items="${allProducts}" var="product">
             <tr>
